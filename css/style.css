@@ -23,24 +23,24 @@ body{
 	padding:1em 0;
 	background:#212121;
 }
-.小贝壳网站模板-address{
+.address-title{
 	float:left;
 }
-.小贝壳网站模板-address ul{
+.address-title ul{
 	padding:0;
 	margin:0;
 }
-.小贝壳网站模板-address ul li{
+.address-title ul li{
 	display:inline-block;
 	margin:0;
 	color:#FFFFFF;
 	font-size:.9em;
 }
-.小贝壳网站模板-address ul li a{ 
+.address-title ul li a{
 	color:#FFFFFF;
 	text-decoration:none;
 }
-.小贝壳网站模板-address ul li:nth-child(2){
+.address-title ul li:nth-child(2){
 	margin-left:1em;
 }
 .agileinfo-social-grids{
@@ -133,13 +133,13 @@ input[type="submit"],.w3l_banner_info_left_grid_left h3 a,.w3agile_footer_copy p
 .navbar-default .navbar-brand {
     color: #fff;
 }
-.小贝壳网站模板-logo {
+.logo-style {
     margin: 1.5em 0 0 0;
 }
-.小贝壳网站模板-logo h1{
+.logo-style h1{
 	margin:0;
 }
-.小贝壳网站模板-logo h1 a {
+.logo-style h1 a {
     font-size: 1em;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -147,7 +147,7 @@ input[type="submit"],.w3l_banner_info_left_grid_left h3 a,.w3agile_footer_copy p
     text-decoration: none;
     font-weight: 700;
 }
-.小贝壳网站模板-logo h1 a span{
+.logo-style h1 a span{
     font-size: .6em;
     letter-spacing: 2px;
     text-align: right;
@@ -419,6 +419,11 @@ ul.dropdown-menu {
 	display: block;
 	position: relative;
 }
+
+.select-type option{
+    font-size: 16px;
+}
+
 .search-form .column input[type="text"], .search-form .column input[type="submit"], .search-form .column select {
 	width: 100%;
 }
@@ -434,13 +439,15 @@ ul.dropdown-menu {
 	position: absolute;
 }
 .three-fifth {
-	width: 38.59%;
+	width: 50%;
 }
 .m_2{
 	margin-top:0;
 }
 .two-fifth {
-	width:15.2%;
+	width:15%;
+    height: 56px;
+    text-align: center;
 }
 .three-fifth input[type="text"]{
   background: #fff;
@@ -479,17 +486,18 @@ ul.dropdown-menu {
 	padding:14px 40px;
 }
 .two-fifth h2{
-    font-size: 1.2em;
+    padding-top: 10px;
+    font-size: 1.5em;
     text-transform: uppercase;
-    color: #212121;
+    color: #86c724;
     text-decoration: none;
     font-weight: 700;
     font-family: 'Roboto', sans-serif;
     margin: 0;
+    vertical-align: central;
 }
 .two-fifth h2 span{
-    color: #86c724;
-	display:block;
+
 }
 .one-fifth input[type="submit"] {
     background: #212121;
@@ -1945,7 +1953,7 @@ a.pa_italic:focus {
     display: block;
 }
 ::-webkit-input-placeholder{
-	color:#212121 !important;
+	color:gray !important;
 }
 .signin-form input[type="submit"] {
     outline: none;
@@ -2896,7 +2904,7 @@ i.fa.fa-pencil{
 		background: #212121;
 	    text-align: center;
 	}
-	.小贝壳网站模板-logo {
+	.logo-style {
 		margin: 0.5em 0 0 0;
 	}
 	.immersive_slider .is-slide {
@@ -3189,7 +3197,7 @@ i.fa.fa-pencil{
 	}
 }
 @media(max-width:414px){
-	.小贝壳网站模板-address {
+	.address-title {
 		float: none;
 		width: 100%;
 		text-align: center;
@@ -3286,10 +3294,10 @@ i.fa.fa-pencil{
 	}
 }
 @media(max-width:320px){
-	.小贝壳网站模板-address ul li {
+	.address-title ul li {
 		font-size: .87em;
 	}
-	.小贝壳网站模板-address ul li:nth-child(2) {
+	.address-title ul li:nth-child(2) {
 		margin-left: .5em;
 	}
 	.immersive_slider .is-slide {
@@ -3308,10 +3316,10 @@ i.fa.fa-pencil{
 	button.btn1 {
 		margin: 1em 0 0 0;
 	}
-	.小贝壳网站模板-logo h1 a {
+	.logo-style h1 a {
 		font-size: .9em;
 	}
-	.小贝壳网站模板-logo {
+	.logo-style {
 		margin: 0.3em 0 0 0;
 	}
 	.wthree-top-grid h4, .choose-info h4 {

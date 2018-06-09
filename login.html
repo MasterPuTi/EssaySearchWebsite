@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Hosting City a Hosting Category Flat Bootstrap responsive Website Template | Login :: 小贝壳网站模板</title>
+<title>Essay Search</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Hosting City Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -24,6 +24,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="js/SmoothScroll.min.js"></script>
+<script src="js/md5.js"></script>
+<script src="js/login.js"></script>
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
 		$(".scroll").click(function(event){		
@@ -34,86 +36,67 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </script>
 </head>
 <body>
-	<!-- header-top -->
-	<div class="header-top">
-		<div class="container">
-			<div class="小贝壳网站模板-address">
-				<ul>
-					<li><i class="fa fa-mobile" aria-hidden="true"></i> +11 222 333 4444</li>
-					<li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@example.com"> mail@example.com</a></li>
-				</ul>
-			</div>
-			<div class="agileinfo-social-grids">
-				<ul>
-					<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-					<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-					<li><a href="#"><i class="fa fa-rss"></i></a></li>
-					<li><a href="#"><i class="fa fa-vk"></i></a></li>
-				</ul>
-			</div>
-			<div class="clearfix"> </div>
-		</div>
-	</div>
 	<!-- //header-top -->
-	<!-- header -->
-	<div class="header">
-			<div class="container">
-				<nav class="navbar navbar-default">
-					<!-- Brand and toggle get grouped for better mobile display -->
-					<div class="navbar-header">
-					  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					  </button>
-						<div class="小贝壳网站模板-logo">
-							<h1><a href="index.html">Hosting <span>City</span></a></h1>
-						</div>
-					</div>
+    <!-- header -->
+    <div class="header">
+        <div class="container">
+            <nav class="navbar navbar-default">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="logo-style">
+                        <h1><a href="index.html">Essay <span>Search</span></a></h1>
+                    </div>
+                </div>
 
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
-						<nav>
-							<ul class="nav navbar-nav">
-								<li><a href="index.html" class="hvr-sweep-to-bottom">Home</a></li>
-								<li><a href="about.html" class="hvr-sweep-to-bottom">About</a></li>
-								<li><a href="plans.html" class="hvr-sweep-to-bottom">Plans</a></li>
-								<li class="active"><a href="#" class="dropdown-toggle hvr-sweep-to-bottom" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a class="hvr-sweep-to-bottom" href="services.html">Services</a></li>
-										<li><a class="hvr-sweep-to-bottom" href="faq.html">FAQs</a></li>
-										<li class="active"><a class="hvr-sweep-to-bottom" href="login.html">Login</a></li>
-										<li><a class="hvr-sweep-to-bottom" href="registration.html">Registration</a></li>
-										<li><a class="hvr-sweep-to-bottom" href="icons.html">Icons</a></li>
-										<li><a class="hvr-sweep-to-bottom" href="typography.html">Typography</a></li>          
-									</ul>
-								</li>
-								<li><a href="blog.html" class="hvr-sweep-to-bottom">Blog</a></li>
-								<li><a href="mail.html" class="hvr-sweep-to-bottom">Mail Us</a></li>
-							</ul>
-						</nav>
-					</div>
-					<!-- /.navbar-collapse -->
-				</nav>
-			</div>
-	</div>
-	<!-- //header -->
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+                    <nav>
+                        <ul class="nav navbar-nav">
+                            <li><a href="index.html" class="hvr-sweep-to-bottom">主页</a></li>
+                            <li><a href="results.html" class="hvr-sweep-to-bottom">论文</a></li>
+                            <li><a href="professor.html" class="hvr-sweep-to-bottom">专家</a></li>
+                            <li><a href="subject.html" class="hvr-sweep-to-bottom">学科</a></li>
+                            <li><a href="#" class="dropdown-toggle hvr-sweep-to-bottom" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">其他界面<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="hvr-sweep-to-bottom" href="services.html">Services</a></li>
+                                    <li><a class="hvr-sweep-to-bottom" href="faq.html">FAQs</a></li>
+                                    <li><a class="hvr-sweep-to-bottom" href="login.html">Login</a></li>
+                                    <li><a class="hvr-sweep-to-bottom" href="registration.html">Registration</a></li>
+                                    <li><a class="hvr-sweep-to-bottom" href="icons.html">Icons</a></li>
+                                    <li><a class="hvr-sweep-to-bottom" href="typography.html">Typography</a></li>
+                                    <li><a href="mail.html" class="hvr-sweep-to-bottom">Mail Us</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </nav>
+                </div>
+                <!-- /.navbar-collapse -->
+            </nav>
+        </div>
+    </div>
+    <!-- //header -->
 	<!-- about-heading -->
 	<div class="about-heading">
-		<h2>Login <span>Hosting City</span></h2>
+		<h2>登录 <span>Essay Search</span></h2>
 	</div>
 	<!-- //about-heading -->
 	<div class="registration">
 		<div class="container">
 			<div class="signin-form profile">
-				<h3>Login</h3>
+				<h3>登录</h3>
 				<div class="login-form">
-					<form action="#" method="post">
-						<input type="text" name="email" placeholder="E-mail" required="">
-						<input type="password" name="password" placeholder="Password" required="">
+					<form id="real-login-form" method="post" onsubmit="return checkLogin()">
+						<input type="email" name="email" placeholder="邮箱" required="">
+						<input type="password" name="password" placeholder="密码" required="">
 						<div class="tp">
-							<input type="submit" value="LOGIN NOW">
+							<input type="submit" name="login" value="登录">
 						</div>
 					</form>
 				</div>
@@ -124,83 +107,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><a href="#"><i class="fa fa-rss"></i></a></li>
 					</ul>
 				</div>
-				<p><a href="registration.html"> Don't have an account?</a></p>
+				<p><a href="registration.html"> 没有账号？立即注册！</a></p>
 			</div>
 		</div>
 	</div>
-	<!-- footer -->
-	<div class="footer">
-		<div class="container">
-			<div class="agile-footer-grids">
-				<div class="col-md-4 agile-footer-grid">
-					<h4>History of <span>Hosting</span></h4>
-					<p>Pellentesque urna ex, ultricies a nunc at, pretium maximus nisi. Vestibulum non auctor diam. Mauris eget consectetur mauris. <span>Aenean leo elit, accumsan vel elit vitae, mattis ultricies lacus. Cras consectetur justo lorem, sed dictum sapien eleifend at.</span></p>
-				</div>
-				<div class="col-md-4 agile-footer-grid">
-					<h4>Twitter <span>Posts</span></h4>
-					<ul class="w3agile_footer_grid_list">
-						<li>Ut aut reiciendis voluptatibus maiores <a href="#">http://example.com</a> alias, ut aut reiciendis.
-							<span><i class="fa fa-twitter" aria-hidden="true"></i> 02 days ago</span></li>
-						<li>Itaque earum rerum hic tenetur a sapiente delectus <a href="#">http://example.com</a> ut aut
-							voluptatibus.<span><i class="fa fa-twitter" aria-hidden="true"></i> 03 days ago</span></li>
-					</ul>
-				</div>
-				<div class="col-md-4 agile-footer-grid">
-					<h4>Popular <span>Posts</span></h4>
-					<div class="popular-grids">
-						<div class="popular-grid">
-							<a href="#"><img src="images/6.jpg" alt=""></a>
-						</div>
-						<div class="popular-grid">
-							<a href="#"><img src="images/7.jpg" alt=""></a>
-						</div>
-						<div class="popular-grid">
-							<a href="#"><img src="images/8.jpg" alt=""></a>
-						</div>
-						<div class="popular-grid">
-							<a href="#"><img src="images/9.jpg" alt=""></a>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-					<div class="popular-grids agileits-小贝壳网站模板-popular">
-						<div class="popular-grid">
-							<a href="#"><img src="images/10.jpg" alt=""></a>
-						</div>
-						<div class="popular-grid">
-							<a href="#"><img src="images/4.jpg" alt=""></a>
-						</div>
-						<div class="popular-grid">
-							<a href="#"><img src="images/6.jpg" alt=""></a>
-						</div>
-						<div class="popular-grid">
-							<a href="#"><img src="images/7.jpg" alt=""></a>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-					<div class="popular-grids">
-						<div class="popular-grid">
-							<a href="#"><img src="images/8.jpg" alt=""></a>
-						</div>
-						<div class="popular-grid">
-							<a href="#"><img src="images/9.jpg" alt=""></a>
-						</div>
-						<div class="popular-grid">
-							<a href="#"><img src="images/10.jpg" alt=""></a>
-						</div>
-						<div class="popular-grid">
-							<a href="#"><img src="images/4.jpg" alt=""></a>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-		</div>
-		<div class="copyright">
-			<p>© 2016 Hosting City. All rights reserved | Design by <a href="http://www.smallseashell.com">.小贝壳网站模板.</a></p>
-		</div>
-	</div>
-	<!-- //footer -->
 	<script type="text/javascript" src="js/move-top.js"></script>
 	<script type="text/javascript" src="js/easing.js"></script>
 	<!-- here stars scrolling icon -->
