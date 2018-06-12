@@ -16,9 +16,11 @@ function checkRegister() {
     }
     console.log(data);
     $.ajax({
+        contentType: 'application/json;charset=UTF-8',
         url:'http://192.144.179.57:8080/demo-v1/api/authen/register',
         type:'post',
-        data: data,
+        dataType: "json",
+        data: JSON.stringify(data),
         success: function(data){
             if (data) {
                 alert('success');
