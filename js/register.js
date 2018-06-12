@@ -9,24 +9,28 @@ function checkRegister() {
         alert('两次密码不一致！');
         return false;
     }
-
-    var data={
+    var dataRegister={
         "nickname": elements["username"],
         "password": elements["passwordConfirm"]
     }
-    console.log(data);
+    console.log(dataRegister);
     $.ajax({
         contentType: 'application/json;charset=UTF-8',
         url:'http://192.144.179.57:8080/demo-v1/api/authen/register',
         type:'post',
         dataType: "json",
-        data: JSON.stringify(data),
+        data: JSON.stringify(dataRegister),
         success: function(data){
+            console.log(data);
             if (data) {
-                alert('success');
-                window.open('http://192.144.179.57:8080/EssaySearchWebsite/login.html');
+                if(data.status === "succeed"){
+                    alert('register success!');
+                    window.open('http://192.144.179.57:8080/EssaySearchWebsite/login.html');
+                }
+                else
+                    alert(data.info);
             }else{
-                alert('failure');
+                alert('net failure');
             }
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {

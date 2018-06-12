@@ -5,24 +5,28 @@ function checkLogin() {
     for (var j = 0; j < tagElements.length; j++){
         elements[tagElements[j].name] = tagElements[j].value;
     }
-    var data={
+    var dataLogin={
         "nickname": elements["username"],
         "password": elements["password"]
     }
-    window.open('http://192.144.179.57:8080/EssaySearchWebsite/index.html'+'?nickname=' + elements["username"]);
-    console.log(data);
+    console.log(dataLogin);
     $.ajax({
         contentType: 'application/json;charset=UTF-8',
         url:'http://192.144.179.57:8080/demo-v1/api/authen/login',
         type:'post',
         dataType: "json",
-        data: JSON.stringify(data),
+        data: JSON.stringify(dataLogin),
         success: function(data){
             if (data) {
-                alert('login success!');
-                window.open('http://192.144.179.57:8080/EssaySearchWebsite/index.html'+'?nickname=' + elements["username"]);
+                console.log(data);
+                if(data.status === "succeed"){
+                    alert('login success!');
+                    window.open('http://192.144.179.57:8080/EssaySearchWebsite/index.html'+'?nickname=' + elements["username"]);
+                }
+                else
+                    alert(data.info);
             }else{
-                alert('failure');
+                alert('net failure');
             }
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {

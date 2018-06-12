@@ -13,6 +13,7 @@ function checkALL() {
         success: function(data){
             if (data) {
                 //alert("success");
+                console.log(data);
                 if(data.status === "succeed"){
                     var loginButton = document.getElementById("loginButton");
                     var registerButton = document.getElementById("registerButton");
@@ -21,8 +22,10 @@ function checkALL() {
                     registerButton.innerHTML=
                         '<a href="user.html?nickname=' + data.nickname + '">'+ '个人空间' + '</a>';
                 }
+                else
+                    alert(data.info);
             }else{
-                //alert('failure');
+                alert('net failure');
             }
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
