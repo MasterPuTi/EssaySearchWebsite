@@ -98,16 +98,28 @@ Class Definitions
   height: 100%;
 }
 div#slide_3_bg{
-	background:url(../images/2.jpg) no-repeat 0px 0px;
-	background-size:cover !important;
+  background:url(../images/page3.jpg) no-repeat 0px 0px;
+  background-size:cover !important;
+  -webkit-filter: blur(20px);
+  -moz-filter: blur(20px);
+  -o-filter: blur(20px);
+  filter: blur(20px);
 }
 div#slide_2_bg{
-	background:url(../images/1.jpg) no-repeat 0px 0px;
-	background-size:cover !important;	
+  background:url(../images/page2.jpg) no-repeat 0px 0px;
+  background-size:cover !important;
+  -webkit-filter: blur(20px);
+  -moz-filter: blur(20px);
+  -o-filter: blur(20px);
+  filter: blur(20px);
 }
 div#slide_1_bg{
-	background:url(../images/3.jpg) no-repeat 0px 0px;
-	background-size:cover !important;
+  background:url(../images/page1.jpg) no-repeat 0px 0px;
+  background-size:cover !important;
+  -webkit-filter: blur(20px);
+  -moz-filter: blur(20px);
+  -o-filter: blur(20px);
+  filter: blur(20px);
 }
 
 .is-container .is-background.gs_cssblur {
