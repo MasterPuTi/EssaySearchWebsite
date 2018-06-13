@@ -91,11 +91,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="signin-form profile">
 				<h3>登录</h3>
 				<div class="login-form">
-					<form id="real-login-form" method="post" onsubmit="return checkLogin()">
+					<form id="real-login-form" method="post" action="">
 						<input type="text" name="username" placeholder="用户名" required="">
 						<input type="password" name="password" placeholder="密码" required="">
 						<div class="tp">
-							<input type="submit" name="login" value="登录">
+                            <button type="button" onclick="checkLogin()">登录</button>
 						</div>
 					</form>
 				</div>

@@ -39,5 +39,5 @@ function checkRegister() {
             alert(textStatus);
         }
     });
-    return true;
+    return false;
 }

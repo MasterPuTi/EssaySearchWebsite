@@ -35,5 +35,5 @@ function checkLogin() {
             alert(textStatus);
         }
     });
-    return true;
+    return false;
 }
