@@ -37,8 +37,8 @@ function checkLogin() {
                         '欢迎，' + data.nickname;
                     registerButton.innerHTML=
                         '<a href="user.html?nickname=' + data.nickname + '">'+ '个人空间' + '</a>';
-                    document.getElementById("changePassword").style.display = "visible";
-                    document.getElementById("logout").style.display = "visible";
+                    document.getElementById("changePassword").style.display = "inline";
+                    document.getElementById("logout").style.display = "inline";
                 }
             }else{
                 alert('net failure');
