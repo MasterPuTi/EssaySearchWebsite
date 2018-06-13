@@ -21,7 +21,7 @@ function checkLogin() {
                 console.log(data);
                 if(data.status === "succeed"){
                     alert('login success!');
-                    window.open('http://192.144.179.57:8080/EssaySearchWebsite/index.html'+'?nickname=' + elements["username"]);
+                    window.location.href = 'http://192.144.179.57:8080/EssaySearchWebsite/index.html';
                 }
                 else
                     alert(data.info);

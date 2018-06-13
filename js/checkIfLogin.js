@@ -23,7 +23,7 @@ function checkALL() {
                         '<a href="user.html?nickname=' + data.nickname + '">'+ '个人空间' + '</a>';
                 }
                 else
-                    alert(data.info);
+                    //alert(data.info);
             }else{
                 alert('net failure');
             }
