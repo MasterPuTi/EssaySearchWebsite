@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Essay Search</title>
+    <title>Results</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Hosting City Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
@@ -13,6 +13,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!--// bootstrap-css -->
     <!-- css -->
     <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/results.css" type="text/css" media="all" />
     <!--// css -->
     <!-- font-awesome icons -->
     <link href="css/font-awesome.css" rel="stylesheet">
@@ -105,76 +106,111 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="about-heading">
     <h2>Our <span>Blog</span></h2>
 </div>
+<!-- //banner -->
+<div class="domain domain_results">
+    <div class="container">
+        <form class="search-form domain-search" action="results.html" method="get">
+            <div class="two-fifth column first">
+                <h2>文献检索</h2>
+            </div>
+            <div class="three-fifth column first">
+                <input type="text" class="text" name="searchInfo" placeholder="输入关键词进行查询" required="">
+            </div>
+            <div class="one-fifth column">
+					<span class="selection-box">
+						<select class="select-type" name="searchingType">
+							<option value="keyword">关键词</option>
+							<option value="title">篇名</option>
+							<option value="author">作者</option>
+							<option value="subject">学科</option>
+						</select>
+					</span>
+            </div>
+            <div class="one-fifth column">
+                <input type="submit" value="检索">
+            </div>
+            <div class="clearfix"> </div>
+        </form>
+    </div>
+</div>
 <!-- //about-heading -->
 <!-- blog -->
-<div class="blog">
+<div class="blog bolg_results">
     <div class="container">
         <div class="agile-blog-grids">
             <div class="col-md-8 agile-blog-grid-left">
+                <div class="classification">
+                    排序：
+                    <select class="sort_select">
+                        <option value ="relavance" selected="selected">按相关性</option>
+                        <option value ="cite_num">按被引量</option>
+                        <option value="publish_time">按时间降序</option>
+                    </select>
+                </div>
                 <div class="agile-blog-grid">
-                    <div class="agile-blog-grid-left-img">
-                        <a href="resultpage.html"><img src="images/3a.jpg" alt="" /></a>
-                    </div>
+                    <!--<div class="agile-blog-grid-left-img">-->
+                        <!--<a href="resultpage.html"><img src="images/3a.jpg" alt="" /></a>-->
+                    <!--</div>-->
                     <div class="blog-left-grids">
-                        <div class="blog-left-left">
-                            <i class="fa fa-pencil" aria-hidden="true"></i>
-                        </div>
-                        <div class="blog-left-right">
+                        <!--<div class="blog-left-left">-->
+                            <!--<i class="fa fa-pencil" aria-hidden="true"></i>-->
+                        <!--</div>-->
+                        <div class="blog-left-right_results">
                             <div class="blog-left-right-top">
-                                <h4><a href="resultpage.html">Integer et turpis augue. In hac habitasse platea dictumst.</a></h4>
-                                <p>Posted By <a href="#">Admin</a> &nbsp;&nbsp; on June 2, 2016 &nbsp;&nbsp; <a href="#">Comments (10)</a></p>
+                                <h4><a href="resultpage.html">Integer et turpis augue. In hac habitasse platea dictumst.</a><img src="images/point.png"><span class="point_icon_font">20</span></h4>
+                                <p><a href="#">Author1</a>，<a href="#">Author2</a> &nbsp;-&nbsp; 2016 &nbsp;-&nbsp; 《自动化学报》&nbsp;-&nbsp; 被引量：130</p>
                             </div>
                             <div class="blog-left-right-bottom">
                                 <p>Vivamus fermentum vel lacus ac ornare. Vestibulum pulvinar massa pharetra risus pharetra, eu blandit risus viverra. Aenean in ultrices enim, ut tincidunt libero. Phasellus libero enim, semper ac felis eget, efficitur ultrices orci. Aenean tincidunt lacus lorem, non varius enim luctus sed. Quisque eu aliquet quam, et sollicitudin nibh. Duis finibus at felis eu laoreet. Nulla non lacus sem.</p>
-                                <a href="resultpage.html">More</a>
+                                <!--<a href="resultpage.html">More</a>-->
                             </div>
                         </div>
                         <div class="clearfix"> </div>
                     </div>
                 </div>
                 <div class="agile-blog-grid">
-                    <div class="agile-blog-grid-left-img">
-                        <a href="resultpage.html"><img src="images/2a.jpg" alt="" /></a>
-                    </div>
+                    <!--<div class="agile-blog-grid-left-img">-->
+                    <!--<a href="resultpage.html"><img src="images/3a.jpg" alt="" /></a>-->
+                    <!--</div>-->
                     <div class="blog-left-grids">
-                        <div class="blog-left-left">
-                            <i class="fa fa-pencil" aria-hidden="true"></i>
-                        </div>
-                        <div class="blog-left-right">
+                        <!--<div class="blog-left-left">-->
+                        <!--<i class="fa fa-pencil" aria-hidden="true"></i>-->
+                        <!--</div>-->
+                        <div class="blog-left-right_results">
                             <div class="blog-left-right-top">
                                 <h4><a href="resultpage.html">Integer et turpis augue. In hac habitasse platea dictumst.</a></h4>
                                 <p>Posted By <a href="#">Admin</a> &nbsp;&nbsp; on June 2, 2016 &nbsp;&nbsp; <a href="#">Comments (10)</a></p>
                             </div>
                             <div class="blog-left-right-bottom">
                                 <p>Vivamus fermentum vel lacus ac ornare. Vestibulum pulvinar massa pharetra risus pharetra, eu blandit risus viverra. Aenean in ultrices enim, ut tincidunt libero. Phasellus libero enim, semper ac felis eget, efficitur ultrices orci. Aenean tincidunt lacus lorem, non varius enim luctus sed. Quisque eu aliquet quam, et sollicitudin nibh. Duis finibus at felis eu laoreet. Nulla non lacus sem.</p>
-                                <a href="resultpage.html">More</a>
+                                <!--<a href="resultpage.html">More</a>-->
+                            </div>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+                <div class="agile-blog-grid">
+                    <!--<div class="agile-blog-grid-left-img">-->
+                    <!--<a href="resultpage.html"><img src="images/3a.jpg" alt="" /></a>-->
+                    <!--</div>-->
+                    <div class="blog-left-grids">
+                        <!--<div class="blog-left-left">-->
+                        <!--<i class="fa fa-pencil" aria-hidden="true"></i>-->
+                        <!--</div>-->
+                        <div class="blog-left-right_results">
+                            <div class="blog-left-right-top">
+                                <h4><a href="resultpage.html">Integer et turpis augue. In hac habitasse platea dictumst.</a></h4>
+                                <p>Posted By <a href="#">Admin</a> &nbsp;&nbsp; on June 2, 2016 &nbsp;&nbsp; <a href="#">Comments (10)</a></p>
+                            </div>
+                            <div class="blog-left-right-bottom">
+                                <p>Vivamus fermentum vel lacus ac ornare. Vestibulum pulvinar massa pharetra risus pharetra, eu blandit risus viverra. Aenean in ultrices enim, ut tincidunt libero. Phasellus libero enim, semper ac felis eget, efficitur ultrices orci. Aenean tincidunt lacus lorem, non varius enim luctus sed. Quisque eu aliquet quam, et sollicitudin nibh. Duis finibus at felis eu laoreet. Nulla non lacus sem.</p>
+                                <!--<a href="resultpage.html">More</a>-->
                             </div>
                         </div>
                         <div class="clearfix"> </div>
                     </div>
                 </div>
 
-                <div class="agile-blog-grid">
-                    <div class="agile-blog-grid-left-img">
-                        <a href="resultpage.html"><img src="images/1a.jpg" alt="" /></a>
-                    </div>
-                    <div class="blog-left-grids">
-                        <div class="blog-left-left">
-                            <i class="fa fa-pencil" aria-hidden="true"></i>
-                        </div>
-                        <div class="blog-left-right">
-                            <div class="blog-left-right-top">
-                                <h4><a href="resultpage.html">Integer et turpis augue. In hac habitasse platea dictumst.</a></h4>
-                                <p>Posted By <a href="#">Admin</a> &nbsp;&nbsp; on June 2, 2016 &nbsp;&nbsp; <a href="#">Comments (10)</a></p>
-                            </div>
-                            <div class="blog-left-right-bottom">
-                                <p>Vivamus fermentum vel lacus ac ornare. Vestibulum pulvinar massa pharetra risus pharetra, eu blandit risus viverra. Aenean in ultrices enim, ut tincidunt libero. Phasellus libero enim, semper ac felis eget, efficitur ultrices orci. Aenean tincidunt lacus lorem, non varius enim luctus sed. Quisque eu aliquet quam, et sollicitudin nibh. Duis finibus at felis eu laoreet. Nulla non lacus sem.</p>
-                                <a href="resultpage.html">More</a>
-                            </div>
-                        </div>
-                        <div class="clearfix"> </div>
-                    </div>
-                </div>
                 <nav>
                     <ul class="pagination">
                         <li>
