@@ -524,7 +524,7 @@ ul.dropdown-menu {
 }
 /*-- //domain --*/
 /*-- banner-bottom --*/
-.banner-bottom,.special,.w3-agile-testimonial,.subscribe,.agileits-about-top,.w3-agileits-choose-grid,.team,.shared-grid,.cloud-grid,.vpn-grid,.w3-best-services,.w3ls-featured-services,.faq,.registration,.codes,.typography ,.contact{
+.banner-bottom,.special,.w3-agile-testimonial,.subscribe,.agileits-about-top,.w3-agileits-choose-grid,.paper,.team,.shared-grid,.cloud-grid,.vpn-grid,.w3-best-services,.w3ls-featured-services,.faq,.registration,.codes,.typography ,.contact{
     padding: 4em 0;
 }
 .w3-banner-bottom-heading{
@@ -1236,9 +1236,20 @@ ul.w3agile_footer_grid_list i.fa.fa-twitter{
     -ms-transition: 0.5s all;
 }
 /*-- //choose --*/
+/*-- paper --*/
+.paper{
+    background:#FFFFFF;
+}
+.paper-grids {
+    margin: 4em 0 0 0;
+}
+.paper-grid:nth-child(4),.paper-grid:nth-child(5),.paper-grid:nth-child(6){
+    margin:4em 0 0 0;
+}
+/*--//paper--*/
 /*-- team --*/
 .team{
-	background:#FFFFFF;
+	background:#777777;
 }
 .team-grids {
     margin: 4em 0 0 0;
