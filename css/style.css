@@ -1250,6 +1250,7 @@ ul.w3agile_footer_grid_list i.fa.fa-twitter{
 /*-- team --*/
 .team{
 	background:#777777;
+    text-align: center;
 }
 .team-grids {
     margin: 4em 0 0 0;
@@ -1402,29 +1403,71 @@ ul.w3agile_footer_grid_list i.fa.fa-twitter{
 /*-- //team --*/
 
 /*--proFucButton--*/
+#proFucButton1 {
+    width: 300px;
+    height: 300px;
+    border-radius:50%;
+    font-size: 2em;
+    font-weight: 900;
+    color: #ffffff;
+    background-color: #86c724;
+    margin-right: 80px;
 
+}
+#proFucButton1:hover{
+    background-color: yellow;
+    color: #000000;
+}
+
+#proFucButton2 {
+    width: 300px;
+    height: 300px;
+    border-radius:50%;
+    font-size: 2em;
+    font-weight: 900;
+    color: #ffffff;
+    background-color: #1ABC9C;
+    margin-right: 80px;
+}
+#proFucButton2:hover{
+    background-color: yellow;
+    color: #000000;
+}
+#proFucButton3 {
+    width: 300px;
+    height: 300px;
+    border-radius:50%;
+    font-size: 2em;
+    font-weight: 900;
+    color: #ffffff;
+    background-color: #01B9F8;
+}
+#proFucButton3:hover{
+    background-color: yellow;
+    color: #000000;
+}
 /*--!proFucButton--*/
 
 
 
 /*--professorFuctionBottom--*/
 /*--proFuc1--*/
-.proFuc1 {
+#proFuc1 {
     text-align: center;
-
+    display: none;
 }
-.proFuc1 h3 {
+#proFuc1 h3 {
     font-size: 2.5em;
     font-weight: 700;
 }
-.proFuc1 span {
+#proFuc1 span {
     color: #86c724;
 }
-.proFuc1 textarea{
+#proFuc1 textarea{
     height: 350px;
     width: 800px;
 }
-.proFuc1 input{
+#proFuc1 input{
     height: 80px;
     width: 160px;
     font-size: 1.5em;
@@ -1433,22 +1476,22 @@ ul.w3agile_footer_grid_list i.fa.fa-twitter{
 /*--!proFuc1--*/
 
 /*--proFuc2--*/
-.proFuc2 {
+#proFuc2 {
     text-align: center;
     display: none;
 }
-.proFuc2 h3 {
+#proFuc2 h3 {
     font-size: 2.5em;
     font-weight: 700;
 }
-.proFuc2 span {
+#proFuc2 span {
     color: #86c724;
 }
-.proFuc2 textarea{
+#proFuc2 textarea{
     height: 350px;
     width: 800px;
 }
-.proFuc2 input{
+#proFuc2 input{
     height: 80px;
     width: 160px;
     font-size: 1.5em;
@@ -1457,22 +1500,22 @@ ul.w3agile_footer_grid_list i.fa.fa-twitter{
 /*--!proFuc2--*/
 
 /*--proFuc3--*/
-.proFuc3 {
+#proFuc3 {
     text-align: center;
     display: none;
 }
-.proFuc3 h3 {
+#proFuc3 h3 {
     font-size: 2.5em;
     font-weight: 700;
 }
-.proFuc3 span {
+#proFuc3 span {
     color: #86c724;
 }
-.proFuc3 textarea{
+#proFuc3 textarea{
     height: 350px;
     width: 800px;
 }
-.proFuc3 input{
+#proFuc3 input{
     height: 80px;
     width: 160px;
     font-size: 1.5em;

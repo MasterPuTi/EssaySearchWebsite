@@ -183,43 +183,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <div class="team-grids">
                 <!-- Bottom to top-->
-                <div class="col-sm-4 team-grid">
-                    <!-- normal -->
-                    <button class="ih-item circle effect10 bottom_to_top">
-                        <div class="img"><img src="images/t1.jpg" alt="img" /></div>
-                        <div class="info">
-                            <h3>修改专家信息</h3>
-                            <!--<div class="icons">-->
-                            <!--<ul>-->
-                            <!--<li><a href="#"><i class="fa fa-facebook"></i></a></li>-->
-                            <!--<li class="team-twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>-->
-                            <!--<li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>-->
-                            <!--</ul>-->
-                            <!--</div>-->
-                        </div>
-                    </button>
-                    <!-- end normal -->
-                </div>
-                <div class="col-sm-4 team-grid">
-                    <!-- normal -->
-                    <div class="ih-item circle effect10 bottom_to_top">
-                        <div class="img"><img src="images/t2.jpg" alt="img" /></div>
-                        <div class="info">
-                            <h3>门户信息申诉</h3>
-                        </div>
-                    </div>
-                    <!-- end normal -->
-                </div>
-                <div class="col-sm-4 team-grid">
-                    <!-- normal -->
-                    <div class="ih-item circle effect10 bottom_to_top">
-                        <div class="img"><img src="images/t3.jpg" alt="img" /></div>
-                        <div class="info">
-                            <h3>修改资源购买积分</h3>
-                        </div>
-                    </div>
-                    <!-- end normal -->
-                </div>
+                <button id="proFucButton1" onclick="showDiv1()">
+                    <p>修改专家信息</p>
+                </button>
+                <button id="proFucButton2" onclick="showDiv2()">
+                    <p>门户信息申诉</p>
+                </button>
+                <button id="proFucButton3" onclick="showDiv3()">
+                    <p>修改资源购买积分</p>
+                </button>
                 <div class="clearfix"> </div>
                 <!-- end Bottom to top-->
             </div>
@@ -230,17 +202,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!--professorFuctionBottom-->
     <div class="paper">
         <div class="container">
-            <div class="proFuc1">
-                <h3>修改<span>个人信息</span></h3>
+            <div id="proFuc1">
+                <h3>修改<span>专家信息</span></h3>
                 <textarea></textarea><br/>
                 <input type="submit" value="提交"/>
             </div>
-            <div class="proFuc2">
+            <div id="proFuc2">
                 <h3>门户<span>信息申诉</span></h3>
                 <textarea></textarea><br/>
                 <input type="submit" value="提交"/>
             </div>
-            <div class="proFuc3">
+            <div id="proFuc3">
                 <h3>修改资源<span>购买积分</span></h3>
                 <textarea></textarea><br/>
                 <input type="submit" value="提交"/>
