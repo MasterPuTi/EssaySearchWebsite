@@ -1400,6 +1400,90 @@ ul.w3agile_footer_grid_list i.fa.fa-twitter{
 	opacity:.5;
 }
 /*-- //team --*/
+
+/*--proFucButton--*/
+
+/*--!proFucButton--*/
+
+
+
+/*--professorFuctionBottom--*/
+/*--proFuc1--*/
+.proFuc1 {
+    text-align: center;
+
+}
+.proFuc1 h3 {
+    font-size: 2.5em;
+    font-weight: 700;
+}
+.proFuc1 span {
+    color: #86c724;
+}
+.proFuc1 textarea{
+    height: 350px;
+    width: 800px;
+}
+.proFuc1 input{
+    height: 80px;
+    width: 160px;
+    font-size: 1.5em;
+    font-weight: 400;
+}
+/*--!proFuc1--*/
+
+/*--proFuc2--*/
+.proFuc2 {
+    text-align: center;
+    display: none;
+}
+.proFuc2 h3 {
+    font-size: 2.5em;
+    font-weight: 700;
+}
+.proFuc2 span {
+    color: #86c724;
+}
+.proFuc2 textarea{
+    height: 350px;
+    width: 800px;
+}
+.proFuc2 input{
+    height: 80px;
+    width: 160px;
+    font-size: 1.5em;
+    font-weight: 400;
+}
+/*--!proFuc2--*/
+
+/*--proFuc3--*/
+.proFuc3 {
+    text-align: center;
+    display: none;
+}
+.proFuc3 h3 {
+    font-size: 2.5em;
+    font-weight: 700;
+}
+.proFuc3 span {
+    color: #86c724;
+}
+.proFuc3 textarea{
+    height: 350px;
+    width: 800px;
+}
+.proFuc3 input{
+    height: 80px;
+    width: 160px;
+    font-size: 1.5em;
+    font-weight: 400;
+}
+/*--!proFuc3--*/
+/*--!professorFuctionBottom--*/
+
+
+
+
 /*-- //about --*/
 /*-- plans --*/
 /*-- shared-grid --*/
