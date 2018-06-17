@@ -29,3 +29,8 @@
     width: 110px;
     height: 30px;
 }
+#current_page{
+    color: #23527c!important;
+    background-color: #eee!important;
+    border-color: #ddd;
+}
