@@ -36,7 +36,7 @@ function checkLogin() {
                     loginButton.innerHTML=
                         '欢迎，' + data.nickname;
                     registerButton.innerHTML=
-                        '<a href="user/userinfo.html?nickname=' + data.nickname + '">'+ '个人空间' + '</a>';
+                        '<a id="user-space" href="user/userinfo.html' + '">'+ '个人空间' + '</a>';
                     document.getElementById("changePassword").style.display = "inline";
                     document.getElementById("logout").style.display = "inline";
                 }

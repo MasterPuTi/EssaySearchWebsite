@@ -66,7 +66,7 @@ function submitChangeInfo(){
                     else {
                         $('#user-credit').text('普通用户');
                     }
-                    cancelChange();
+                    window.location.href = 'userinfo.html';
                 }
                 else {
                     alert(userinfo.info);
