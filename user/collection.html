@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>userinfo</title>
+    <title>collection</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="" />
@@ -24,8 +24,9 @@
     <script src="../js/bootstrap.js"></script>
     <script src="../js/SmoothScroll.min.js"></script>
     <script src="../js/checkIfLogin.js"></script>
-    <!--userinfo.js引入-->
-    <script src="../js/user-js/userinfo.js"></script>
+    <script src="../js/results.js"></script>
+    <!--collection.js引入-->
+    <script src="../js/user-js/collection.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function($) {
             $(".scroll").click(function(event){
@@ -156,27 +157,34 @@
 
     <div style="width: 70%;">
         <div class="modal-header">
-            <h2 style="">个人信息&nbsp;&nbsp;&nbsp;&nbsp;<a id="change-btn" onclick="showChangeForm()"><i class="glyphicon glyphicon-pencil"></i></a></h2>
+            <h2 style="">我的收藏&nbsp;&nbsp;&nbsp;&nbsp;<a id="change-btn" onclick="showChangeForm()"><i class="glyphicon glyphicon-pencil"></i></a></h2>
         </div>
-        <div class="modal-body">
-            <!--点击修改按钮后下面html出现-->
-            <div id="userinfo-change"  class="col-md-6 contact-form-right" style="display: none">
-                    <div class="input-group input-group-lg wow fadeInUp animated" data-wow-delay=".5s">
-                        <span class="input-group-addon">用户名称</span>
-                        <input id="input-name" type="text" class="form-control" aria-describedby="sizing-addon1" autofocus="autofocus">
+        <div id="collection-container" class="modal-body">
+                <div class="blog-left-grids">
+                    <div class="blog-left-right_results">
+                        <div class="blog-left-right-top">
+                            <h4><a href="../resultpage.html">Integer et turpis augue. In hac habitasse platea dictumst.</a><img src="../images/point.png"><span class="point_icon_font">20</span></h4>
+                            <p><a href="#">Author1</a>，<a href="#">Author2</a> &nbsp;-&nbsp; 2016 &nbsp;-&nbsp; 《自动化学报》&nbsp;-&nbsp; 被引量：130</p>
+                        </div>
+                        <div class="blog-left-right-bottom">
+                            <p>Vivamus fermentum vel lacus ac ornare. Vestibulum pulvinar massa pharetra risus pharetra, eu blandit risus viverra. Aenean in ultrices enim, ut tincidunt libero. Phasellus libero enim, semper ac felis eget, efficitur ultrices orci. Aenean tincidunt lacus lorem, non varius enim luctus sed. Quisque eu aliquet quam, et sollicitudin nibh. Duis finibus at felis eu laoreet. Nulla non lacus sem.</p>
+                        </div>
                     </div>
-                    <button id="submit-change" class="btn1" onclick="submitChangeInfo()">提交</button>
-                    <button id="cancel-change" class="btn1" onclick="cancelChange()">取消</button>
-            </div>
+                    <div class="clearfix"></div>
+                </div>
 
-            <div id="userinfo-content" class="agileits-contact-address" style="margin-top: 1rem">
-                <ul>
-                    <li><i class="fa fa-user" aria-hidden="true"></i><span id="username">undefined</span></h4></li>
-                    <!--<li><i class="fa fa-envelope" aria-hidden="true"></i><span>13121273185@163.com</span></li>-->
-                    <li><i class="fa fa-money" aria-hidden="true"></i><span id="user-point">undefined</span></li>
-                    <li><i class="fa  fa-credit-card" aria-hidden="true"></i><span id="user-credit">undefined</span></li>
-                </ul>
-            </div>
+                <div class="blog-left-grids">
+                    <div class="blog-left-right_results">
+                        <div class="blog-left-right-top">
+                            <h4><a href="../resultpage.html">Integer et turpis augue. In hac habitasse platea dictumst.</a><img src="../images/point.png"><span class="point_icon_font">20</span></h4>
+                            <p><a href="#">Author1</a>，<a href="#">Author2</a> &nbsp;-&nbsp; 2016 &nbsp;-&nbsp; 《自动化学报》&nbsp;-&nbsp; 被引量：130</p>
+                        </div>
+                        <div class="blog-left-right-bottom">
+                            <p>Vivamus fermentum vel lacus ac ornare. Vestibulum pulvinar massa pharetra risus pharetra, eu blandit risus viverra. Aenean in ultrices enim, ut tincidunt libero. Phasellus libero enim, semper ac felis eget, efficitur ultrices orci. Aenean tincidunt lacus lorem, non varius enim luctus sed. Quisque eu aliquet quam, et sollicitudin nibh. Duis finibus at felis eu laoreet. Nulla non lacus sem.</p>
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
         </div>
     </div>
 </div>
