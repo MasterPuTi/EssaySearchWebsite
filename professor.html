@@ -24,7 +24,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="js/jquery-1.11.1.min.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/SmoothScroll.min.js"></script>
-    <script src="js/checkIfLogin.js"></script>
+    <!--<script src="js/checkIfLogin.js"></script>-->
     <script src="js/professorInformation.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function($) {
@@ -199,13 +199,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="container">
             <div id="proFuc1">
                 <h3>修改<span>专家信息</span></h3>
-                <textarea></textarea><br/>
-                <input type="submit" value="提交"/>
+                <textarea id="proInforEdit"></textarea><br/>
+                <input type="submit" value="提交" onclick="professorEdit()"/>
             </div>
             <div id="proFuc2">
                 <h3>门户<span>信息申诉</span></h3>
-                <textarea></textarea><br/>
-                <input type="submit" value="提交"/>
+                <textarea id="proInforAppeal"></textarea><br/>
+                <input type="submit" value="提交" onclick="professorAppeal()"/>
             </div>
             <div id="proFuc3">
                 <h3>修改资源<span>购买积分</span></h3>
