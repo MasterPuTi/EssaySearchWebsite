@@ -161,22 +161,20 @@
         <div class="modal-body">
             <!--点击修改按钮后下面html出现-->
             <div id="userinfo-change"  class="col-md-6 contact-form-right" style="display: none">
-                <form method="post">
                     <div class="input-group input-group-lg wow fadeInUp animated" data-wow-delay=".5s">
-                        <span class="input-group-addon" id="sizing-addon2">用户名称</span>
+                        <span class="input-group-addon">用户名称</span>
                         <input id="input-name" type="text" class="form-control" aria-describedby="sizing-addon1" autofocus="autofocus">
                     </div>
-                    <button id="submit-change" class="btn1">提交</button>
+                    <button id="submit-change" class="btn1" onclick="submitChangeInfo()">提交</button>
                     <button id="cancel-change" class="btn1" onclick="cancelChange()">取消</button>
-                </form>
             </div>
 
             <div id="userinfo-content" class="agileits-contact-address" style="margin-top: 1rem">
                 <ul>
-                    <li><i class="fa fa-user" aria-hidden="true"></i><span id="username">liuxiyang</span></h4></li>
+                    <li><i class="fa fa-user" aria-hidden="true"></i><span id="username">undefined</span></h4></li>
                     <!--<li><i class="fa fa-envelope" aria-hidden="true"></i><span>13121273185@163.com</span></li>-->
-                    <li><i class="fa fa-money" aria-hidden="true"></i><span id="user-point">30</span></li>
-                    <li><i class="fa  fa-credit-card" aria-hidden="true"></i><span id="user-credit">普通用户</span></li>
+                    <li><i class="fa fa-money" aria-hidden="true"></i><span id="user-point">undefined</span></li>
+                    <li><i class="fa  fa-credit-card" aria-hidden="true"></i><span id="user-credit">undefined</span></li>
                 </ul>
             </div>
         </div>

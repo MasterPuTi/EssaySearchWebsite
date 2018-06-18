@@ -25,7 +25,7 @@ function checkRegister() {
             if (data) {
                 if(data.status === "succeed"){
                     alert('register success!');
-                    window.location.href = 'http://192.144.179.57:8080/EssaySearchWebsite/login.html';
+                    window.location.href = 'login.html';
                 }
                 else
                     alert(data.info);

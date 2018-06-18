@@ -43,7 +43,7 @@ function checkLogin() {
             }else{
                 alert('net failure');
                 //没有登录就跳转到index.html
-                window.location.href = 'http://192.144.179.57:8080/EssaySearchWebsite/index.html';
+                window.location.href = 'index.html';
             }
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
