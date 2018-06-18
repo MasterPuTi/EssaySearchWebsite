@@ -50,11 +50,11 @@ function submitChangeInfo(){
         "nickname":$('#input-name').val()
     }
     $.ajax({
-        contentType: 'application/json;charset=UTF-8',
+        contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
         url:'http://192.144.179.57:8080/demo-v1/api/user/userInfo/change',
         type:'post',
         dataType: "json",
-        data: JSON.stringify(changeInfo),
+        data: changeInfo,
         success: function(userinfo){
             if (userinfo) {
                 if (userinfo.status==='succeed'){           //success
