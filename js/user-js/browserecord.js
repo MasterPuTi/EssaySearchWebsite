@@ -11,35 +11,21 @@ function getUserBrowseRecord(pageNumber){
         success: function(data){
             if (data.status==='succeed') {
                 var div=document.getElementById("browserecord-container");
-                div.innerHTML='';
                 //无浏览
                 if (data.data.items===null){
+                    div.innerHTML='';
                     div.innerHTML+='<h3>暂无浏览记录</h3>';
                     return;
                 }
-                div.innerHTML='<div class="bs-docs-example wow fadeInUp animated" data-wow-delay=".5s">\n' +
-                    '                <table class="table table-striped">\n' +
-                    '                    <thead>\n' +
-                    '                    <tr>\n' +
-                    '                        <th>id</th>\n' +
-                    '                        <th>浏览时间</th>\n' +
-                    '                        <th>成果类型</th>\n' +
-                    '                        <th>成果名</th>\n' +
-                    '                    </tr>\n' +
-                    '                    </thead>\n' +
-                    '                    <tbody>\n' +
-                    '                    </tbody>\n' +
-                    '                </table>\n' +
-                    '            </div>';
                 //生成显示部分
-                $('<tbody>').append('<tr>\n' +
+                $('tbody').append('<tr>\n' +
                     '<td>'+data.data.items[0].id+'</td>\n' +
                     '<td>'+data.data.items[0].recordTime+'</td>\n' +
                     '<td>'+data.data.items[0].type+'</td>\n' +
                     '<td>'+data.data.items[0].name+'</td>\n' +
                     '</tr>');
                 for(var i=1;i<data.data.items.length;i++){
-                    $('tbody tr:last').after('<tr>\n' +
+                    $('tbody>tr:last').after('<tr>\n' +
                         '<td>'+data.data.items[i].id+'</td>\n' +
                         '<td>'+data.data.items[i].recordTime+'</td>\n' +
                         '<td>'+data.data.items[i].type+'</td>\n' +
@@ -47,6 +33,10 @@ function getUserBrowseRecord(pageNumber){
                         '</tr>');
                 }
 
+                //只有一页不翻页
+                if (data.data.totalPage===1){
+                    return;
+                }
                 //生成翻页符
                 displayNav(div,data.data.totalPage,data.data.nowPage);
                 var obj=document.getElementById("page_re").getElementsByTagName("a");
