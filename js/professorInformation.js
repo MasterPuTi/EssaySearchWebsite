@@ -23,7 +23,8 @@ function showDiv4() {
     document.getElementById("proFuc4").style.display="block";
 }
 function buttonJump1(){
-    window.location.hash="#proFuc3";
+    location.hash="#proFuc3";
+    console.log("jump");
 }
 function buttonJump2() {
     window.location.hash="#proFuc4";
@@ -101,14 +102,14 @@ function professorGetInfor() {               //获得专家信息  并展示
                             var button1=document.createElement("button");
                             button1.style.cssText="width: 160px; height: 40px;margin-left:60%;background-color:#000000;border:1px solid #000000;font-size: 1em;font-weight:500;color:#FFFFFF;";
                             button1.innerHTML="修改资源购买积分";
-                            button1.onclick=buttonJump1();
+                            button1.onclick=buttonJump1;
                             div1.appendChild(button1);
 
 
                             var button2=document.createElement("button");
                             button2.style.cssText="width: 200px; height: 40px;margin-left: 30px;border:1px solid #000;font-size: 1em;font-weight:500;color:#000000;";
                             button2.innerHTML="编辑资源积分分配情况";
-                            button2.onclick=buttonJump2();
+                            button2.onclick=buttonJump2;
                             div1.appendChild(button2);
 
                             tmp.appendChild(div1);
