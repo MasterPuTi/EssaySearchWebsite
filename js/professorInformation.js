@@ -81,29 +81,30 @@ function professorGetInfor() {               //获得专家信息  并展示
                         noPaper.innerHTML="该专家尚未发表过论文。";
                         tmp.appendChild(noPaper);
                     }
-                    else {
-                        for(var i=0;i<data.expertInfo.paperName.length;i++){
-                            console.log(data.expertInfo.paperName[i]);
-                            var x = document.createElement("p");
-                            x.innerHTML=
-                                data.expertInfo.paperName[i];
-                            tmp.appendChild(x);
-                        }
-                    }
                     // else {
                     //     for(var i=0;i<data.expertInfo.paperName.length;i++){
-                    //         var div1=document.createElement("div");
-                    //
-                    //         var p1=document.createElement("p");
-                    //         p.innerHTML=
+                    //         console.log(data.expertInfo.paperName[i]);
+                    //         var x = document.createElement("p");
+                    //         x.innerHTML=
                     //             data.expertInfo.paperName[i];
-                    //         div1.appendChild(p);
-                    //
-                    //         var button1=document.createElement("button");
-                    //         button1.
-                    //
+                    //         tmp.appendChild(x);
                     //     }
                     // }
+                    else {
+                        for(var i=0;i<data.expertInfo.paperName.length;i++){
+                            var div1=document.createElement("div");
+
+                            var p1=document.createElement("p");
+                            p.innerHTML=
+                                data.expertInfo.paperName[i];
+                            div1.appendChild(p);
+
+                            var button1=document.createElement("button");
+                            button1.value="修改资源购买积分";
+                            div1.appendChild(button1);
+
+                        }
+                    }
 
                     tmp = document.getElementById("patentname_containner");
                     if(data.expertInfo.patentName.length === 0){
