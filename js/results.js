@@ -100,18 +100,18 @@ function searching(sType, type, name, page, year, order, orderType){
                             p.innerHTML = '<a href="professor.html?pid=' + paperInfo.ownersName[j].id + '" class="author_results">' + paperInfo.ownersName[j].name + '</a>'+p.innerHTML;
                         }
                         //显示学科
-                        if(paperInfo.subjectName){
+                        if(paperInfo.subject){
                             var subject_re=document.getElementById("subject_"+i);
                             $(subject_re).append('学科分类：');
-                            for(var k=0;k<paperInfo.subjectName.length;k++){
-                                $(subject_re).append('<a href="subject.html?name='+ paperInfo.subjectName[k] +'">' + paperInfo.subjectName[k] + '</a>');
+                            for(var k=0;k<paperInfo.subject.length;k++){
+                                $(subject_re).append('<a href="subject.html?sid='+ paperInfo.subject[k].id +'">' + paperInfo.subject[k].name + '</a>');
                             }
                         }
                     }
                     var last_ele=document.getElementById("agile-blog-grid_"+data.data.items.length);
                     last_ele.style.borderBottom='0px';
                     last_ele.style.marginBottom='0px';
-                }
+                }                             
 
                 //保留搜索信息
                 var searchInfo=document.getElementsByName("searchInfo");
@@ -157,6 +157,40 @@ function searching(sType, type, name, page, year, order, orderType){
                                 searching(sType, type, name, obj[i].innerHTML, year, order, orderType);
                             };
                         })(i);
+                    }
+                }
+            }else{
+                alert('net failure');
+            }
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            //alert(XMLHttpRequest.status);
+            //alert(XMLHttpRequest.readyState);
+            //alert(textStatus);
+        }
+    });
+}
+
+/**
+ * 生成右侧学科分类
+ * @param name 搜索内容
+ * @param type 检索方式（关键字、篇名……）
+ */
+function subjectCategory(name, type) {
+    $.ajax({
+        contentType: 'application/json;charset=UTF-8',
+        url:'http://192.144.179.57:8080/demo-v1/api/search/subject?name='+name+'&type='+type,
+        type:'post',
+        dataType: "json",
+        success: function(data){
+            if (data) {
+                console.log(data);
+                //排序方式生成
+                if(data.data.length){
+                    var list=document.getElementById("sub_list");
+                    list.innerHTML='';
+                    for (var i=0;i<data.data.length;i++){
+                        $(list).append('<li><a href="subject.html?sid='+data.data[i].subject+'">'+data.data[i].subject+'('+data.data[i].number+')'+'</a></li>');
                     }
                 }
             }else{
@@ -277,7 +311,7 @@ function displayNav(divObj,total,curPage) {
 window.onload = function(){
     var request=GetRequest();//从url中获取搜索信息以及类型
     searching(request["searchingType"], "paper", request["searchInfo"]);
-    test("hah");
+    subjectCategory(request["searchInfo"], request["searchingType"]);
 };
 
 function test(a) {
