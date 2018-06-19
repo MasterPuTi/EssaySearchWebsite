@@ -579,6 +579,7 @@ ul.dropdown-menu {
 }
 .w3-banner-bottom-heading{
 	text-align:center;
+    margin-top: 50px;
 }
 .w3-banner-bottom-heading h3{
 	font-size: 2.5em;
@@ -1297,6 +1298,13 @@ ul.w3agile_footer_grid_list i.fa.fa-twitter{
     margin:4em 0 0 0;
 }
 /*--//paper--*/
+
+
+
+#professorFuctionTop {
+    background:#737373;
+    text-align: center;
+}
 /*-- team --*/
 .team{
 	background:#777777;
@@ -1304,6 +1312,7 @@ ul.w3agile_footer_grid_list i.fa.fa-twitter{
 }
 .team-grids {
     margin: 4em 0 0 0;
+    margin-bottom: 50px;
 }
 .team-grid:nth-child(4),.team-grid:nth-child(5),.team-grid:nth-child(6){
 	margin:4em 0 0 0;
@@ -1454,11 +1463,11 @@ ul.w3agile_footer_grid_list i.fa.fa-twitter{
 
 /*--proFucButton--*/
 #proFucButton1 {
-    width: 300px;
-    height: 300px;
+    width: 220px;
+    height: 220px;
     border-radius:50%;
-    font-size: 2em;
-    font-weight: 900;
+    font-size: 1.5em;
+    font-weight: 600;
     color: #ffffff;
     background-color: #86c724;
     margin-right: 80px;
@@ -1470,11 +1479,11 @@ ul.w3agile_footer_grid_list i.fa.fa-twitter{
 }
 
 #proFucButton2 {
-    width: 300px;
-    height: 300px;
+    width: 220px;
+    height: 220px;
     border-radius:50%;
-    font-size: 2em;
-    font-weight: 900;
+    font-size: 1.5em;
+    font-weight: 600;
     color: #ffffff;
     background-color: #1ABC9C;
     margin-right: 80px;
@@ -1484,15 +1493,29 @@ ul.w3agile_footer_grid_list i.fa.fa-twitter{
     color: #000000;
 }
 #proFucButton3 {
-    width: 300px;
-    height: 300px;
+    width: 220px;
+    height: 220px;
     border-radius:50%;
-    font-size: 2em;
-    font-weight: 900;
+    font-size: 1.5em;
+    font-weight: 600;
     color: #ffffff;
     background-color: #01B9F8;
+    margin-right: 80px;
 }
 #proFucButton3:hover{
+    background-color: yellow;
+    color: #000000;
+}
+#proFucButton4 {
+    width: 220px;
+    height: 220px;
+    border-radius:50%;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #ac2925;
+}
+#proFucButton4:hover{
     background-color: yellow;
     color: #000000;
 }
@@ -1572,6 +1595,29 @@ ul.w3agile_footer_grid_list i.fa.fa-twitter{
     font-weight: 400;
 }
 /*--!proFuc3--*/
+/*--proFuc4--*/
+#proFuc4 {
+    text-align: center;
+    display: none;
+}
+#proFuc4 h3 {
+    font-size: 2.5em;
+    font-weight: 700;
+}
+#proFuc4 span {
+    color: #86c724;
+}
+#proFuc4 textarea{
+    height: 350px;
+    width: 800px;
+}
+#proFuc4 input{
+    height: 80px;
+    width: 160px;
+    font-size: 1.5em;
+    font-weight: 400;
+}
+/*--!proFuc4--*/
 /*--!professorFuctionBottom--*/
 
 
