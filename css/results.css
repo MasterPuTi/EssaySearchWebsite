@@ -34,3 +34,26 @@
     background-color: #eee!important;
     border-color: #ddd;
 }
+.results_quantity{
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    margin-left: 15px;
+    font-size: 1em;
+}
+.blog-left-right-bottom-2 a{
+    color: #25a8e5;
+    font-size: 1.1em;
+    padding: 1px 3px;
+    border: 1px solid #c1ecff;
+    margin-right: 8px;
+    text-decoration: none;
+}
+.blog-left-right-bottom-2{
+    margin-bottom: 1.8em;
+    font-size: 0.8em;
+    color: #888888;
+}
+.blog-left-right-bottom-results p{
+    margin-bottom: 1em;
+}

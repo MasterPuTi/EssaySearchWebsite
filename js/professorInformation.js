@@ -2,17 +2,27 @@ function showDiv1() {
     document.getElementById("proFuc1").style.display="block";
     document.getElementById("proFuc2").style.display="none";
     document.getElementById("proFuc3").style.display="none";
+    document.getElementById("proFuc4").style.display="none";
 }
 function showDiv2() {
     document.getElementById("proFuc1").style.display="none";
     document.getElementById("proFuc2").style.display="block";
     document.getElementById("proFuc3").style.display="none";
+    document.getElementById("proFuc4").style.display="none";
 }
 function showDiv3() {
     document.getElementById("proFuc1").style.display="none";
     document.getElementById("proFuc2").style.display="none";
     document.getElementById("proFuc3").style.display="block";
+    document.getElementById("proFuc4").style.display="none";
 }
+function showDiv4() {
+    document.getElementById("proFuc1").style.display="none";
+    document.getElementById("proFuc2").style.display="none";
+    document.getElementById("proFuc3").style.display="none";
+    document.getElementById("proFuc4").style.display="block";
+}
+
 function GetRequest() {
     var url = location.search; //获取url中"?"符后的字串
     var theRequest=new Object();
@@ -27,14 +37,16 @@ function GetRequest() {
     return theRequest;//返回字典类型
 }
 
-function professorGetInfor() {
+var expertId=0;
+function professorGetInfor() {               //获得专家信息  并展示
     var request=GetRequest();
+    //var expertId;
     $.ajax({
         contentType: 'application/json;charset=UTF-8',
         url:' http://192.144.179.57:8080/demo-v1/api/visitor/expert/'+request["pid"],
         type:'get',
+        async:false,
         dataType: "json",
-        //data:JSON.stringify(proInfor),
         success: function(data){
             if (data) {
                 console.log(data);
@@ -51,6 +63,8 @@ function professorGetInfor() {
                         data.expertInfo.realName;
                     professorID.innerText=
                         'ID：'+data.expertInfo.id;
+                    expertId = data.expertInfo.id;
+                    console.log(expertId);
                     introduction.innerHTML=
                         data.expertInfo.introduction;
                     institution.innerHTML=
@@ -59,12 +73,36 @@ function professorGetInfor() {
                         data.expertInfo.researchField;
 
                     var tmp = document.getElementById("papername_containner");
-                    for(var i=0;i<data.expertInfo.paperName.length;i++){
-                        console.log(data.expertInfo.paperName[i]);
-                        var x = document.createElement("p");
-                        x.innerHTML=
-                            data.expertInfo.paperName[i];
-                        tmp.appendChild(x);
+                    if(data.expertInfo.paperName.length === 0){
+                        var noPaper= document.createElement("p");
+                        noPaper.innerHTML="该专家尚未发表过论文。";
+                        tmp.appendChild(noPaper);
+                    }
+                    else {
+                        for(var i=0;i<data.expertInfo.paperName.length;i++){
+                            console.log(data.expertInfo.paperName[i]);
+                            var x = document.createElement("p");
+                            x.innerHTML=
+                                data.expertInfo.paperName[i];
+                            tmp.appendChild(x);
+                        }
+                    }
+
+
+                    tmp = document.getElementById("patentname_containner");
+                    if(data.expertInfo.patentName.length === 0){
+                        var noPatent = document.createElement("p");
+                        noPatent.innerHTML="该专家尚未申请过专利。";
+                        tmp.appendChild(noPatent);
+                    }
+                    else {
+                        for(var i=0;i<data.expertInfo.patentName.length;i++){
+                            console.log(data.expertInfo.patentName[i]);
+                            var x = document.createElement("p");
+                            x.innerHTML=
+                                data.expertInfo.patentName[i];
+                            tmp.appendChild(x);
+                        }
                     }
                 }
             }else{
@@ -72,9 +110,36 @@ function professorGetInfor() {
             }
         },
     });
+    return expertId;
 }
+console.log(expertId);
 
-function professorEdit(){
+// function checkRole() {
+//     $.ajax({
+//         contentType: 'application/json;charset=UTF-8',
+//         url:'http://192.144.179.57:8080/demo-v1/api/user/userInfo',
+//         type:'get',
+//         dataType: "json",
+//         success: function (data) {
+//             console.log("1");
+//             if(data.status === "succeed"){
+//                 console.log("2");
+//                 console.log(data);
+//                 console.log(expertId);
+//                 if(data.expertId === professorGetInfor()){
+//                     console.log("3");
+//                 }
+//                 else {
+//                     document.getElementById("professorFuctionTop").style.display="none";
+//                     console.log("4");
+//                 }
+//             }
+//         }
+//     })
+// }
+
+
+function professorEdit(){                     //专家功能之修改专家信息
     var newIntroduction=document.getElementById("proInforEdit").value;
     console.log(JSON.stringify(newIntroduction));
     var dataIntro={
@@ -103,7 +168,7 @@ function professorEdit(){
     })
 }
 
-function professorAppeal(){
+function professorAppeal(){              //专家功能之门户信息申诉
     var AppealContent=document.getElementById("proInforAppeal").value;
     console.log(JSON.stringify(AppealContent));
     var dataAppeal={
@@ -132,7 +197,7 @@ function professorAppeal(){
     })
 }
 
-function checkLogin() {
+function checkLogin() {          //左上角的checklogin
     $.ajax({
         contentType: 'application/json;charset=UTF-8',
         url:'http://192.144.179.57:8080/demo-v1/api/authen/user',
@@ -148,8 +213,16 @@ function checkLogin() {
                         '欢迎，' + data.nickname;
                     registerButton.innerHTML=
                         '<a href="user/userinfo.html?nickname=' + data.nickname + '">'+ '个人空间' + '</a>';
-                    document.getElementById("changePassword").style.display = "inline";
-                    document.getElementById("logout").style.display = "inline";
+                    var tmp = document.getElementById("changePassword");
+                    if(tmp!=null)
+                    {
+                        tmp.style.display = "inline";
+                    }
+                    tmp = document.getElementById("logout");
+                    if(tmp!=null)
+                    {
+                        tmp.style.display = "inline";
+                    }
                 }
             }else{
                 alert('net failure');
@@ -165,5 +238,9 @@ function checkLogin() {
     });
 }
 
-window.onload=function(){checkLogin();professorGetInfor();};
+window.onload=function(){
+    checkLogin();
+    professorGetInfor();
+    //checkRole();
+};
 
