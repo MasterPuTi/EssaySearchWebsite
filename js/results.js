@@ -186,12 +186,50 @@ function subjectCategory(name, type) {
             if (data) {
                 console.log(data);
                 //排序方式生成
+                var list=document.getElementById("sub_list");
                 if(data.data.length){
-                    var list=document.getElementById("sub_list");
                     list.innerHTML='';
                     for (var i=0;i<data.data.length;i++){
-                        $(list).append('<li><a href="subject.html?sid='+data.data[i].subject+'">'+data.data[i].subject+'('+data.data[i].number+')'+'</a></li>');
+                        $(list).append('<li><a href="#">'+data.data[i].subject+'('+data.data[i].number+')'+'</a></li>');
                     }
+                }else {
+                    list.innerHTML="<li>空</li>";
+                }
+            }else{
+                alert('net failure');
+            }
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            //alert(XMLHttpRequest.status);
+            //alert(XMLHttpRequest.readyState);
+            //alert(textStatus);
+        }
+    });
+}
+
+/**
+ * 生成右侧时间分类
+ * @param name 搜索内容
+ * @param type 检索方式（关键字、篇名……）
+ */
+function timeCategory(name, type) {
+    $.ajax({
+        contentType: 'application/json;charset=UTF-8',
+        url:'http://192.144.179.57:8080/demo-v1/api/search/year?name='+name+'&type='+type,
+        type:'post',
+        dataType: "json",
+        success: function(data){
+            if (data) {
+                console.log(data);
+                //排序方式生成
+                var list=document.getElementById("time_list");
+                if(data.data.length){
+                    list.innerHTML='';
+                    for (var i=0;i<data.data.length;i++){
+                        $(list).append('<li><a href="searching('+type+',\'paper\','+name+',null,'+data.data[i].year+')">'+data.data[i].year+'('+data.data[i].number+')'+'</a></li>');
+                    }
+                }else {
+                    list.innerHTML="<li>空</li>";
                 }
             }else{
                 alert('net failure');
@@ -312,6 +350,7 @@ window.onload = function(){
     var request=GetRequest();//从url中获取搜索信息以及类型
     searching(request["searchingType"], "paper", request["searchInfo"]);
     subjectCategory(request["searchInfo"], request["searchingType"]);
+    timeCategory(request["searchInfo"], request["searchingType"]);
 };
 
 function test(a) {
