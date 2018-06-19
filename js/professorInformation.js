@@ -22,7 +22,12 @@ function showDiv4() {
     document.getElementById("proFuc3").style.display="none";
     document.getElementById("proFuc4").style.display="block";
 }
-
+function buttonJump1(){
+    window.location.hash="#proFuc3";
+}
+function buttonJump2() {
+    window.location.hash="#proFuc4";
+}
 function GetRequest() {
     var url = location.search; //获取url中"?"符后的字串
     var theRequest=new Object();
@@ -96,12 +101,14 @@ function professorGetInfor() {               //获得专家信息  并展示
                             var button1=document.createElement("button");
                             button1.style.cssText="width: 160px; height: 40px;margin-left:60%;background-color:#000000;border:1px solid #000000;font-size: 1em;font-weight:500;color:#FFFFFF;";
                             button1.innerHTML="修改资源购买积分";
+                            button1.onclick=buttonJump1();
                             div1.appendChild(button1);
 
 
                             var button2=document.createElement("button");
                             button2.style.cssText="width: 200px; height: 40px;margin-left: 30px;border:1px solid #000;font-size: 1em;font-weight:500;color:#000000;";
-                            button2.innerHTML="编辑资源积分分配情况"
+                            button2.innerHTML="编辑资源积分分配情况";
+                            button2.onclick=buttonJump2();
                             div1.appendChild(button2);
 
                             tmp.appendChild(div1);
@@ -138,6 +145,7 @@ function professorGetInfor() {               //获得专家信息  并展示
                             var button1=document.createElement("button");
                             button1.style.cssText="width: 160px; height: 40px;margin-left:60%;background-color:#000000;border:1px solid #000000;font-size: 1em;font-weight:500;color:#FFFFFF;";
                             button1.innerHTML="修改资源购买积分";
+                            button1.onclick=
                             div2.appendChild(button1);
 
 
@@ -158,6 +166,7 @@ function professorGetInfor() {               //获得专家信息  并展示
     });
     return expertId;
 }
+
 
 function checkRole(expertId) {
     $.ajax({
@@ -239,6 +248,31 @@ function professorAppeal(){              //专家功能之门户信息申诉
         }
     })
 }
+//
+// function modifyPoint() {  //专家功能之修改积分
+//     $.ajax({
+//         contentType: 'application/json;charset=UTF-8',
+//         url:'http://192.144.179.57:8080/demo-v1/api/expert/resource/{type}/{id}/edit/points',
+//         type:'post',
+//         dataType: "json",
+//         data:JSON.stringify(dataIntro),
+//         success: function (data) {
+//             if(data){
+//                 console.log(data);
+//                 if(data.status==="succeed"){
+//                     alert('修改成功！');
+//                     window.location.href = window.location.href;
+//                 }
+//                 else
+//                     alert(data.info);
+//             }
+//             else {
+//                 alert('网络出现问题，请重试');
+//             }
+//         }
+//     })
+// }
+
 
 function checkLogin() {          //左上角的checklogin
     $.ajax({
