@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>userinfo</title>
+    <title>collection</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="" />
@@ -24,8 +24,9 @@
     <script src="../js/bootstrap.js"></script>
     <script src="../js/SmoothScroll.min.js"></script>
     <script src="../js/checkIfLogin.js"></script>
-    <!--userinfo.js引入-->
-    <script src="../js/user-js/userinfo.js"></script>
+    <script src="../js/results.js"></script>
+    <!--collection.js引入-->
+    <script src="../js/user-js/browserecord.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function($) {
             $(".scroll").click(function(event){
@@ -156,26 +157,22 @@
 
     <div style="width: 70%;">
         <div class="modal-header">
-            <h2 style="">个人信息&nbsp;&nbsp;&nbsp;&nbsp;<a id="change-btn" onclick="showChangeForm()"><i class="glyphicon glyphicon-pencil"></i></a></h2>
+            <h2 style="">浏览记录&nbsp;&nbsp;&nbsp;&nbsp;</h2>
         </div>
-        <div class="modal-body">
-            <!--点击修改按钮后下面html出现-->
-            <div id="userinfo-change"  class="col-md-6 contact-form-right" style="display: none">
-                    <div class="input-group input-group-lg wow fadeInUp animated" data-wow-delay=".5s">
-                        <span class="input-group-addon">用户名称</span>
-                        <input id="input-name" type="text" class="form-control" aria-describedby="sizing-addon1" autofocus="autofocus">
-                    </div>
-                    <button id="submit-change" class="btn1" onclick="submitChangeInfo()">提交</button>
-                    <button id="cancel-change" class="btn1" onclick="cancelChange()">取消</button>
-            </div>
-
-            <div id="userinfo-content" class="agileits-contact-address" style="margin-top: 1rem">
-                <ul>
-                    <li><i class="fa fa-user" aria-hidden="true"></i><span id="username">undefined</span></h4></li>
-                    <!--<li><i class="fa fa-envelope" aria-hidden="true"></i><span>13121273185@163.com</span></li>-->
-                    <li><i class="fa fa-money" aria-hidden="true"></i><span id="user-point">undefined</span></li>
-                    <li><i class="fa  fa-credit-card" aria-hidden="true"></i><span id="user-credit">undefined</span></li>
-                </ul>
+        <div id="browserecord-container" class="modal-body">
+            <div class="bs-docs-example wow fadeInUp animated" data-wow-delay=".5s">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>浏览时间</th>
+                        <th>成果类型</th>
+                        <th>成果名</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
