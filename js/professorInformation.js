@@ -81,28 +81,30 @@ function professorGetInfor() {               //获得专家信息  并展示
                         noPaper.innerHTML="该专家尚未发表过论文。";
                         tmp.appendChild(noPaper);
                     }
-                    // else {
-                    //     for(var i=0;i<data.expertInfo.paperName.length;i++){
-                    //         console.log(data.expertInfo.paperName[i]);
-                    //         var x = document.createElement("p");
-                    //         x.innerHTML=
-                    //             data.expertInfo.paperName[i];
-                    //         tmp.appendChild(x);
-                    //     }
-                    // }
                     else {
                         for(var i=0;i<data.expertInfo.paperName.length;i++){
                             var div1=document.createElement("div");
+                            div1.style.height="150px";
 
                             var p1=document.createElement("p");
-                            p.innerHTML=
+                            p1.style.cssText="font-size: 1.5em;font-weight: 600"
+                            p1.innerHTML=
                                 data.expertInfo.paperName[i];
-                            div1.appendChild(p);
+                            div1.appendChild(p1);
+
 
                             var button1=document.createElement("button");
-                            button1.value="修改资源购买积分";
+                            button1.style.cssText="width: 160px; height: 40px;margin-left:60%;background-color:#000000;border:1px solid #000000;font-size: 1em;font-weight:500;color:#FFFFFF;";
+                            button1.innerHTML="修改资源购买积分";
                             div1.appendChild(button1);
 
+
+                            var button2=document.createElement("button");
+                            button2.style.cssText="width: 200px; height: 40px;margin-left: 30px;border:1px solid #000;font-size: 1em;font-weight:500;color:#000000;";
+                            button2.innerHTML="编辑资源积分分配情况"
+                            div1.appendChild(button2);
+
+                            tmp.appendChild(div1);
                         }
                     }
 
@@ -112,15 +114,42 @@ function professorGetInfor() {               //获得专家信息  并展示
                         noPatent.innerHTML="该专家尚未申请过专利。";
                         tmp.appendChild(noPatent);
                     }
+                    // else {
+                    //     for(var i=0;i<data.expertInfo.patentName.length;i++){
+                    //         console.log(data.expertInfo.patentName[i]);
+                    //         var x = document.createElement("p");
+                    //         x.innerHTML=
+                    //             data.expertInfo.patentName[i];
+                    //         tmp.appendChild(x);
+                    //     }
+                    // }
                     else {
                         for(var i=0;i<data.expertInfo.patentName.length;i++){
-                            console.log(data.expertInfo.patentName[i]);
-                            var x = document.createElement("p");
-                            x.innerHTML=
+                            var div2=document.createElement("div");
+                            div2.style.height="150px";
+
+                            var p2=document.createElement("p");
+                            p2.style.cssText="font-size: 1.5em;font-weight: 600"
+                            p2.innerHTML=
                                 data.expertInfo.patentName[i];
-                            tmp.appendChild(x);
+                            div2.appendChild(p2);
+
+
+                            var button1=document.createElement("button");
+                            button1.style.cssText="width: 160px; height: 40px;margin-left:60%;background-color:#000000;border:1px solid #000000;font-size: 1em;font-weight:500;color:#FFFFFF;";
+                            button1.innerHTML="修改资源购买积分";
+                            div2.appendChild(button1);
+
+
+                            var button2=document.createElement("button");
+                            button2.style.cssText="width: 200px; height: 40px;margin-left: 30px;border:1px solid #000;font-size: 1em;font-weight:500;color:#000000;";
+                            button2.innerHTML="编辑资源积分分配情况"
+                            div2.appendChild(button2);
+
+                            tmp.appendChild(div2);
                         }
                     }
+
                 }
             }else{
                 alert('net failure');
