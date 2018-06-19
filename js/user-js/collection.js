@@ -30,7 +30,7 @@ function getUserCollection(pageNumber){
                             '                    <div class="blog-left-grids">\n' +
                             '                        <div class="blog-left-right_results">\n' +
                             '                            <div class="blog-left-right-top">\n' +
-                            '                                <h4><a href="resultpage.html?id='+paperInfo.id+'">'+paperInfo.name+'</a><img src="images/point.png"><span class="point_icon_font">'+paperInfo.pointRequired+'</span></h4>\n' +
+                            '                                <h4><a href="resultpage.html?id='+paperInfo.id+'">'+paperInfo.name+'</a><img src="../images/point.png"><span class="point_icon_font">'+paperInfo.pointRequired+'</span></h4>\n' +
                             '                                <p id="author_'+i+'">&nbsp;-&nbsp; '+paperInfo.publicationTime+' &nbsp;-&nbsp; '+paperInfo.journal+'&nbsp;-&nbsp; 被引量：'+paperInfo.referenceTimes+'</p>\n' +
                             '                            </div>\n' +
                             '                            <div class="blog-left-right-bottom">\n' +
@@ -40,14 +40,22 @@ function getUserCollection(pageNumber){
                             '                        </div>\n' +
                             '                        <div class="clearfix"> </div>\n' +
                             '                    </div>\n';
-                        var p = document.getElementById("author_"+i);
-                        if (paperInfo.ownersName===null || typeof (paperInfo.ownersName) ==="undefined"){
-                            continue;
+                        //显示作者
+                        if (paperInfo.ownersName){
+                            var p = document.getElementById("author_"+i);
+                            for(var j=0;j<paperInfo.ownersName.length;j++) {
+                                if (j)
+                                    p.innerHTML = '，'+p.innerHTML;
+                                p.innerHTML = '<a href="professor.html?pid=' + paperInfo.ownersName[j].id + '" class="author_results">' + paperInfo.ownersName[j].name + '</a>'+p.innerHTML;
+                            }
                         }
-                        for(var j=0;j<paperInfo.ownersName.length;j++) {
-                            if (j)
-                                p.innerHTML = '，'+p.innerHTML;
-                            p.innerHTML = '<a href="professor.html?pid=' + paperInfo.ownersName[j].id + '">' + paperInfo.ownersName[j].name + '</a>'+p.innerHTML;
+                        //显示学科
+                        if(paperInfo.subjectName){
+                            var subject_re=document.getElementById("subject_"+i);
+                            $(subject_re).append('学科分类：');
+                            for(var k=0;k<paperInfo.subjectName.length;k++){
+                                $(subject_re).append('<a href="subject.html?name='+ paperInfo.subjectName[k] +'">' + paperInfo.subjectName[k] + '</a>');
+                            }
                         }
                     }
                 }
