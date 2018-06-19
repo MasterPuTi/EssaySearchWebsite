@@ -37,10 +37,9 @@ function GetRequest() {
     return theRequest;//返回字典类型
 }
 
-var expertId=0;
 function professorGetInfor() {               //获得专家信息  并展示
     var request=GetRequest();
-    //var expertId;
+    var expertId;
     $.ajax({
         contentType: 'application/json;charset=UTF-8',
         url:' http://192.144.179.57:8080/demo-v1/api/visitor/expert/'+request["pid"],
@@ -63,7 +62,11 @@ function professorGetInfor() {               //获得专家信息  并展示
                         data.expertInfo.realName;
                     professorID.innerText=
                         'ID：'+data.expertInfo.id;
-                    expertId = data.expertInfo.id;
+
+                    expertId = data.expertInfo.id;    //checkRole中用到
+                    var newImage=document.getElementById("professor_relation_image"); //专家关系网络图
+                    newImage.src = "images/expert_relationship/"+expertId+".png";
+
                     console.log(expertId);
                     introduction.innerHTML=
                         data.expertInfo.introduction;
@@ -87,7 +90,20 @@ function professorGetInfor() {               //获得专家信息  并展示
                             tmp.appendChild(x);
                         }
                     }
-
+                    // else {
+                    //     for(var i=0;i<data.expertInfo.paperName.length;i++){
+                    //         var div1=document.createElement("div");
+                    //
+                    //         var p1=document.createElement("p");
+                    //         p.innerHTML=
+                    //             data.expertInfo.paperName[i];
+                    //         div1.appendChild(p);
+                    //
+                    //         var button1=document.createElement("button");
+                    //         button1.
+                    //
+                    //     }
+                    // }
 
                     tmp = document.getElementById("patentname_containner");
                     if(data.expertInfo.patentName.length === 0){
@@ -112,31 +128,28 @@ function professorGetInfor() {               //获得专家信息  并展示
     });
     return expertId;
 }
-console.log(expertId);
 
-// function checkRole() {
-//     $.ajax({
-//         contentType: 'application/json;charset=UTF-8',
-//         url:'http://192.144.179.57:8080/demo-v1/api/user/userInfo',
-//         type:'get',
-//         dataType: "json",
-//         success: function (data) {
-//             console.log("1");
-//             if(data.status === "succeed"){
-//                 console.log("2");
-//                 console.log(data);
-//                 console.log(expertId);
-//                 if(data.expertId === professorGetInfor()){
-//                     console.log("3");
-//                 }
-//                 else {
-//                     document.getElementById("professorFuctionTop").style.display="none";
-//                     console.log("4");
-//                 }
-//             }
-//         }
-//     })
-// }
+function checkRole(expertId) {
+    $.ajax({
+        contentType: 'application/json;charset=UTF-8',
+        url:'http://192.144.179.57:8080/demo-v1/api/user/userInfo',
+        type:'get',
+        dataType: "json",
+        success: function (data) {
+            console.log("1");
+            if(data.status === "succeed"){
+                //var test = professorGetInfor();
+                if(data.data.expertId === expertId){
+                    console.log("3");
+                }
+                else {
+                    document.getElementById("professorFuctionTop").style.display="none";
+                    console.log("4");
+                }
+            }
+        }
+    })
+}
 
 
 function professorEdit(){                     //专家功能之修改专家信息
@@ -238,9 +251,10 @@ function checkLogin() {          //左上角的checklogin
     });
 }
 
+
 window.onload=function(){
     checkLogin();
-    professorGetInfor();
-    //checkRole();
+    //professorGetInfor();
+    checkRole(professorGetInfor());
 };
 
