@@ -37,6 +37,29 @@ function searching(sType, type, name, page, year, order, orderType){
         final_url+='&order='+order;
     if(orderType)
         final_url+='&orderType='+orderType;
+
+    //保留搜索信息
+    var searchInfo=document.getElementsByName("searchInfo");
+    var searchType=document.getElementsByName("searchingType");
+    searchInfo[0].value=name;
+    var sTypeCHINESE;
+    if (sType==="keyword") {
+        searchType[0].options[0].selected=true;
+        sTypeCHINESE=searchType[0].options[0].innerHTML;
+    }
+    else if (sType==="title"){
+        searchType[0].options[1].selected=true;
+        sTypeCHINESE=searchType[0].options[1].innerHTML;
+    }
+    else if (sType==="author"){
+        searchType[0].options[2].selected=true;
+        sTypeCHINESE=searchType[0].options[2].innerHTML;
+    }
+    else if (sType==="subject"){
+        searchType[0].options[3].selected=true;
+        sTypeCHINESE=searchType[0].options[3].innerHTML;
+    }
+
     $.ajax({
         contentType: 'application/json;charset=UTF-8',
         url:final_url,
@@ -49,7 +72,7 @@ function searching(sType, type, name, page, year, order, orderType){
                 var div=document.getElementById("resultsContainer");
                 $(div).empty();
                 $(div).append('                <div class="classification results_quantity">\n' +
-                    '                    根据"'+name+'"搜索，共'+data.data.totalElement+'个结果\n' +
+                    '                    按照&nbsp;<em>“'+sTypeCHINESE+'&nbsp;”</em>&nbsp;搜索&nbsp;<em>“'+name+'&nbsp;”</em>，共'+data.data.totalElement+'个结果\n' +
                     '                </div>\n' +
                     '                <div class="classification">\n' +
                     '                    排序：\n' +
@@ -100,7 +123,7 @@ function searching(sType, type, name, page, year, order, orderType){
                             p.innerHTML = '<a href="professor.html?pid=' + paperInfo.ownersName[j].id + '" class="author_results">' + paperInfo.ownersName[j].name + '</a>'+p.innerHTML;
                         }
                         //显示学科
-                        if(paperInfo.subject){
+                        if(paperInfo.subject.length){
                             var subject_re=document.getElementById("subject_"+i);
                             $(subject_re).append('学科分类：');
                             for(var k=0;k<paperInfo.subject.length;k++){
@@ -112,23 +135,6 @@ function searching(sType, type, name, page, year, order, orderType){
                     last_ele.style.borderBottom='0px';
                     last_ele.style.marginBottom='0px';
                 }                             
-
-                //保留搜索信息
-                var searchInfo=document.getElementsByName("searchInfo");
-                var searchType=document.getElementsByName("searchingType");
-                searchInfo[0].value=name;
-                if (sType==="keyword") {
-                    searchType[0].options[0].selected=true;
-                }
-                else if (sType==="title"){
-                    searchType[0].options[1].selected=true;
-                }
-                else if (sType==="author"){
-                    searchType[0].options[2].selected=true;
-                }
-                else if (sType==="subject"){
-                    searchType[0].options[3].selected=true;
-                }
 
                 //红色字体
                 showRedFont(name, sType);
@@ -172,11 +178,21 @@ function searching(sType, type, name, page, year, order, orderType){
 }
 
 /**
+ * 学科排序算法，按number降序排列
+ * @param a
+ * @param b
+ */
+function subjectSortMethod(a, b) {
+    return b.number-a.number;
+}
+
+/**
  * 生成右侧学科分类
  * @param name 搜索内容
  * @param type 检索方式（关键字、篇名……）
  */
 function subjectCategory(name, type) {
+    test("学科分类统计中。。");
     $.ajax({
         contentType: 'application/json;charset=UTF-8',
         url:'http://192.144.179.57:8080/demo-v1/api/search/subject?name='+name+'&type='+type,
@@ -189,11 +205,12 @@ function subjectCategory(name, type) {
                 var list=document.getElementById("sub_list");
                 if(data.data.length){
                     list.innerHTML='';
-                    for (var i=0;i<data.data.length;i++){
-                        $(list).append('<li><a href="#">'+data.data[i].subject+'('+data.data[i].number+')'+'</a></li>');
+                    var sortData=data.data.sort(subjectSortMethod);
+                    for (var i=0;i<sortData.length&&i<=20;i++){
+                        $(list).append('<li><a href="#">'+sortData[i].subject+'('+sortData[i].number+')'+'</a></li>');
                     }
                 }else {
-                    list.innerHTML="<li>空</li>";
+                    list.innerHTML="<li><a href='#'>空</a></li>";
                 }
             }else{
                 alert('net failure');
@@ -208,11 +225,22 @@ function subjectCategory(name, type) {
 }
 
 /**
+ * 年份排序方法，降序
+ * @param a
+ * @param b
+ * @returns {number}
+ */
+function yearSortMethod(a, b) {
+    return b.year-a.year;
+}
+
+/**
  * 生成右侧时间分类
  * @param name 搜索内容
  * @param type 检索方式（关键字、篇名……）
  */
 function timeCategory(name, type) {
+    test("时间分类统计中。。");
     $.ajax({
         contentType: 'application/json;charset=UTF-8',
         url:'http://192.144.179.57:8080/demo-v1/api/search/year?name='+name+'&type='+type,
@@ -225,11 +253,12 @@ function timeCategory(name, type) {
                 var list=document.getElementById("time_list");
                 if(data.data.length){
                     list.innerHTML='';
-                    for (var i=0;i<data.data.length;i++){
-                        $(list).append('<li><a href="searching('+type+',\'paper\','+name+',null,'+data.data[i].year+')">'+data.data[i].year+'('+data.data[i].number+')'+'</a></li>');
+                    var sortData=data.data.sort(yearSortMethod);
+                    for (var i=0;i<sortData.length;i++){
+                        $(list).append('<li><a href="searching('+type+',\'paper\','+name+',null,'+sortData[i].year+')">'+sortData[i].year+'('+sortData[i].number+')'+'</a></li>');
                     }
                 }else {
-                    list.innerHTML="<li>空</li>";
+                    list.innerHTML="<li><a href='#'>空</a></li>";
                 }
             }else{
                 alert('net failure');
@@ -261,9 +290,6 @@ function showRedFont(keyword, type) {
         for (j=0;j<div.length;j++){
             if (title[j].innerHTML){
                 title[j].innerHTML=title[j].innerHTML.replace(reg,repStr);
-            }
-            if (author[j].innerHTML){
-                author[j].innerHTML=author[j].innerHTML.replace(reg,repStr);
             }
             if (abstract[j].innerHTML){
                 abstract[j].innerHTML=abstract[j].innerHTML.replace(reg,repStr_ab);
@@ -347,6 +373,7 @@ function displayNav(divObj,total,curPage) {
 }
 
 window.onload = function(){
+    checkLogin();
     var request=GetRequest();//从url中获取搜索信息以及类型
     searching(request["searchingType"], "paper", request["searchInfo"]);
     subjectCategory(request["searchInfo"], request["searchingType"]);
@@ -356,3 +383,61 @@ window.onload = function(){
 function test(a) {
     console.log(a);
 }
+
+//checklogin部分代码
+function logout(){
+    $.ajax({
+        contentType: 'application/json;charset=UTF-8',
+        url:'http://192.144.179.57:8080/demo-v1/api/authen/logout',
+        type:'delete',
+        dataType: "json",
+        success: function(data){
+            if (data) {
+                console.log(data);
+                if(data.status === "succeed"){
+                    location.reload();
+                }
+            }else{
+                alert('net failure');
+            }
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            // alert(XMLHttpRequest.status);
+            // alert(XMLHttpRequest.readyState);
+            // alert(textStatus);
+        }
+    });
+}
+function checkLogin() {
+    $.ajax({
+        contentType: 'application/json;charset=UTF-8',
+        url:'http://192.144.179.57:8080/demo-v1/api/authen/user',
+        type:'get',
+        dataType: "json",
+        success: function(data){
+            if (data) {
+                console.log(data);
+                if(data.status === "succeed"){
+                    var loginButton = document.getElementById("loginButton");
+                    var registerButton = document.getElementById("registerButton");
+                    loginButton.innerHTML=
+                        '欢迎，' + data.nickname;
+                    registerButton.innerHTML=
+                        '<a id="user-space" href="user/userinfo.html' + '">'+ '个人空间' + '</a>';
+                    document.getElementById("changePassword").style.display = "inline";
+                    document.getElementById("logout").style.display = "inline";
+                }
+            }else{
+                alert('net failure');
+                //没有登录就跳转到index.html
+                window.location.href = 'index.html';
+            }
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            // alert(XMLHttpRequest.status);
+            // alert(XMLHttpRequest.readyState);
+            // alert(textStatus);
+        }
+    });
+}
+//checklogin结束
