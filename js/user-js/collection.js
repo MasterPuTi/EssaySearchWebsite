@@ -27,10 +27,11 @@ function getUserCollection(pageNumber){
                         //当前论文的信息
                         var paperInfo=collectionFolder[j].items[i];
                         div.innerHTML+=
-                            '                    <div class="blog-left-grids">\n' +
+                            '                    <div class="blog-left-grids" id="' +'paper_'+paperInfo.id+'">'+
                             '                        <div class="blog-left-right_results">\n' +
                             '                            <div class="blog-left-right-top">\n' +
-                            '                                <h4><a href="resultpage.html?id='+paperInfo.id+'">'+paperInfo.name+'</a><img src="../images/point.png"><span class="point_icon_font">'+paperInfo.pointRequired+'</span></h4>\n' +
+                            '                                <h4><a href="../resultpage.html?id='+paperInfo.id+'">'+paperInfo.name+'</a><img src="../images/point.png"><span class="point_icon_font">'+paperInfo.pointRequired+'&nbsp;&nbsp;</span>'+
+                            '                                <a onclick="' + 'delFromCollection('+paperInfo.id+')"x>'+'<i class="fa fa-star"></i></a>'+'</h4>\n' +
                             '                                <p id="author_'+i+'">&nbsp;-&nbsp; '+paperInfo.publicationTime+' &nbsp;-&nbsp; '+paperInfo.journal+'&nbsp;-&nbsp; 被引量：'+paperInfo.referenceTimes+'</p>\n' +
                             '                            </div>\n' +
                             '                            <div class="blog-left-right-bottom">\n' +
@@ -97,6 +98,66 @@ function getUserCollection(pageNumber){
     });
 }
 
+function addToCollection(paperId){
+    $.ajax({
+        contentType: 'application/json;charset=UTF-8',
+        url:'http://192.144.179.57:8080/demo-v1/api/collect/paper/'+paperId+'/collection',
+        type:'get',
+        dataType: "json",
+        success: function(res){
+            if (res) {
+                if (res.status==='succeed'){           //success
+                    alert('收藏成功');
+                    window.location.reload(true);
+                }
+                else {
+                    alert('other error');
+                }
+            }else{
+                alert('net failure');
+                //没有登录就跳转到index.html
+                window.location.href = '../index.html';
+            }
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            // alert(XMLHttpRequest.status);
+            // alert(XMLHttpRequest.readyState);
+            // alert(textStatus);
+        }
+    });
+}
+
+function delFromCollection(paperId){
+    var confirmRes=confirm('确定取消收藏吗？');
+    if (confirmRes){
+        $.ajax({
+            contentType: 'application/json;charset=UTF-8',
+            url:'http://192.144.179.57:8080/demo-v1/api/collect/paper/'+paperId+'/undoCollection',
+            type:'delete',
+            dataType: "json",
+            success: function(res){
+                if (res) {
+                    if (res.status==='succeed'){           //success
+                        alert('取消收藏成功');
+                        window.location.reload(true);
+                    }
+                    else {
+                        alert('other error');
+                    }
+                }else{
+                    alert('net failure');
+                    //没有登录就跳转到index.html
+                    window.location.href = '../index.html';
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                // alert(XMLHttpRequest.status);
+                // alert(XMLHttpRequest.readyState);
+                // alert(textStatus);
+            }
+        });
+    }
+}
 
 $(function(){
     checkLogin();
