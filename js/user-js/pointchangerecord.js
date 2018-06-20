@@ -37,6 +37,7 @@ function getUserPointRecord(pageNumber){
                     return;
                 }
                 //生成翻页符
+                $('nav').html('');
                 displayNav(div,data.data.totalPage,data.data.nowPage);
                 var obj=document.getElementById("page_re").getElementsByTagName("a");
                 for(var i=0;i<obj.length;i++){
@@ -72,6 +73,63 @@ function getUserPointRecord(pageNumber){
 
 }
 
+/**
+ *显示分页部分
+ * @param divObj
+ * @param total
+ * @param curPage
+ */
+function displayNav(divObj,total,curPage) {
+    if (total===1||total===0){
+        return;
+    }
+    $(divObj).append('                <nav>\n' +
+        '                    <ul class="pagination" id="page_re">\n' +
+        '                    </ul>\n' +
+        '                </nav>');
+    var start, end;
+    if(curPage>=4){
+        start=curPage-3;
+        if (curPage<=total-3) {
+            end=curPage+3;
+        }
+        else {
+            end=total;
+            start=(total>7)?total-6:1;
+        }
+    }
+    else {
+        start=1;
+        end=(total<=7)?total:7;
+    }
+
+    var page_re=document.getElementById("page_re");
+    //生成“上一页”
+    if(curPage!==1){
+        $(page_re).append('                        <li>\n' +
+            '                            <a href="#" aria-label="Previous" id="previous_page">\n' +
+            '                                <span aria-hidden="true">«</span>\n' +
+            '                            </a>\n' +
+            '                        </li>');
+    }
+    //生成中间数字部分
+    for (var i=start;i<=end;i++){
+        var ele_li=document.createElement("li");
+        if(i===curPage)
+            ele_li.innerHTML='<span id="current_page">'+i+'</span>';
+        else
+            ele_li.innerHTML='<a href="#">'+i+'</a>';
+        page_re.appendChild(ele_li);
+    }
+    //生成“下一页”
+    if(curPage!==total){
+        $(page_re).append('                        <li>\n' +
+            '                            <a href="#" aria-label="Next" id="next_page">\n' +
+            '                                <span aria-hidden="true">»</span>\n' +
+            '                            </a>\n' +
+            '                        </li>');
+    }
+}
 
 $(function(){
     checkLogin();
