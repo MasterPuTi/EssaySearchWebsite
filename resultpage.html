@@ -25,6 +25,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="js/bootstrap.js"></script>
     <script src="js/SmoothScroll.min.js"></script>
     <script src="js/checkIfLogin.js"></script>
+    <script src="js/resultpage.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function($) {
             $(".scroll").click(function(event){
@@ -103,7 +104,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //header -->
 <!-- about-heading -->
 <div class="about-heading">
-    <h2>Single <span>page</span></h2>
+    <h2>Result <span>page</span></h2>
 </div>
 <!-- //about-heading -->
 <!-- blog -->
@@ -121,42 +122,40 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </div>
                         <div class="blog-left-right">
                             <div class="blog-left-right-top">
-                                <h4>Integer et turpis augue. In hac habitasse platea dictumst.</h4>
-                                <p>Posted By <a href="#">Admin</a> &nbsp;&nbsp; on June 2, 2016 &nbsp;&nbsp; <a href="#">Comments (10)</a></p>
+                                <h4 id="result_name">成果名称</h4>
+                                <p>由<a href="#" id="result_ownersName">作者</a>于
+                                <span id="result_publicationTime">发表时间</span>发表</p>
                             </div>
                             <div class="blog-left-right-bottom">
-                                <p>Vivamus fermentum vel lacus ac ornare. Vestibulum pulvinar massa pharetra risus pharetra, eu blandit risus viverra. Aenean in ultrices enim, ut tincidunt libero. Phasellus libero enim, semper ac felis eget, efficitur ultrices orci. Aenean tincidunt lacus lorem, non varius enim luctus sed. Quisque eu aliquet quam, et sollicitudin nibh. Duis finibus at felis eu laoreet. Nulla non lacus sem.
-                                    <span>Curabitur vel elementum tortor, gravida tempor magna. Nullam sit amet lectus at mi dapibus tempus fermentum quis ipsum. Pellentesque rutrum tellus nec dolor suscipit, et bibendum ligula consequat. </span></p>
+                                <p id="result_abstractInfo">成果摘要</p>
                             </div>
                         </div>
                         <div class="clearfix"> </div>
-                    </div>
-                    <div class="response">
-                        <h3>Responses</h3>
-                        <div class="media response-info">
-                            <div class="media-left response-text-left">
-                                <a href="#">
-                                    <img class="media-object" src="images/t1.jpg" alt="">
-                                </a>
-                                <h5><a href="#">Admin</a></h5>
                             </div>
-                            <div class="media-body response-text-right">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,There are many variations of passages of Lorem Ipsum available,
-                                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                <ul>
-                                    <li>June 21, 2016</li>
-                                    <li><a href="resultpage.html">Reply</a></li>
+                            <div class="response">
+                                <h3>Responses</h3>
+                                <div class="media response-info">
+                                    <div class="media-left response-text-left">
+                                        <a href="#">
+                                            <img class="media-object" src="images/t1.jpg" alt="">
+                                        </a>
+                                        <h5><a href="#">Anna Holmones</a></h5>
+                                    </div>
+                                    <div class="media-body response-text-right">
+                                        <p>伟大的科技发现，对人类发展具有划时代的意义！</p>
+                                        <ul>
+                                            <li>June 21, 2016</li>
+                                            <li><a href="resultpage.html">Reply</a></li>
                                 </ul>
                                 <div class="media response-info">
                                     <div class="media-left response-text-left">
                                         <a href="#">
                                             <img class="media-object" src="images/t2.jpg" alt="">
                                         </a>
-                                        <h5><a href="#">Admin</a></h5>
+                                        <h5><a href="#">Alexender Macksve</a></h5>
                                     </div>
                                     <div class="media-body response-text-right">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,There are many variations of passages of Lorem Ipsum available,
-                                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                        <p>毫无意义的论文，我的智障侄子3小时就能写出一篇。</p>
                                         <ul>
                                             <li>June 21, 2016</li>
                                             <li><a href="resultpage.html">Reply</a></li>
@@ -172,11 +171,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <a href="#">
                                     <img class="media-object" src="images/t3.jpg" alt="">
                                 </a>
-                                <h5><a href="#">Admin</a></h5>
+                                <h5><a href="#">Bill Jordan</a></h5>
                             </div>
                             <div class="media-body response-text-right">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,There are many variations of passages of Lorem Ipsum available,
-                                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <p>为这位天才的努力和付出鼓掌！</p>
                                 <ul>
                                     <li>June 21, 2016</li>
                                     <li><a href="resultpage.html">Reply</a></li>
