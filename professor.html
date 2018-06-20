@@ -124,7 +124,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="container">
             <div class="w3-banner-bottom-heading about-choose">
                 <h3 id="professorName">专家姓名  </h3>
-                <h3 id="professorID"><span>                                ID:123456</span></h3>
+                <h3 id="professorID"><span>                                ID</span></h3>
             </div>
             <div class="agile-choose-grids">
                 <div class="col-sm-4 agile-choose-grid">
@@ -133,7 +133,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="choose-info">
                         <h4>介绍</h4>
-                        <p id="introduction">被引频次 32815 成果数 615 H指数 77 G指数 178</p>
+                        <p id="introduction"></p>
                     </div>
                 </div>
                 <div class="col-sm-4 agile-choose-grid">
@@ -142,7 +142,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="choose-info">
                         <h4>组织机构</h4>
-                        <p id="institution">北京大学中国经济研究中心</p>
+                        <p id="institution"></p>
                     </div>
                 </div>
                 <div class="col-sm-4 agile-choose-grid">
@@ -151,7 +151,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="choose-info">
                         <h4>科研领域</h4>
-                        <p id="researchField">发展经济学</p>
+                        <p id="researchField"></p>
                     </div>
                 </div>
             </div>
@@ -211,10 +211,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <p>门户信息申诉</p>
                 </button>
                 <button id="proFucButton3" onclick="showDiv3()">
-                    <p>修改资源购买积分</p>
-                </button>
-                <button id="proFucButton4" onclick="showDiv4()">
-                    <p>修改积分分配比例</p>
+                    <p>查看历史申诉</p>
                 </button>
                 <div class="clearfix"> </div>
                 <!-- end Bottom to top-->
@@ -237,15 +234,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <input type="submit" value="提交" onclick="professorAppeal()"/>
             </div>
             <div id="proFuc3">
-                <h3>修改资源<span>购买积分</span></h3>
-                <textarea></textarea><br/>
-                <input type="submit" value="提交"/>
+                <h3>查看<span>历史申诉</span></h3>
+                <textarea id="textareaAppeal">
+                    <p id="appealID"></p>
+                    <p id="applicant"></p>
+                    <p id="applicationTime"></p>
+                    <p id="applicationContent"></p>
+                    <p id="handleStatus"></p>
+                    <p id="resultContent"></p>
+                </textarea><br/>
             </div>
-            <div id="proFuc4">
-                <h3>修改积分<span>分配比例</span></h3>
-                <textarea></textarea><br/>
-                <input type="submit" value="提交"/>
-            </div>
+            <!--<div id="proFuc4">-->
+                <!--<h3>修改积分<span>分配比例</span></h3>-->
+                <!--<textarea></textarea><br/>-->
+                <!--<input type="submit" value="提交"/>-->
+            <!--</div>-->
         </div>
     </div>
     <!--//professorFuctionBottom-->
