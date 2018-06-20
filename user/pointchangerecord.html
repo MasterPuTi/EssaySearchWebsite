@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>收藏夹</title>
+    <title>积分变动记录</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="" />
@@ -26,7 +26,7 @@
     <script src="../js/checkIfLogin.js"></script>
     <script src="../js/results.js"></script>
     <!--collection.js引入-->
-    <script src="../js/user-js/collection.js"></script>
+    <script src="../js/user-js/pointchangerecord.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function($) {
             $(".scroll").click(function(event){
@@ -157,39 +157,23 @@
 
     <div style="width: 70%;">
         <div class="modal-header">
-            <h2 style="">我的收藏&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+            <h2 style="">积分记录&nbsp;&nbsp;&nbsp;&nbsp;</h2>
         </div>
-        <div id="collection-container" class="modal-body">
-                <div class="blog-left-grids">
-                    <div class="blog-left-right_results">
-                        <div class="blog-left-right-top">
-                            <h4>
-                                <a href="../resultpage.html">Integer et turpis augue. In hac habitasse platea dictumst.</a>
-                                <img src="../images/point.png">
-                                <span class="point_icon_font">20 &nbsp;&nbsp;</span>
-                                <a id="change-btn" onclick=""><i class="fa fa-star-o"></i></a>
-                            </h4>
-                            <p><a href="#">Author1</a>，<a href="#">Author2</a> &nbsp;-&nbsp; 2016 &nbsp;-&nbsp; 《自动化学报》&nbsp;-&nbsp; 被引量：130</p>
-                        </div>
-                        <div class="blog-left-right-bottom">
-                            <p>Vivamus fermentum vel lacus ac ornare. Vestibulum pulvinar massa pharetra risus pharetra, eu blandit risus viverra. Aenean in ultrices enim, ut tincidunt libero. Phasellus libero enim, semper ac felis eget, efficitur ultrices orci. Aenean tincidunt lacus lorem, non varius enim luctus sed. Quisque eu aliquet quam, et sollicitudin nibh. Duis finibus at felis eu laoreet. Nulla non lacus sem.</p>
-                        </div>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="blog-left-grids">
-                    <div class="blog-left-right_results">
-                        <div class="blog-left-right-top">
-                            <h4><a href="../resultpage.html">Integer et turpis augue. In hac habitasse platea dictumst.</a><img src="../images/point.png"><span class="point_icon_font">20</span></h4>
-                            <p><a href="#">Author1</a>，<a href="#">Author2</a> &nbsp;-&nbsp; 2016 &nbsp;-&nbsp; 《自动化学报》&nbsp;-&nbsp; 被引量：130</p>
-                        </div>
-                        <div class="blog-left-right-bottom">
-                            <p>Vivamus fermentum vel lacus ac ornare. Vestibulum pulvinar massa pharetra risus pharetra, eu blandit risus viverra. Aenean in ultrices enim, ut tincidunt libero. Phasellus libero enim, semper ac felis eget, efficitur ultrices orci. Aenean tincidunt lacus lorem, non varius enim luctus sed. Quisque eu aliquet quam, et sollicitudin nibh. Duis finibus at felis eu laoreet. Nulla non lacus sem.</p>
-                        </div>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
+        <div id="pointrecord-container" class="modal-body">
+            <div class="bs-docs-example wow fadeInUp animated" data-wow-delay=".5s">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>变动时间</th>
+                        <th>变动数量</th>
+                        <th>变动详情</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
