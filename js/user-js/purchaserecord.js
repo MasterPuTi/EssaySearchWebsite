@@ -53,13 +53,16 @@ function getPurchaseRecord(pageNumber){
                         }
                     }
                     //显示学科
-                    if(paperInfo.subjectName){
-                        var subject_re=document.getElementById("subject_"+i);
-                        $(subject_re).append('学科分类：');
-                        for(var k=0;k<paperInfo.subjectName.length;k++){
-                            $(subject_re).append('<a href="../subject.html?name='+ paperInfo.subjectName[k] +'">' + paperInfo.subjectName[k] + '</a>');
+                    if (paperInfo.subject){
+                        if(paperInfo.subject.length){
+                            var subject_re=document.getElementById("subject_"+i);
+                            $(subject_re).append('学科分类：');
+                            for(var k=0;k<paperInfo.subject.length;k++){
+                                $(subject_re).append('<a href="../subject.html?sid='+ paperInfo.subject[k].id +'">' + paperInfo.subject[k].name + '</a>');
+                            }
                         }
                     }
+
                     //显示购买时间
                     if (data.data.items[i].recordTime){
                         var recordtime=document.getElementById("recordtime_"+i);
