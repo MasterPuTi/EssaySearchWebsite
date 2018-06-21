@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>收藏夹</title>
+    <title>用户充值</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="" />
@@ -20,27 +19,25 @@
     <link href="http://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300' rel='stylesheet' type='text/css'>
     <!-- //font -->
-    <link href='../css/immersive-slider.css' rel='stylesheet' type='text/css'>
-    <!-- pricing -->
-    <link rel="stylesheet" href="../css/jquery.flipster.css">
-    <!-- //pricing -->
-    <link href="../css/results.css" rel="stylesheet" type="text/css">
     <script src="../js/jquery-1.11.1.min.js"></script>
     <script src="../js/bootstrap.js"></script>
     <script src="../js/SmoothScroll.min.js"></script>
     <script src="../js/checkIfLogin.js"></script>
-    <!--collection.js引入-->
-    <script src="../js/user-js/collection.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function($) {
             $(".scroll").click(function(event){
                 event.preventDefault();
-                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
+                $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
             });
         });
     </script>
+    <link href='../css/immersive-slider.css' rel='stylesheet' type='text/css'>
+    <!-- pricing -->
+    <link rel="stylesheet" href="../css/jquery.flipster.css">
+    <!-- //pricing -->
 </head>
 <body>
+
 <!-- header-top -->
 <div class="header-top">
     <div class="container">
@@ -163,13 +160,133 @@
 
     <div style="width: 70%;">
         <div class="modal-header">
-            <h2 style="">我的收藏&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+            <h2 style="">相关充值&nbsp;&nbsp;&nbsp;&nbsp;</h2>
         </div>
-        <div id="collection-container" class="modal-body">
-
+        <div class="modal-body">
+            <!-- special -->
+            <div class="special">
+                <div class="container">
+                    <div class="w3-banner-bottom-heading">
+                        <h3>Special Introductory <span>Offers</span></h3>
+                    </div>
+                    <div class="wthree-special-grid">
+                        <div class="flipster">
+                            <ul>
+                                <li>
+                                    <div class="pricing">
+                                        <div class="pricing-top green-top">
+                                            <h3>个人</h3>
+                                            <p>￥50</p>
+                                        </div>
+                                        <div class="pricing-bottom">
+                                            <div class="pricing-bottom-top">
+                                                <p>基础50积分点</p>
+                                                <p>每天1点积分</p>
+                                                <p>额外赠送20积分</p>
+                                            </div>
+                                            <div class="pricing-bottom-bottom">
+                                                <p><span>绑定银行卡</span> 自动续费</p>
+                                            </div>
+                                            <div class="buy-button">
+                                                <a>充值</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="pricing">
+                                        <div class="pricing-top blue-top">
+                                            <h3>个人</h3>
+                                            <p>￥70</p>
+                                        </div>
+                                        <div class="pricing-bottom">
+                                            <div class="pricing-bottom-top">
+                                                <p>基础70积分点</p>
+                                                <p>每天2点积分</p>
+                                                <p>额外赠送30积分</p>
+                                            </div>
+                                            <div class="pricing-bottom-bottom">
+                                                <p><span>绑定银行卡</span> 自动续费</p>
+                                            </div>
+                                            <div class="buy-button">
+                                                <a>充值</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="pricing">
+                                        <div class="pricing-top">
+                                            <h3>家庭</h3>
+                                            <p>￥270</p>
+                                        </div>
+                                        <div class="pricing-bottom">
+                                            <div class="pricing-bottom-top">
+                                                <p>每人基础50积分点</p>
+                                                <p>每天1点积分</p>
+                                                <p>额外赠送20积分</p>
+                                            </div>
+                                            <div class="pricing-bottom-bottom">
+                                                <p><span>绑定银行卡</span> 自动续费</p>
+                                            </div>
+                                            <div class="buy-button">
+                                                <a>充值</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="pricing">
+                                        <div class="pricing-top green-top">
+                                            <h3>专家</h3>
+                                            <p>￥720</p>
+                                        </div>
+                                        <div class="pricing-bottom">
+                                            <div class="pricing-bottom-top">
+                                                <p>基础720积分点</p>
+                                                <p>每天10点积分</p>
+                                                <p>每天3篇免费论文</p>
+                                            </div>
+                                            <div class="pricing-bottom-bottom">
+                                                <p><span>绑定银行卡</span> 自动续费</p>
+                                            </div>
+                                            <div class="buy-button">
+                                                <a>充值</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="pricing">
+                                        <div class="pricing-top">
+                                            <h3>专家</h3>
+                                            <p>￥120</p>
+                                        </div>
+                                        <div class="pricing-bottom">
+                                            <div class="pricing-bottom-top">
+                                                <p>基础120积分点</p>
+                                                <p>每天1点积分</p>
+                                                <p>每天1篇免费论文</p>
+                                            </div>
+                                            <div class="pricing-bottom-bottom">
+                                                <p><span>绑定银行卡</span> 自动续费</p>
+                                            </div>
+                                            <div class="buy-button">
+                                                <a>充值</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- //special -->
         </div>
     </div>
 </div>
+
 <!-- footer -->
 <div class="footer">
     <div class="container">
@@ -226,5 +343,48 @@
     </div>
 </div>
 <!-- //footer -->
+
+<script src="../js/jarallax.js"></script>
+<script type="text/javascript">
+    /* init Jarallax */
+    $('.jarallax').jarallax({
+        speed: 0.5,
+        imgWidth: 1366,
+        imgHeight: 768
+    })
+</script>
+<script src="../js/responsiveslides.min.js"></script>
+<script type="text/javascript" src="../js/move-top.js"></script>
+<script type="text/javascript" src="../js/easing.js"></script>
+<!-- here stars scrolling icon -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        /*
+            var defaults = {
+            containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear'
+            };
+        */
+
+        $().UItoTop({ easingType: 'easeOutQuart' });
+
+    });
+</script>
+<!-- //here ends scrolling icon -->
+<!-- pricing -->
+<script src="../js/jquery.flipster.js"></script>
+<script>
+    <!--
+
+    $(function(){ $(".flipster").flipster({ style: 'carousel', start: 0 }); });
+
+    -->
+</script>
+<!-- //pricing -->
+<!-- slider -->
+<script type="text/javascript" src="../js/jquery.immersive-slider.js"></script>
+<!-- //slider -->
 </body>
 </html>

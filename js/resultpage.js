@@ -28,8 +28,20 @@ function resultInfo() {
                     var result_ownersName=document.getElementById("result_ownersName");
                     var result_publicationTime=document.getElementById("result_publicationTime");
                     var result_abstractInfo=document.getElementById("result_abstractInfo");
-                    result_name.innerHTML=
-                        data.data.name;
+                    //如果该论文已收藏 显示实心star
+                    if (data.data.collected){
+                        result_name.innerHTML=
+                            data.data.name+'<img src="images/point.png"><span class="point_icon_font">'+data.data.pointRequired+'&nbsp;&nbsp;</span>'+
+                            '                                <a id="del-collect-btn">'+'<i class="fa fa-star"'+' onclick="delFromCollection('+data.data.id+')"></i></a>'+
+                        '                                <a id="add-collect-btn" style="display: none">'+'<i class="fa fa-star-o"'+' onclick="addToCollection('+data.data.id+')"></i></a>';
+                    }
+                    else {  //空心star
+                        result_name.innerHTML=
+                            data.data.name+'<img src="images/point.png"><span class="point_icon_font">'+data.data.pointRequired+'&nbsp;&nbsp;</span>'+
+                            '                                <a id="add-collect-btn">'+'<i class="fa fa-star-o"'+' onclick="addToCollection('+data.data.id+')"></i></a>'+
+                        '                                <a id="del-collect-btn" style="display: none">'+'<i class="fa fa-star"'+' onclick="delFromCollection('+data.data.id+')"></i></a>';
+                    }
+
                     for(var j=0;j<data.data.ownersName.length;j++) {
                             result_ownersName.innerHTML+=data.data.ownersName[j].name;
                     }
@@ -55,8 +67,72 @@ function resultInfo() {
     return false;
 }
 
+function addToCollection(paperId){
+    $.ajax({
+        contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+        url:'http://192.144.179.57:8080/demo-v1/api/collect/paper/'+paperId+'/collection',
+        type:'post',
+        dataType: "json",
+        data: {"collectionName":"a"},
+        success: function(res){
+            if (res) {
+                if (res.status==='succeed'){           //success
+                    alert('收藏成功');
+                    $('#del-collect-btn').show();
+                    $('#add-collect-btn').hide();
+                }
+                else {
+                    alert('other error');
+                }
+            }else{
+                alert('net failure');
+                //没有登录就跳转到index.html
+                window.location.href = 'index.html';
+            }
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            // alert(XMLHttpRequest.status);
+            // alert(XMLHttpRequest.readyState);
+            // alert(textStatus);
+        }
+    });
+}
+
+function delFromCollection(paperId){
+    var confirmRes=confirm('确定取消收藏吗？');
+    if (confirmRes){
+        $.ajax({
+            contentType: 'application/json;charset=UTF-8',
+            url:'http://192.144.179.57:8080/demo-v1/api/collect/paper/'+paperId+'/undoCollection',
+            type:'delete',
+            dataType: "json",
+            success: function(res){
+                if (res) {
+                    if (res.status==='succeed'){           //success
+                        alert('取消收藏成功');
+                        $('#add-collect-btn').show();
+                        $('#del-collect-btn').hide();
+                    }
+                    else {
+                        alert('other error');
+                    }
+                }else{
+                    alert('net failure');
+                    //没有登录就跳转到index.html
+                    window.location.href = 'index.html';
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                // alert(XMLHttpRequest.status);
+                // alert(XMLHttpRequest.readyState);
+                // alert(textStatus);
+            }
+        });
+    }
+}
+
 window.onload=function(){
-    //checkLogin();
+    checkLogin();
     //professorGetInfor();
     //checkRole(professorGetInfor());
     resultInfo();
