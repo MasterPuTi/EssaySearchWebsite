@@ -23,7 +23,7 @@ function GetRequest() {
  * @param order 相关性or引用次数or时间
  * @param orderType 正序or倒序
  */
-function searching(sType, type, name, page, year, order, orderType){
+function searching(sType, type, name, page, year, order, orderType, subjectID){
     "use strict";
     var page=page||1;
     var orderType=orderType||0;
@@ -37,6 +37,8 @@ function searching(sType, type, name, page, year, order, orderType){
         final_url+='&order='+order;
     if(orderType)
         final_url+='&orderType='+orderType;
+    if (subjectID)
+        final_url+='&subjectId='+subjectID;
 
     //保留搜索信息
     var searchInfo=document.getElementsByName("searchInfo");
@@ -147,20 +149,20 @@ function searching(sType, type, name, page, year, order, orderType){
                         if (obj[i].id==="previous_page"){
                             obj[i].onclick=function(){
                                 //console.log((parseInt(data.data.nowPage)-1)+'is onclick');
-                                searching(sType, type, name, parseInt(data.data.nowPage)-1, year, order, orderType);
+                                searching(sType, type, name, parseInt(data.data.nowPage)-1, year, order, orderType, subjectID);
                             };
                             continue;
                         }
                         if (obj[i].id==="next_page"){
                             obj[i].onclick=function(){
                                 //console.log((parseInt(data.data.nowPage)+1)+'is onclick');
-                                searching(sType, type, name, parseInt(data.data.nowPage)+1, year, order, orderType)
+                                searching(sType, type, name, parseInt(data.data.nowPage)+1, year, order, orderType, subjectID)
                             };
                             continue;
                         }
                         (function (i) {
                             obj[i].onclick=function(){
-                                searching(sType, type, name, obj[i].innerHTML, year, order, orderType);
+                                searching(sType, type, name, obj[i].innerHTML, year, order, orderType, subjectID);
                             };
                         })(i);
                     }
@@ -200,14 +202,14 @@ function subjectCategory(name, type) {
         dataType: "json",
         success: function(data){
             if (data) {
-                console.log(data);
+                //console.log(data);
                 //排序方式生成
                 var list=document.getElementById("sub_list");
                 if(data.data.length){
                     list.innerHTML='';
                     var sortData=data.data.sort(subjectSortMethod);
                     for (var i=0;i<sortData.length&&i<=20;i++){
-                        $(list).append('<li><a href="#">'+sortData[i].subject+'('+sortData[i].number+')'+'</a></li>');
+                        $(list).append('<li><a href="#" onclick="searching(\''+type+'\',\'paper\',\''+name+'\',null,null,null,null,'+sortData[i].id+')">'+sortData[i].subject+'('+sortData[i].number+')'+'</a></li>');
                     }
                 }else {
                     list.innerHTML="<li><a href='#'>空</a></li>";
@@ -248,14 +250,17 @@ function timeCategory(name, type) {
         dataType: "json",
         success: function(data){
             if (data) {
-                console.log(data);
+                //console.log(data);
                 //排序方式生成
                 var list=document.getElementById("time_list");
                 if(data.data.length){
                     list.innerHTML='';
                     var sortData=data.data.sort(yearSortMethod);
                     for (var i=0;i<sortData.length;i++){
-                        $(list).append('<li><a href="searching('+type+',\'paper\','+name+',null,'+sortData[i].year+')">'+sortData[i].year+'('+sortData[i].number+')'+'</a></li>');
+                        if (sortData[i].year)
+                            $(list).append('<li><a href="#" onclick="searching(\''+type+'\',\'paper\',\''+name+'\',null,'+sortData[i].year+')">'+sortData[i].year+'('+sortData[i].number+')'+'</a></li>');
+                        else
+                            $(list).append('<li><a href="#" onclick="searching(\''+type+'\',\'paper\',\''+name+'\',null,'+sortData[i].year+')">其他('+sortData[i].number+')'+'</a></li>');
                     }
                 }else {
                     list.innerHTML="<li><a href='#'>空</a></li>";
@@ -297,14 +302,14 @@ function showRedFont(keyword, type) {
         }
     }
     else if (type==="title"){
-        for (j=0;j<div.length;j++){
+        for (j=0;j<title.length;j++){
             if (title[j].innerHTML){
                 title[j].innerHTML=title[j].innerHTML.replace(reg,repStr);
             }
         }
     }
     else if (type==="author"){
-        for (j=0;j<div.length;j++){
+        for (j=0;j<author.length;j++){
             if (author[j].innerHTML){
                 author[j].innerHTML=author[j].innerHTML.replace(reg,repStr);
             }
@@ -372,13 +377,19 @@ function displayNav(divObj,total,curPage) {
     }
 }
 
-window.onload = function(){
-    checkLogin();
-    var request=GetRequest();//从url中获取搜索信息以及类型
-    searching(request["searchingType"], "paper", request["searchInfo"]);
-    subjectCategory(request["searchInfo"], request["searchingType"]);
-    timeCategory(request["searchInfo"], request["searchingType"]);
-};
+/**
+ * 用于导航栏跳转的函数
+ * @param type 检索类型
+ */
+function indexJump(type){
+    var select=document.getElementsByName("searchingType");
+    for(var i=0;i<select[0].length;i++){
+        if(select[0].options[i].value===type){
+            select[0].options[i].selected=true;
+            return;
+        }
+    }
+}
 
 function test(a) {
     console.log(a);

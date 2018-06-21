@@ -207,13 +207,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="team-grids">
                 <!-- Bottom to top-->
                 <button id="proFucButton1" onclick="showDiv1()">
-                    <p>修改专家信息</p>
+                    <p>修改信息</p>
                 </button>
                 <button id="proFucButton2" onclick="showDiv2()">
-                    <p>门户信息申诉</p>
+                    <p>门户申诉</p>
                 </button>
-                <button id="proFucButton3" onclick="showDiv3()">
-                    <p>查看历史申诉</p>
+                <button id="proFucButton3" onclick="showDiv3();getAppeal()">
+                    <p>历史申诉</p>
                 </button>
                 <div class="clearfix"> </div>
                 <!-- end Bottom to top-->
@@ -237,14 +237,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <div id="proFuc3">
                 <h3>查看<span>历史申诉</span></h3>
-                <textarea id="textareaAppeal">
+                <div>
                     <p id="appealID"></p>
                     <p id="applicant"></p>
                     <p id="applicationTime"></p>
                     <p id="applicationContent"></p>
                     <p id="handleStatus"></p>
                     <p id="resultContent"></p>
-                </textarea><br/>
+                </div><br/>
             </div>
             <!--<div id="proFuc4">-->
                 <!--<h3>修改积分<span>分配比例</span></h3>-->

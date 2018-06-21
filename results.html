@@ -27,6 +27,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="js/SmoothScroll.min.js"></script>
     <!--<script src="js/checkIfLogin.js"></script>-->
     <script src="js/results.js"></script>
+    <script src="js/results_main.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function($) {
             $(".scroll").click(function(event){
@@ -82,9 +83,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <nav>
                     <ul class="nav navbar-nav">
                         <li><a href="index.html" class="hvr-sweep-to-bottom">主页</a></li>
-                        <li class="active"><a href="results.html" class="hvr-sweep-to-bottom">论文</a></li>
-                        <li><a href="professor.html" class="hvr-sweep-to-bottom">专家</a></li>
-                        <li><a href="subject.html" class="hvr-sweep-to-bottom">学科</a></li>
+                        <li class="active"><a href="index.html#searchBox" class="hvr-sweep-to-bottom" onclick="indexJump('keyword')">论文</a></li>
+                        <li><a href="index.html#searchBox" class="hvr-sweep-to-bottom" onclick="indexJump('author')">专家</a></li>
+                        <li><a href="index.html#searchBox" class="hvr-sweep-to-bottom" onclick="indexJump('subject')">学科</a></li>
                         <li><a href="#" class="dropdown-toggle hvr-sweep-to-bottom" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">其他界面<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a class="hvr-sweep-to-bottom" href="services.html">Services</a></li>

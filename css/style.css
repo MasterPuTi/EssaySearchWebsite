@@ -1466,11 +1466,11 @@ ul.w3agile_footer_grid_list i.fa.fa-twitter{
     width: 220px;
     height: 220px;
     border-radius:50%;
-    font-size: 1.5em;
+    font-size: 2em;
     font-weight: 600;
     color: #ffffff;
     background-color: #86c724;
-    margin-right: 80px;
+    margin-right: 100px;
 
 }
 #proFucButton1:hover{
@@ -1482,11 +1482,11 @@ ul.w3agile_footer_grid_list i.fa.fa-twitter{
     width: 220px;
     height: 220px;
     border-radius:50%;
-    font-size: 1.5em;
+    font-size: 2em;
     font-weight: 600;
     color: #ffffff;
     background-color: #1ABC9C;
-    margin-right: 80px;
+    margin-right: 100px;
 }
 #proFucButton2:hover{
     background-color: yellow;
@@ -1496,29 +1496,28 @@ ul.w3agile_footer_grid_list i.fa.fa-twitter{
     width: 220px;
     height: 220px;
     border-radius:50%;
-    font-size: 1.5em;
+    font-size: 2em;
     font-weight: 600;
     color: #ffffff;
     background-color: #01B9F8;
-    margin-right: 80px;
 }
 #proFucButton3:hover{
     background-color: yellow;
     color: #000000;
 }
-#proFucButton4 {
-    width: 220px;
-    height: 220px;
-    border-radius:50%;
-    font-size: 1.5em;
-    font-weight: 600;
-    color: #ffffff;
-    background-color: #ac2925;
-}
-#proFucButton4:hover{
-    background-color: yellow;
-    color: #000000;
-}
+/*#proFucButton4 {*/
+    /*width: 220px;*/
+    /*height: 220px;*/
+    /*border-radius:50%;*/
+    /*font-size: 1.5em;*/
+    /*font-weight: 600;*/
+    /*color: #ffffff;*/
+    /*background-color: #ac2925;*/
+/*}*/
+/*#proFucButton4:hover{*/
+    /*background-color: yellow;*/
+    /*color: #000000;*/
+/*}*/
 /*--!proFucButton--*/
 
 
