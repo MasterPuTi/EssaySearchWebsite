@@ -372,13 +372,19 @@ function displayNav(divObj,total,curPage) {
     }
 }
 
-window.onload = function(){
-    checkLogin();
-    var request=GetRequest();//从url中获取搜索信息以及类型
-    searching(request["searchingType"], "paper", request["searchInfo"]);
-    subjectCategory(request["searchInfo"], request["searchingType"]);
-    timeCategory(request["searchInfo"], request["searchingType"]);
-};
+/**
+ * 用于导航栏跳转的函数
+ * @param type 检索类型
+ */
+function indexJump(type){
+    var select=document.getElementsByName("searchingType");
+    for(var i=0;i<select[0].length;i++){
+        if(select[0].options[i].value===type){
+            select[0].options[i].selected=true;
+            return;
+        }
+    }
+}
 
 function test(a) {
     console.log(a);
