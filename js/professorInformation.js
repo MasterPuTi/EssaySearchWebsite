@@ -18,7 +18,7 @@ function showDiv3() {
 
 // input Point only Num
 function onlyNum(){
-    if(!(event.keyCode==46)&&!(event.keyCode==8)&&!(event.keyCode==37)&&!(event.keyCode==39))
+    if(!(event.keyCode===46)&&!(event.keyCode===8)&&!(event.keyCode===37)&&!(event.keyCode===39))
         if(!((event.keyCode>=48&&event.keyCode<=57)||(event.keyCode>=96&&event.keyCode<=105)))
             event.returnValue=false;  //执行至该语句时，阻止输入；可类比阻止冒泡原理或者禁止右键功能；
 }
@@ -110,7 +110,7 @@ function professorGetInfor() {               //获得专家信息  并展示
                             p2.style.cssText="font-size: 2.5em;font-weight: 300;font-family:华文中宋;text-align: center;width: 100%;height: 60px;display: block;line-height: 60px;";
                             p3.style.cssText="height:60px";
                             p1.innerHTML="<img src=\"images/paperID1.png\" style='width: 90px;height: 30px'>&nbsp;&nbsp;"+tmpPaperID+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+"<img src=\"images/point.png\">"+tmpPoint+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+rateString;
-                            p2.innerHTML=data.expertInfo.paperName[i].name;
+                            p2.innerHTML='<a href="resultpage.html?id='+data.expertInfo.paperName[i].id+'">'+data.expertInfo.paperName[i].name+'</a>';
                             p3.innerHTML="<div></div>&nbsp;";
                             div1.appendChild(p1);
                             div1.appendChild(p2);
