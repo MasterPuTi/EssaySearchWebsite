@@ -53,7 +53,7 @@ function getUserCollection(pageNumber){
                             for(var j=0;j<paperInfo.ownersName.length;j++) {
                                 if (j)
                                     p.innerHTML = '，'+p.innerHTML;
-                                p.innerHTML = '<a href="professor.html?pid=' + paperInfo.ownersName[j].id + '" class="author_results">' + paperInfo.ownersName[j].name + '</a>'+p.innerHTML;
+                                p.innerHTML = '<a href="../professor.html?pid=' + paperInfo.ownersName[j].id + '" class="author_results">' + paperInfo.ownersName[j].name + '</a>'+p.innerHTML;
                             }
                         }
                         //显示学科
@@ -61,7 +61,7 @@ function getUserCollection(pageNumber){
                             var subject_re=document.getElementById("subject_"+i);
                             $(subject_re).append('学科分类：');
                             for(var k=0;k<paperInfo.subjectName.length;k++){
-                                $(subject_re).append('<a href="subject.html?name='+ paperInfo.subjectName[k] +'">' + paperInfo.subjectName[k] + '</a>');
+                                $(subject_re).append('<a href="../subject.html?name='+ paperInfo.subjectName[k] +'">' + paperInfo.subjectName[k] + '</a>');
                             }
                         }
                     }
