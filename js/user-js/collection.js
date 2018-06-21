@@ -28,7 +28,7 @@ function getUserCollection(pageNumber){
                         //当前论文的信息
                         var paperInfo=collectionFolder[j].items[i];
                         div.innerHTML+=
-                            '                <div class="agile-blog-grid" id="agile-blog-grid_'+(i+1)+'">\n' +
+                            '                <div class="agile-blog-grid" id="paper_'+paperInfo.id+'">\n' +
                             '                    <div class="blog-left-grids">\n' +
                             '                        <div class="blog-left-right_results">\n' +
                             '                            <div class="blog-left-right-top">\n' +
