@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户信息</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- bootstrap-css -->
+    <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <!--// bootstrap-css -->
+    <!-- css -->
+    <link rel="stylesheet" href="../css/style.css" type="text/css" media="all" />
+    <!--// css -->
+    <!-- font-awesome icons -->
+    <link href="../css/font-awesome.css" rel="stylesheet">
+    <!-- //font-awesome icons -->
+    <!-- font -->
+    <link href="http://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300' rel='stylesheet' type='text/css'>
+    <!-- //font -->
+    <script src="../js/jquery-1.11.1.min.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/SmoothScroll.min.js"></script>
+    <script src="../js/checkIfLogin.js"></script>
+    <!--userinfo.js引入-->
+    <script src="../js/user-js/userinfo.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event){
+                event.preventDefault();
+                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
+            });
+        });
+    </script>
+    <link href='../css/immersive-slider.css' rel='stylesheet' type='text/css'>
+    <!-- pricing -->
+    <link rel="stylesheet" href="../css/jquery.flipster.css">
+    <!-- //pricing -->
+</head>
+<body>
+<!-- header-top -->
+<div class="header-top">
+    <div class="container">
+        <div class="address-title">
+            <ul>
+                <li id="loginButton"><a href="../login.html">登录</a></li>
+                <li id="registerButton"><a href="../registration.html">注册</a></li>
+                <li id="changePassword" style="display: none"><a href="../changepassword.html">&nbsp;&nbsp;&nbsp;&nbsp;修改密码</a></li>
+                <li id="logout" style="display: none"><a href="" onclick="logout()">&nbsp;&nbsp;&nbsp;&nbsp;注销</a></li>
+            </ul>
+        </div>
+        <div class="agileinfo-social-grids">
+            <ul>
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                <li><a href="#"><i class="fa fa-vk"></i></a></li>
+            </ul>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<!-- //header-top -->
+<!-- header -->
+<div class="header">
+    <div class="container">
+        <nav class="navbar navbar-default">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="logo-style">
+                    <h1><a href="../index.html">Essay <span>Search</span></a></h1>
+                </div>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+                <nav>
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="../index.html">主页</a></li>
+                        <li><a href="../results.html" class="hvr-sweep-to-bottom">论文</a></li>
+                        <li><a href="../professor.html" class="hvr-sweep-to-bottom">专家</a></li>
+                        <li><a href="../subject.html" class="hvr-sweep-to-bottom">学科</a></li>
+                        <li><a href="#" class="dropdown-toggle hvr-sweep-to-bottom" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">其他界面<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a class="hvr-sweep-to-bottom" href="../services.html">Services</a></li>
+                                <li><a class="hvr-sweep-to-bottom" href="../faq.html">FAQs</a></li>
+                                <li><a class="hvr-sweep-to-bottom" href="../login.html">Login</a></li>
+                                <li><a class="hvr-sweep-to-bottom" href="../registration.html">Registration</a></li>
+                                <li><a class="hvr-sweep-to-bottom" href="../icons.html">Icons</a></li>
+                                <li><a class="hvr-sweep-to-bottom" href="../typography.html">Typography</a></li>
+                                <li><a href="../mail.html" class="hvr-sweep-to-bottom">Mail Us</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+    </div>
+</div>
+
+<!-- //banner -->
+<div class="domain domain_results">
+    <div class="container">
+        <form class="search-form domain-search" action="../results.html" method="get">
+            <div class="two-fifth column first">
+                <h2>文献检索</h2>
+            </div>
+            <div class="three-fifth column first">
+                <input type="text" class="text" name="searchInfo" placeholder="输入关键词进行查询" required="">
+            </div>
+            <div class="one-fifth column">
+					<span class="selection-box">
+						<select class="select-type" name="searchingType">
+							<option value="keyword">关键词</option>
+							<option value="title">篇名</option>
+							<option value="author">作者</option>
+							<option value="subject">学科</option>
+						</select>
+					</span>
+            </div>
+            <div class="one-fifth column">
+                <input type="submit" value="检索">
+            </div>
+            <div class="clearfix"> </div>
+        </form>
+    </div>
+</div>
+
+<div class="container" style="width: 100%;height: 100%; margin-top: 2rem; display: flex;display: -webkit-flex;justify-content: flex-start;align-items: flex-start">
+    <div style="width: 20%; display: flex;float: left; padding-left: 2%">
+        <aside style="display: -webkit-flex;justify-content: flex-start;">
+            <ul>
+                <li style="list-style: none">
+                    <a href="userinfo.html"><button type="button" class="btn1 btn-group-vertical" style="border-bottom-color: #FFFFFF">个人信息</button></a>
+                </li>
+                <li style="list-style: none">
+                    <a href="collection.html"><button type="button" class="btn1 btn-group-vertical" style="border-bottom-color: #FFFFFF">修改专家门户</button></a>
+                </li>
+                <li style="list-style: none">
+                    <a href="purchaserecord.html"><button type="button" class="btn1 btn-group-vertical" style="border-bottom-color: #FFFFFF">处理成为专家申请</button></a>
+                </li>
+                <li style="list-style: none">
+                    <a href="browserecord.html"><button type="button" class="btn1 btn-group-vertical" style="border-bottom-color: #FFFFFF">处理申诉</button></a>
+                </li>
+                <li style="list-style: none">
+                    <a href="pointchangerecord.html"><button type="button" class="btn1 btn-group-vertical" style="border-bottom-color: #FFFFFF">查看申诉列表</button></a>
+                </li>
+            </ul>
+        </aside>
+    </div>
+
+    <div style="width: 70%;">
+        <div class="modal-header">
+            <h2 style="">个人信息&nbsp;&nbsp;&nbsp;&nbsp;<a id="change-btn" onclick="showChangeForm()"><i class="glyphicon glyphicon-pencil"></i></a></h2>
+        </div>
+        <div class="modal-body">
+            <!--点击修改按钮后下面html出现-->
+            <div id="userinfo-change"  class="col-md-6 contact-form-right" style="display: none">
+                <div class="input-group input-group-lg wow fadeInUp animated" data-wow-delay=".5s">
+                    <span class="input-group-addon">用户名称</span>
+                    <input id="input-name" type="text" class="form-control" aria-describedby="sizing-addon1" autofocus="autofocus">
+                </div>
+                <button id="submit-change" class="btn1" onclick="submitChangeInfo()">提交</button>
+                <button id="cancel-change" class="btn1" onclick="cancelChange()">取消</button>
+            </div>
+
+            <div id="userinfo-content" class="agileits-contact-address" style="margin-top: 1rem">
+                <ul>
+                    <li><i class="fa fa-user" aria-hidden="true"></i><span id="username" style="font-size: 2rem">undefined</span></li>
+                    <!--<li><i class="fa fa-envelope" aria-hidden="true"></i><span>13121273185@163.com</span></li>-->
+                    <li><i class="fa fa-money" aria-hidden="true"></i><span id="user-point" style="font-size: 2rem">undefined</span></li>
+                    <li><i class="fa  fa-credit-card" aria-hidden="true"></i><span id="user-credit" style="font-size: 2rem">undefined</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- footer -->
+<div class="footer">
+    <div class="container">
+        <div class="agile-footer-grids">
+            <div class="col-md-4 agile-footer-grid">
+                <h4><span>联系 </span>方式</h4>
+                <p>北京航空航天大学软件学院系统分析设计课菩提老组 <span>组长：冯翀</span><span>qq号：449106803</span></p>
+            </div>
+            <div class="col-md-4 agile-footer-grid">
+                <h4><span>开源</span> 地址</h4>
+                <ul class="w3agile_footer_grid_list">
+                    <li>你们可以在<a href="#"> https://github.com/MasterPuTi </a>上找到我们的前端项目
+                    <li>你们可以在<a href="#"> https://www.showdoc.cc/web/#/85630238481628?page_id=488673402152275 </a> 查看我们的后端api文档
+                </ul>
+            </div>
+            <div class="col-md-4 agile-footer-grid">
+                <h4>热点 <span>话题</span></h4>
+                <div class="popular-grids">
+                    <div class="popular-grid">
+                        <a href="#"><img src="../images/page1.jpg" alt=""></a>
+                    </div>
+                    <div class="popular-grid">
+                        <a href="#"><img src="../images/page2.jpg" alt=""></a>
+                    </div>
+                    <div class="popular-grid">
+                        <a href="#"><img src="../images/10.jpg" alt=""></a>
+                    </div>
+                    <div class="popular-grid">
+                        <a href="#"><img src="../images/6.jpg" alt=""></a>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="popular-grids" style="padding-top: 10px">
+                    <div class="popular-grid">
+                        <a href="#"><img src="../images/7.jpg" alt=""></a>
+                    </div>
+                    <div class="popular-grid">
+                        <a href="#"><img src="../images/8.jpg" alt=""></a>
+                    </div>
+                    <div class="popular-grid">
+                        <a href="#"><img src="../images/9.jpg" alt=""></a>
+                    </div>
+                    <div class="popular-grid">
+                        <a href="#"><img src="../images/page3.jpg" alt=""></a>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>© 2018 Essay Search. Design by <a href="https://github.com/MasterPuTi">.菩提老组.</a></p>
+    </div>
+</div>
+<!-- //footer -->
+</body>
+</html>
