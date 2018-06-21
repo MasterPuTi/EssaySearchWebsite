@@ -13,6 +13,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!--// bootstrap-css -->
     <!-- css -->
     <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/mycss.css" type="text/css" media="all" />
     <!--// css -->
     <!-- font-awesome icons -->
     <link href="css/font-awesome.css" rel="stylesheet">
@@ -115,18 +116,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="agile-blog-grids">
             <div class="col-md-8 agile-blog-grid-left">
                 <div class="agile-blog-grid">
-                    <div class="agile-blog-grid-left-img">
-                        <a href="resultpage.html"><img src="images/2a.jpg" alt="" /></a>
-                    </div>
+                    <!--<div class="agile-blog-grid-left-img">-->
+                        <!--<a href="resultpage.html"><img src="images/2a.jpg" alt="" /></a>-->
+                    <!--</div>-->
                     <div class="blog-left-grids">
                         <div class="blog-left-left">
-                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                            <div class="margin-top" id="result_purchase">
+                                <span class="address-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Purchase</span>
+                            </div>
                         </div>
                         <div class="blog-left-right">
                             <div class="blog-left-right-top">
                                 <h4 id="result_name">成果名称</h4>
-                                <p>由<a href="#" id="result_ownersName">作者</a>于
-                                <span id="result_publicationTime">发表时间</span>发表</p>
+                                <p id="result_ownersName"></p>
+                                <p><span id="result_publicationTime">1998</span> </p>
+                                <p>被引量：<span id="result_referenceTimes">0</span></p>
                             </div>
                             <div class="blog-left-right-bottom">
                                 <p id="result_abstractInfo">成果摘要</p>
@@ -199,7 +203,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <div class="col-md-4 agile-blog-grid-right">
                 <div class="categories">
-                    <h3>Categories</h3>
+                    <h3>浏览记录</h3>
                     <ul>
                         <li><a href="#">Phasellus sem leo, interdum quis risus</a></li>
                         <li><a href="#">Nullam egestas nisi id malesuada aliquet </a></li>
@@ -210,8 +214,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </ul>
                 </div>
                 <div class="categories">
-                    <h3>Archive</h3>
-                    <ul class="marked-list offs1">
+                    <h3>收藏记录</h3>
+                    <ul class="marked-list offs1" id="">
                         <li><a href="#">May 2016 (7)</a></li>
                         <li><a href="#">April 2016 (11)</a></li>
                         <li><a href="#">March 2016 (12)</a></li>
