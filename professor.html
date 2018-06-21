@@ -43,6 +43,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <ul>
                 <li id="loginButton"><i class="fa" aria-hidden="true"></i> <a href="login.html">登录</a></li>
                 <li id="registerButton"><i class="fa" aria-hidden="true"></i> <a href="registration.html">注册</a></li>
+                <li id="changePassword" style="display: none"><a href="changepassword.html">&nbsp;&nbsp;&nbsp;&nbsp;修改密码</a></li>
+                <li id="logout" style="display: none"><a href="" onclick="logout()">&nbsp;&nbsp;&nbsp;&nbsp;注销</a></li>
             </ul>
         </div>
         <div class="agileinfo-social-grids">
@@ -124,7 +126,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="container">
             <div class="w3-banner-bottom-heading about-choose">
                 <h3 id="professorName">专家姓名  </h3>
-                <h3 id="professorID"><span>                                ID:123456</span></h3>
+                <h3 id="professorID"><span>                                ID</span></h3>
             </div>
             <div class="agile-choose-grids">
                 <div class="col-sm-4 agile-choose-grid">
@@ -133,7 +135,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="choose-info">
                         <h4>介绍</h4>
-                        <p id="introduction">被引频次 32815 成果数 615 H指数 77 G指数 178</p>
+                        <p id="introduction"></p>
                     </div>
                 </div>
                 <div class="col-sm-4 agile-choose-grid">
@@ -142,7 +144,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="choose-info">
                         <h4>组织机构</h4>
-                        <p id="institution">北京大学中国经济研究中心</p>
+                        <p id="institution"></p>
                     </div>
                 </div>
                 <div class="col-sm-4 agile-choose-grid">
@@ -151,7 +153,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="choose-info">
                         <h4>科研领域</h4>
-                        <p id="researchField">发展经济学</p>
+                        <p id="researchField"></p>
                     </div>
                 </div>
             </div>
@@ -205,16 +207,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="team-grids">
                 <!-- Bottom to top-->
                 <button id="proFucButton1" onclick="showDiv1()">
-                    <p>修改专家信息</p>
+                    <p>修改信息</p>
                 </button>
                 <button id="proFucButton2" onclick="showDiv2()">
-                    <p>门户信息申诉</p>
+                    <p>门户申诉</p>
                 </button>
-                <button id="proFucButton3" onclick="showDiv3()">
-                    <p>修改资源购买积分</p>
-                </button>
-                <button id="proFucButton4" onclick="showDiv4()">
-                    <p>修改积分分配比例</p>
+                <button id="proFucButton3" onclick="showDiv3();getAppeal()">
+                    <p>历史申诉</p>
                 </button>
                 <div class="clearfix"> </div>
                 <!-- end Bottom to top-->
@@ -237,15 +236,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <input type="submit" value="提交" onclick="professorAppeal()"/>
             </div>
             <div id="proFuc3">
-                <h3>修改资源<span>购买积分</span></h3>
-                <textarea></textarea><br/>
-                <input type="submit" value="提交"/>
+                <h3>查看<span>历史申诉</span></h3>
+                <div>
+                    <p id="appealID"></p>
+                    <p id="applicant"></p>
+                    <p id="applicationTime"></p>
+                    <p id="applicationContent"></p>
+                    <p id="handleStatus"></p>
+                    <p id="resultContent"></p>
+                </div><br/>
             </div>
-            <div id="proFuc4">
-                <h3>修改积分<span>分配比例</span></h3>
-                <textarea></textarea><br/>
-                <input type="submit" value="提交"/>
-            </div>
+            <!--<div id="proFuc4">-->
+                <!--<h3>修改积分<span>分配比例</span></h3>-->
+                <!--<textarea></textarea><br/>-->
+                <!--<input type="submit" value="提交"/>-->
+            <!--</div>-->
         </div>
     </div>
     <!--//professorFuctionBottom-->
@@ -257,24 +262,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="container">
         <div class="agile-footer-grids">
             <div class="col-md-4 agile-footer-grid">
-                <h4>History of <span>Hosting</span></h4>
-                <p>Pellentesque urna ex, ultricies a nunc at, pretium maximus nisi. Vestibulum non auctor diam. Mauris eget consectetur mauris. <span>Aenean leo elit, accumsan vel elit vitae, mattis ultricies lacus. Cras consectetur justo lorem, sed dictum sapien eleifend at.</span></p>
+                <h4><span>联系 </span>方式</h4>
+                <p>北京航空航天大学软件学院系统分析设计课菩提老组 <span>组长：冯翀</span><span>qq号：449106803</span></p>
             </div>
             <div class="col-md-4 agile-footer-grid">
-                <h4>Twitter <span>Posts</span></h4>
+                <h4><span>开源</span> 地址</h4>
                 <ul class="w3agile_footer_grid_list">
-                    <li>Ut aut reiciendis voluptatibus maiores <a href="#">http://example.com</a> alias, ut aut reiciendis.
-                        <span><i class="fa fa-twitter" aria-hidden="true"></i> 02 days ago</span></li>
-                    <li>Itaque earum rerum hic tenetur a sapiente delectus <a href="#">http://example.com</a> ut aut
-                        voluptatibus.<span><i class="fa fa-twitter" aria-hidden="true"></i> 03 days ago</span></li>
+                    <li>你们可以在<a href="#"> https://github.com/MasterPuTi </a>上找到我们的前端项目
+                    <li>你们可以在<a href="#"> https://www.showdoc.cc/web/#/85630238481628?page_id=488673402152275 </a> 查看我们的后端api文档
                 </ul>
             </div>
             <div class="col-md-4 agile-footer-grid">
-                <h4>Popular <span>Posts</span></h4>
+                <h4>热点 <span>话题</span></h4>
                 <div class="popular-grids">
+                    <div class="popular-grid">
+                        <a href="#"><img src="images/page1.jpg" alt=""></a>
+                    </div>
+                    <div class="popular-grid">
+                        <a href="#"><img src="images/page2.jpg" alt=""></a>
+                    </div>
+                    <div class="popular-grid">
+                        <a href="#"><img src="images/10.jpg" alt=""></a>
+                    </div>
                     <div class="popular-grid">
                         <a href="#"><img src="images/6.jpg" alt=""></a>
                     </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="popular-grids" style="padding-top: 10px">
                     <div class="popular-grid">
                         <a href="#"><img src="images/7.jpg" alt=""></a>
                     </div>
@@ -284,35 +299,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="popular-grid">
                         <a href="#"><img src="images/9.jpg" alt=""></a>
                     </div>
-                    <div class="clearfix"> </div>
-                </div>
-                <div class="popular-grids agileits-小贝壳网站模板-popular">
                     <div class="popular-grid">
-                        <a href="#"><img src="images/10.jpg" alt=""></a>
-                    </div>
-                    <div class="popular-grid">
-                        <a href="#"><img src="images/4.jpg" alt=""></a>
-                    </div>
-                    <div class="popular-grid">
-                        <a href="#"><img src="images/6.jpg" alt=""></a>
-                    </div>
-                    <div class="popular-grid">
-                        <a href="#"><img src="images/7.jpg" alt=""></a>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-                <div class="popular-grids">
-                    <div class="popular-grid">
-                        <a href="#"><img src="images/8.jpg" alt=""></a>
-                    </div>
-                    <div class="popular-grid">
-                        <a href="#"><img src="images/9.jpg" alt=""></a>
-                    </div>
-                    <div class="popular-grid">
-                        <a href="#"><img src="images/10.jpg" alt=""></a>
-                    </div>
-                    <div class="popular-grid">
-                        <a href="#"><img src="images/4.jpg" alt=""></a>
+                        <a href="#"><img src="images/page3.jpg" alt=""></a>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
@@ -321,7 +309,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
     </div>
     <div class="copyright">
-        <p>© 2016 Hosting City. All rights reserved | Design by <a href="http://www.smallseashell.com">.小贝壳网站模板.</a></p>
+        <p>© 2018 Essay Search. Design by <a href="https://github.com/MasterPuTi">.菩提老组.</a></p>
     </div>
 </div>
 <!-- //footer -->

@@ -25,6 +25,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="js/bootstrap.js"></script>
     <script src="js/SmoothScroll.min.js"></script>
     <script src="js/checkIfLogin.js"></script>
+    <script src="js/resultpage.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function($) {
             $(".scroll").click(function(event){
@@ -42,6 +43,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <ul>
                 <li id="loginButton"><i class="fa" aria-hidden="true"></i> <a href="login.html">登录</a></li>
                 <li id="registerButton"><i class="fa" aria-hidden="true"></i> <a href="registration.html">注册</a></li>
+                <li id="changePassword" style="display: none"><a href="changepassword.html">&nbsp;&nbsp;&nbsp;&nbsp;修改密码</a></li>
+                <li id="logout" style="display: none"><a href="" onclick="logout()">&nbsp;&nbsp;&nbsp;&nbsp;注销</a></li>
             </ul>
         </div>
         <div class="agileinfo-social-grids">
@@ -103,7 +106,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //header -->
 <!-- about-heading -->
 <div class="about-heading">
-    <h2>Single <span>page</span></h2>
+    <h2>Result <span>page</span></h2>
 </div>
 <!-- //about-heading -->
 <!-- blog -->
@@ -121,42 +124,40 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </div>
                         <div class="blog-left-right">
                             <div class="blog-left-right-top">
-                                <h4>Integer et turpis augue. In hac habitasse platea dictumst.</h4>
-                                <p>Posted By <a href="#">Admin</a> &nbsp;&nbsp; on June 2, 2016 &nbsp;&nbsp; <a href="#">Comments (10)</a></p>
+                                <h4 id="result_name">成果名称</h4>
+                                <p>由<a href="#" id="result_ownersName">作者</a>于
+                                <span id="result_publicationTime">发表时间</span>发表</p>
                             </div>
                             <div class="blog-left-right-bottom">
-                                <p>Vivamus fermentum vel lacus ac ornare. Vestibulum pulvinar massa pharetra risus pharetra, eu blandit risus viverra. Aenean in ultrices enim, ut tincidunt libero. Phasellus libero enim, semper ac felis eget, efficitur ultrices orci. Aenean tincidunt lacus lorem, non varius enim luctus sed. Quisque eu aliquet quam, et sollicitudin nibh. Duis finibus at felis eu laoreet. Nulla non lacus sem.
-                                    <span>Curabitur vel elementum tortor, gravida tempor magna. Nullam sit amet lectus at mi dapibus tempus fermentum quis ipsum. Pellentesque rutrum tellus nec dolor suscipit, et bibendum ligula consequat. </span></p>
+                                <p id="result_abstractInfo">成果摘要</p>
                             </div>
                         </div>
                         <div class="clearfix"> </div>
-                    </div>
-                    <div class="response">
-                        <h3>Responses</h3>
-                        <div class="media response-info">
-                            <div class="media-left response-text-left">
-                                <a href="#">
-                                    <img class="media-object" src="images/t1.jpg" alt="">
-                                </a>
-                                <h5><a href="#">Admin</a></h5>
                             </div>
-                            <div class="media-body response-text-right">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,There are many variations of passages of Lorem Ipsum available,
-                                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                <ul>
-                                    <li>June 21, 2016</li>
-                                    <li><a href="resultpage.html">Reply</a></li>
+                            <div class="response">
+                                <h3>Responses</h3>
+                                <div class="media response-info">
+                                    <div class="media-left response-text-left">
+                                        <a href="#">
+                                            <img class="media-object" src="images/t1.jpg" alt="">
+                                        </a>
+                                        <h5><a href="#">Anna Holmones</a></h5>
+                                    </div>
+                                    <div class="media-body response-text-right">
+                                        <p>伟大的科技发现，对人类发展具有划时代的意义！</p>
+                                        <ul>
+                                            <li>June 21, 2016</li>
+                                            <li><a href="resultpage.html">Reply</a></li>
                                 </ul>
                                 <div class="media response-info">
                                     <div class="media-left response-text-left">
                                         <a href="#">
                                             <img class="media-object" src="images/t2.jpg" alt="">
                                         </a>
-                                        <h5><a href="#">Admin</a></h5>
+                                        <h5><a href="#">Alexender Macksve</a></h5>
                                     </div>
                                     <div class="media-body response-text-right">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,There are many variations of passages of Lorem Ipsum available,
-                                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                        <p>毫无意义的论文，我的智障侄子3小时就能写出一篇。</p>
                                         <ul>
                                             <li>June 21, 2016</li>
                                             <li><a href="resultpage.html">Reply</a></li>
@@ -172,11 +173,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <a href="#">
                                     <img class="media-object" src="images/t3.jpg" alt="">
                                 </a>
-                                <h5><a href="#">Admin</a></h5>
+                                <h5><a href="#">Bill Jordan</a></h5>
                             </div>
                             <div class="media-body response-text-right">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,There are many variations of passages of Lorem Ipsum available,
-                                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <p>为这位天才的努力和付出鼓掌！</p>
                                 <ul>
                                     <li>June 21, 2016</li>
                                     <li><a href="resultpage.html">Reply</a></li>
@@ -235,24 +235,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="container">
         <div class="agile-footer-grids">
             <div class="col-md-4 agile-footer-grid">
-                <h4>History of <span>Hosting</span></h4>
-                <p>Pellentesque urna ex, ultricies a nunc at, pretium maximus nisi. Vestibulum non auctor diam. Mauris eget consectetur mauris. <span>Aenean leo elit, accumsan vel elit vitae, mattis ultricies lacus. Cras consectetur justo lorem, sed dictum sapien eleifend at.</span></p>
+                <h4><span>联系 </span>方式</h4>
+                <p>北京航空航天大学软件学院系统分析设计课菩提老组 <span>组长：冯翀</span><span>qq号：449106803</span></p>
             </div>
             <div class="col-md-4 agile-footer-grid">
-                <h4>Twitter <span>Posts</span></h4>
+                <h4><span>开源</span> 地址</h4>
                 <ul class="w3agile_footer_grid_list">
-                    <li>Ut aut reiciendis voluptatibus maiores <a href="#">http://example.com</a> alias, ut aut reiciendis.
-                        <span><i class="fa fa-twitter" aria-hidden="true"></i> 02 days ago</span></li>
-                    <li>Itaque earum rerum hic tenetur a sapiente delectus <a href="#">http://example.com</a> ut aut
-                        voluptatibus.<span><i class="fa fa-twitter" aria-hidden="true"></i> 03 days ago</span></li>
+                    <li>你们可以在<a href="#"> https://github.com/MasterPuTi </a>上找到我们的前端项目
+                    <li>你们可以在<a href="#"> https://www.showdoc.cc/web/#/85630238481628?page_id=488673402152275 </a> 查看我们的后端api文档
                 </ul>
             </div>
             <div class="col-md-4 agile-footer-grid">
-                <h4>Popular <span>Posts</span></h4>
+                <h4>热点 <span>话题</span></h4>
                 <div class="popular-grids">
+                    <div class="popular-grid">
+                        <a href="#"><img src="images/page1.jpg" alt=""></a>
+                    </div>
+                    <div class="popular-grid">
+                        <a href="#"><img src="images/page2.jpg" alt=""></a>
+                    </div>
+                    <div class="popular-grid">
+                        <a href="#"><img src="images/10.jpg" alt=""></a>
+                    </div>
                     <div class="popular-grid">
                         <a href="#"><img src="images/6.jpg" alt=""></a>
                     </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="popular-grids" style="padding-top: 10px">
                     <div class="popular-grid">
                         <a href="#"><img src="images/7.jpg" alt=""></a>
                     </div>
@@ -262,35 +272,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="popular-grid">
                         <a href="#"><img src="images/9.jpg" alt=""></a>
                     </div>
-                    <div class="clearfix"> </div>
-                </div>
-                <div class="popular-grids agileits-小贝壳网站模板-popular">
                     <div class="popular-grid">
-                        <a href="#"><img src="images/10.jpg" alt=""></a>
-                    </div>
-                    <div class="popular-grid">
-                        <a href="#"><img src="images/4.jpg" alt=""></a>
-                    </div>
-                    <div class="popular-grid">
-                        <a href="#"><img src="images/6.jpg" alt=""></a>
-                    </div>
-                    <div class="popular-grid">
-                        <a href="#"><img src="images/7.jpg" alt=""></a>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-                <div class="popular-grids">
-                    <div class="popular-grid">
-                        <a href="#"><img src="images/8.jpg" alt=""></a>
-                    </div>
-                    <div class="popular-grid">
-                        <a href="#"><img src="images/9.jpg" alt=""></a>
-                    </div>
-                    <div class="popular-grid">
-                        <a href="#"><img src="images/10.jpg" alt=""></a>
-                    </div>
-                    <div class="popular-grid">
-                        <a href="#"><img src="images/4.jpg" alt=""></a>
+                        <a href="#"><img src="images/page3.jpg" alt=""></a>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
@@ -299,7 +282,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
     </div>
     <div class="copyright">
-        <p>© 2016 Hosting City. All rights reserved | Design by <a href="http://www.smallseashell.com">.小贝壳网站模板.</a></p>
+        <p>© 2018 Essay Search. Design by <a href="https://github.com/MasterPuTi">.菩提老组.</a></p>
     </div>
 </div>
 <!-- //footer -->
