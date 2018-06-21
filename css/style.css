@@ -1246,15 +1246,17 @@ ul.w3agile_footer_grid_list i.fa.fa-twitter{
 }
 .agileinfo-top-grids {
     margin: 4em 0 0 0;
+    text-align: left;
 }
 /*-- //about-top --*/
 /*-- choose --*/
 .w3-agileits-choose-grid{
-    background: url(../images/ab.jpg) no-repeat 0px 0px;
+    background: url(../images/professorImg1.jpg) no-repeat 0px 0px;
     background-size: cover;	
 }
 .agile-choose-grids{
 	margin:4em 0 0 0;
+    font-size: 1.5em;
 }
 .agile-choose-grid{
 	text-align:center;
@@ -1593,6 +1595,7 @@ ul.w3agile_footer_grid_list i.fa.fa-twitter{
     font-size: 1.5em;
     font-weight: 400;
 }
+
 /*--!proFuc3--*/
 /*--proFuc4--*/
 #proFuc4 {
