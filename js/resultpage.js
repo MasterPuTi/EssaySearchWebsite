@@ -32,12 +32,14 @@ function resultInfo() {
                     if (data.data.collected){
                         result_name.innerHTML=
                             data.data.name+'<img src="images/point.png"><span class="point_icon_font">'+data.data.pointRequired+'&nbsp;&nbsp;</span>'+
-                            '                                <a onclick="' + 'delFromCollection('+data.data.id+')"x>'+'<i class="fa fa-star"></i></a>';
+                            '                                <a id="del-collect-btn">'+'<i class="fa fa-star"'+' onclick="delFromCollection('+data.data.id+')"></i></a>'+
+                        '                                <a id="add-collect-btn" style="display: none">'+'<i class="fa fa-star-o"'+' onclick="addToCollection('+data.data.id+')"></i></a>';
                     }
                     else {  //空心star
                         result_name.innerHTML=
                             data.data.name+'<img src="images/point.png"><span class="point_icon_font">'+data.data.pointRequired+'&nbsp;&nbsp;</span>'+
-                            '                                <a onclick="' + 'addToCollection('+data.data.id+')"x>'+'<i class="fa fa-star-o"></i></a>';
+                            '                                <a id="add-collect-btn">'+'<i class="fa fa-star-o"'+' onclick="addToCollection('+data.data.id+')"></i></a>'+
+                        '                                <a id="del-collect-btn" style="display: none">'+'<i class="fa fa-star"'+' onclick="delFromCollection('+data.data.id+')"></i></a>';
                     }
 
                     for(var j=0;j<data.data.ownersName.length;j++) {
@@ -67,16 +69,17 @@ function resultInfo() {
 
 function addToCollection(paperId){
     $.ajax({
-        contentType: 'application/json;charset=UTF-8',
+        contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
         url:'http://192.144.179.57:8080/demo-v1/api/collect/paper/'+paperId+'/collection',
-        type:'get',
+        type:'post',
         dataType: "json",
-        data: {"collectionName":"默认收藏夹"},
+        data: {"collectionName":"a"},
         success: function(res){
             if (res) {
                 if (res.status==='succeed'){           //success
                     alert('收藏成功');
-                    window.location.reload(true);
+                    $('#del-collect-btn').show();
+                    $('#add-collect-btn').hide();
                 }
                 else {
                     alert('other error');
@@ -107,7 +110,8 @@ function delFromCollection(paperId){
                 if (res) {
                     if (res.status==='succeed'){           //success
                         alert('取消收藏成功');
-                        window.location.reload(true);
+                        $('#add-collect-btn').show();
+                        $('#del-collect-btn').hide();
                     }
                     else {
                         alert('other error');

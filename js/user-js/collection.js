@@ -13,7 +13,7 @@ function getUserCollection(pageNumber){
                 var div=document.getElementById("collection-container");
                 div.innerHTML='';
                 //无收藏项目
-                if (data.data.items===null){
+                if (data.data.items===null || data.data.items[0].items.length===0){
                     div.innerHTML='<div class="alert alert-warning" role="alert">\n' +
                         '            <strong>提示：</strong>暂无收藏' +
                         '        </div>';
@@ -32,7 +32,7 @@ function getUserCollection(pageNumber){
                             '                    <div class="blog-left-grids">\n' +
                             '                        <div class="blog-left-right_results">\n' +
                             '                            <div class="blog-left-right-top">\n' +
-                            '                                <h4><a href="resultpage.html?id='+paperInfo.id+'" class="title_results">'+paperInfo.name+'</a><img src="../images/point.png"><span class="point_icon_font">'+paperInfo.pointRequired+'&nbsp;&nbsp;</span>' +
+                            '                                <h4><a href="../resultpage.html?id='+paperInfo.id+'" class="title_results">'+paperInfo.name+'</a><img src="../images/point.png"><span class="point_icon_font">'+paperInfo.pointRequired+'&nbsp;&nbsp;</span>' +
                             '                                <a onclick="' + 'delFromCollection('+paperInfo.id+')"x>'+'<i class="fa fa-star"></i></a>'+'</h4>\n' +
                             '                                <p id="author_'+i+'">&nbsp;-&nbsp; '+paperInfo.publicationTime+' &nbsp;-&nbsp; '+paperInfo.journal+'&nbsp;&nbsp; 被引量：'+paperInfo.referenceTimes+'</p>\n' +
                             '                            </div>\n' +
