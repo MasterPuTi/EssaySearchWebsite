@@ -44,8 +44,8 @@ function resultInfo() {
                         '                                <a id="del-collect-btn" style="display: none">'+'<i class="fa fa-star"'+' onclick="delFromCollection('+data.data.id+')"></i></a>';
                     }
 
-                    result_purchase.innerHTML=
-                        '<span class="address-title" onclick="purchase('+data.data.id+')">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Purchase</span>';
+                    /*result_purchase.innerHTML=
+                        '<span class="address-title" onclick="purchase('+data.data.id+')">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Purchase</span>';*/
 
                     /*for(var j=0;j<data.data.ownersName.length;j++) {
                         if (j){
