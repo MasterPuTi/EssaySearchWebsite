@@ -40,8 +40,95 @@ function subjectInfo() {
                     result_abstractInfo.innerHTML=
                         data.data.abstractInfo;*/
                     var subjectinfo_name=document.getElementById("subjectinfo_name");
+                    var expert_1=document.getElementById("expert_1");
+                    var expert_2=document.getElementById("expert_2");
+                    var expert_3=document.getElementById("expert_3");
                     subjectinfo_name.innerHTML=
                         data.subjectinfo.name;
+                    expert_1.innerHTML=
+                        '<div class="price-block agile">\n' +
+                        '                    <div class="price-gd-top pric-clr1">\n' +
+                        '                        <h4>领域专家</h4>\n' +
+                        '                        <h3>'+data.subjectinfo.expertName[0]+'</h3>\n' +
+                        '                        <h5>机构</h5>\n' +
+                        '                    </div>\n' +
+                    '                    <div class="price-gd-bottom">\n' +
+                    '                        <div class="price-list" id="expert_1_introduction">\n' +
+                    '                            <ul>\n' +
+                    '                                <li>被引频次 896</li>\n' +
+                    '                                <li>成果数 68</li>\n' +
+                        '                                <li>H指数 18</li>\n' +
+                        '                                <li>G指数 29</li>\n' +
+                        '                            </ul>\n' +
+                        '                        </div>\n' +
+                        '                        <div class="price-selet pric-sclr1">\n' +
+                        '                            <a href="registration.html">Find More</a>\n' +
+                        '                        </div>\n' +
+                        '                    </div>\n' +
+                        '                </div>'
+                    expert_2.innerHTML=
+                        '<div class="price-block agile">\n' +
+                        '                    <div class="price-gd-top pric-clr1">\n' +
+                        '                        <h4>领域专家</h4>\n' +
+                        '                        <h3>'+data.subjectinfo.expertName[1]+'</h3>\n' +
+                        '                        <h5>机构</h5>\n' +
+                        '                    </div>\n' +
+                        '                    <div class="price-gd-bottom">\n' +
+                        '                        <div class="price-list" id="expert_1_introduction">\n' +
+                        '                            <ul>\n' +
+                        '                                <li>被引频次 896</li>\n' +
+                        '                                <li>成果数 68</li>\n' +
+                        '                                <li>H指数 18</li>\n' +
+                        '                                <li>G指数 29</li>\n' +
+                        '                            </ul>\n' +
+                        '                        </div>\n' +
+                        '                        <div class="price-selet pric-sclr1">\n' +
+                        '                            <a href="registration.html">Find More</a>\n' +
+                        '                        </div>\n' +
+                        '                    </div>\n' +
+                        '                </div>'
+                    expert_3.innerHTML=
+                        '<div class="price-block agile">\n' +
+                        '                    <div class="price-gd-top pric-clr1">\n' +
+                        '                        <h4>领域专家</h4>\n' +
+                        '                        <h3>'+data.subjectinfo.expertName[2]+'</h3>\n' +
+                        '                        <h5>机构</h5>\n' +
+                        '                    </div>\n' +
+                        '                    <div class="price-gd-bottom">\n' +
+                        '                        <div class="price-list" id="expert_1_introduction">\n' +
+                        '                            <ul>\n' +
+                        '                                <li>被引频次 896</li>\n' +
+                        '                                <li>成果数 68</li>\n' +
+                        '                                <li>H指数 18</li>\n' +
+                        '                                <li>G指数 29</li>\n' +
+                        '                            </ul>\n' +
+                        '                        </div>\n' +
+                        '                        <div class="price-selet pric-sclr1">\n' +
+                        '                            <a href="registration.html">Find More</a>\n' +
+                        '                        </div>\n' +
+                        '                    </div>\n' +
+                        '                </div>'
+                    expert_4.innerHTML=
+                        '<div class="price-block agile">\n' +
+                        '                    <div class="price-gd-top pric-clr1">\n' +
+                        '                        <h4>领域专家</h4>\n' +
+                        '                        <h3>'+data.subjectinfo.expertName[3]+'</h3>\n' +
+                        '                        <h5>机构</h5>\n' +
+                        '                    </div>\n' +
+                        '                    <div class="price-gd-bottom">\n' +
+                        '                        <div class="price-list" id="expert_1_introduction">\n' +
+                        '                            <ul>\n' +
+                        '                                <li>被引频次 896</li>\n' +
+                        '                                <li>成果数 68</li>\n' +
+                        '                                <li>H指数 18</li>\n' +
+                        '                                <li>G指数 29</li>\n' +
+                        '                            </ul>\n' +
+                        '                        </div>\n' +
+                        '                        <div class="price-selet pric-sclr1">\n' +
+                        '                            <a href="registration.html">Find More</a>\n' +
+                        '                        </div>\n' +
+                        '                    </div>\n' +
+                        '                </div>'
                 }
                 else
                     alert(data.status);
