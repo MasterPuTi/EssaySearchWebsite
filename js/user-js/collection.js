@@ -13,8 +13,10 @@ function getUserCollection(pageNumber){
                 var div=document.getElementById("collection-container");
                 div.innerHTML='';
                 //无收藏项目
-                if (data.data.items===null){
-                    div.innerHTML+='<h3>暂无收藏</h3>';
+                if (data.data.items===null || data.data.items[0].items.length===0){
+                    div.innerHTML='<div class="alert alert-warning" role="alert">\n' +
+                        '            <strong>提示：</strong>暂无收藏' +
+                        '        </div>';
                     return
                 }
                 //生成搜索结果显示部分
@@ -26,11 +28,11 @@ function getUserCollection(pageNumber){
                         //当前论文的信息
                         var paperInfo=collectionFolder[j].items[i];
                         div.innerHTML+=
-                            '                <div class="agile-blog-grid" id="agile-blog-grid_'+(i+1)+'">\n' +
+                            '                <div class="agile-blog-grid" id="paper_'+paperInfo.id+'">\n' +
                             '                    <div class="blog-left-grids">\n' +
                             '                        <div class="blog-left-right_results">\n' +
                             '                            <div class="blog-left-right-top">\n' +
-                            '                                <h4><a href="resultpage.html?id='+paperInfo.id+'" class="title_results">'+paperInfo.name+'</a><img src="../images/point.png"><span class="point_icon_font">'+paperInfo.pointRequired+'&nbsp;&nbsp;</span>' +
+                            '                                <h4><a href="../resultpage.html?id='+paperInfo.id+'" class="title_results">'+paperInfo.name+'</a><img src="../images/point.png"><span class="point_icon_font">'+paperInfo.pointRequired+'&nbsp;&nbsp;</span>' +
                             '                                <a onclick="' + 'delFromCollection('+paperInfo.id+')"x>'+'<i class="fa fa-star"></i></a>'+'</h4>\n' +
                             '                                <p id="author_'+i+'">&nbsp;-&nbsp; '+paperInfo.publicationTime+' &nbsp;-&nbsp; '+paperInfo.journal+'&nbsp;&nbsp; 被引量：'+paperInfo.referenceTimes+'</p>\n' +
                             '                            </div>\n' +
@@ -193,6 +195,5 @@ function displayNav(divObj,total,curPage) {
 }
 
 $(function(){
-    checkLogin();
     getUserCollection();
 });

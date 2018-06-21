@@ -13,8 +13,9 @@ function getUserPointRecord(pageNumber){
                 var div=document.getElementById("pointrecord-container");
                 //无记录
                 if (data.data.items===null){
-                    div.innerHTML='';
-                    div.innerHTML+='<h3>暂无积分变动记录</h3>';
+                    div.innerHTML='<div class="alert alert-warning" role="alert">\n' +
+                        '            <strong>提示：</strong>暂无积分变动记录' +
+                        '        </div>';
                     return;
                 }
                 //生成显示部分
@@ -132,6 +133,5 @@ function displayNav(divObj,total,curPage) {
 }
 
 $(function(){
-    checkLogin();
     getUserPointRecord();
 });

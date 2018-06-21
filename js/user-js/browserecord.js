@@ -13,8 +13,9 @@ function getUserBrowseRecord(pageNumber){
                 var div=document.getElementById("browserecord-container");
                 //无浏览
                 if (data.data.items===null){
-                    div.innerHTML='';
-                    div.innerHTML+='<h3>暂无浏览记录</h3>';
+                    div.innerHTML='<div class="alert alert-warning" role="alert">\n' +
+                        '            <strong>提示：</strong>暂无浏览记录' +
+                        '        </div>';
                     return;
                 }
                 //生成显示部分
