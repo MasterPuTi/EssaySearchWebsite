@@ -14,7 +14,9 @@ function getUserCollection(pageNumber){
                 div.innerHTML='';
                 //无收藏项目
                 if (data.data.items===null){
-                    div.innerHTML+='<h3>暂无收藏</h3>';
+                    div.innerHTML='<div class="alert alert-warning" role="alert">\n' +
+                        '            <strong>提示：</strong>暂无收藏' +
+                        '        </div>';
                     return
                 }
                 //生成搜索结果显示部分
@@ -193,6 +195,5 @@ function displayNav(divObj,total,curPage) {
 }
 
 $(function(){
-    checkLogin();
     getUserCollection();
 });
