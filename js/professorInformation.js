@@ -16,13 +16,6 @@ function showDiv3() {
 }
 // !--showdiv
 
-// input Point only Num
-function onlyNum(){
-    if(!(event.keyCode===46)&&!(event.keyCode===8)&&!(event.keyCode===37)&&!(event.keyCode===39))
-        if(!((event.keyCode>=48&&event.keyCode<=57)||(event.keyCode>=96&&event.keyCode<=105)))
-            event.returnValue=false;  //执行至该语句时，阻止输入；可类比阻止冒泡原理或者禁止右键功能；
-}
-
 function GetRequest() {
     var url = location.search; //获取url中"?"符后的字串
     var theRequest=new Object();
@@ -58,8 +51,8 @@ function professorGetInfor() {               //获得专家信息  并展示
 
                     professorName.innerHTML=
                         data.expertInfo.realName;
-                    professorID.innerText=
-                        'ID：'+data.expertInfo.id;
+                    // professorID.innerText=
+                    //     'ID：'+data.expertInfo.id;
 
                     expertId = data.expertInfo.id;    //checkRole中用到
                     var newImage=document.getElementById("professor_relation_image"); //专家关系网络图
@@ -85,46 +78,50 @@ function professorGetInfor() {               //获得专家信息  并展示
                             div1.style.cssText="border-bottom:2px solid #9d9d9d;margin-top: 20px";
                             var tmpPaperID=data.expertInfo.paperName[i].id;
                             var tmpPoint=data.expertInfo.paperName[i].point;
-                            //var tmpPoint=displayPoint(1,tmpPaperID);
-                            //var tmpRateString=getRate(1,tmpPaperID);
+
+
                             var tmpRateString=data.expertInfo.paperName[i].distributionInfo;
                             var rateString="";
-                            if(tmpRateString.length === 0){
-                                console.log("meiyou rate");
-                                rateString=tmpRateString;
-                            }
-                            else {
-                                rateString="<分配情况：";
-                                for(var q=0;q<tmpRateString.length;q++){
-                                    rateString=rateString+tmpRateString[q].expert+"："+tmpRateString[q].rate+";";
+                            if(tmpRateString!=null)
+                            {
+                                if(tmpRateString.length === 0){
+                                    console.log("meiyou rate");
+                                    rateString=tmpRateString;
                                 }
-                                rateString+=">";
+                                else {
+                                    rateString="<分配情况：";
+                                    for(var q=0;q<tmpRateString.length;q++){
+                                        rateString=rateString+tmpRateString[q].expert+"："+tmpRateString[q].rate+";";
+                                    }
+                                    rateString+=">";
+                                }
                             }
-                            console.log("success dis rate");
+
 
                             var p1=document.createElement("p");
                             var p2=document.createElement("p");
                             var p3=document.createElement("p");
                             var p4=document.createElement("p");
                             p1.style.cssText="font-size: 2em;font-weight: 500;color: grey;";
-                            p2.style.cssText="font-size: 2.5em;font-weight: 300;font-family:华文中宋;text-align: center;width: 100%;height: 60px;display: block;line-height: 60px;";
+                            p2.style.cssText="font-size: 1.8em;font-weight: 300;font-family:华文中宋;text-align: center;width: 100%;height: 60px;display: block;line-height: 60px;";
                             p3.style.cssText="height:60px";
-                            p1.innerHTML="<img src=\"images/paperID1.png\" style='width: 90px;height: 30px'>&nbsp;&nbsp;"+tmpPaperID+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+"<img src=\"images/point.png\">"+tmpPoint+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+rateString;
-                            p2.innerHTML='<a href="resultpage.html?id='+data.expertInfo.paperName[i].id+'">'+data.expertInfo.paperName[i].name+'</a>';
+                            p1.innerHTML="<img src=\"images/paperID1.png\" style='width: 90px;height: 30px'>&nbsp;&nbsp;"+tmpPaperID+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+"<img src=\"images/point.png\">"+tmpPoint+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+                            p2.innerHTML= '<a href="resultpage.html?id='+data.expertInfo.paperName[i].id+'" style="color: #000000">'+data.expertInfo.paperName[i].name+'</a>';
                             p3.innerHTML="<div></div>&nbsp;";
                             div1.appendChild(p1);
                             div1.appendChild(p2);
                             div1.appendChild(p3);
 
 
+                            var divButton=document.createElement("div");
+                            divButton.id="divButton"+i;
                             var input1=document.createElement("input");
                             input1.id="newPointInput"+i;
                             input1.type="text";
                             input1.style="ime-mode:Disabled;margin-left:65%;width: 160px;height:40px;";
-                            input1.onkeydown=onlyNum();
                             input1.placeholder="请输入修改后的积分";
                             input1.maxLength="15";
-                            div1.appendChild(input1);
+                            divButton.appendChild(input1);
 
                             var button1=document.createElement("button");
                             button1.style.cssText="width: 160px; height: 40px;margin-left:30px;background-color:#000000;border:1px solid #000000;font-size: 1em;font-weight:500;color:#FFFFFF;";
@@ -136,7 +133,8 @@ function professorGetInfor() {               //获得专家信息  并展示
                                     professorPoint(data.expertInfo.paperName[i].id,1,tmpPoint1);//1 = paper
                                 }
                             })(i);
-                            div1.appendChild(button1);
+                            divButton.appendChild(button1);
+                            div1.appendChild(divButton);
                             var divNull=document.createElement("div");
                             divNull.style.height="30px";
                             div1.appendChild(divNull);
@@ -170,7 +168,6 @@ function professorGetInfor() {               //获得专家信息  并展示
                             input2.id="newPointInput"+i;
                             input2.type="text";
                             input2.style="ime-mode:Disabled;margin-left:40%";
-                            input2.onkeydown=onlyNum();
                             input2.placeholder="请输入修改后的积分";
                             input2.maxLength="15";
                             div2.appendChild(input2);
@@ -212,12 +209,14 @@ function checkRole(expertId) {
         dataType: "json",
         success: function (data) {
             if(data.status === "succeed"){
-                //var test = professorGetInfor();
                 if(data.data.expertId === expertId){
                 }
                 else {
                     document.getElementById("professorFuctionTop").style.display="none";
                 }
+            }
+            else {
+                document.getElementById("professorFuctionTop").style.display="none";
             }
         }
     })
@@ -259,6 +258,13 @@ function professorAppeal(){              //专家功能之门户信息申诉
     var dataAppeal={
         "content": AppealContent
     }
+    // var tmpAppealID=document.getElementById("appealID");
+    // var tmpAppealName=document.getElementById("applicant");
+    // var tmpApplicationTime=document.getElementById("applicationTime");
+    // var tmpApplicationContent=document.getElementById("applicationContent");
+    // var tmpHandleStatus=document.getElementById("handleStatus");
+    // var tmpResultContent=document.getElementById("resultContent");
+
     $.ajax({
         contentType: 'application/json;charset=UTF-8',
         url:'http://192.144.179.57:8080/demo-v1/api/expert/info/error',
@@ -270,7 +276,12 @@ function professorAppeal(){              //专家功能之门户信息申诉
                 console.log(data);
                 if(data.status==="succeed"){
                     alert('申诉成功！');
-                    //window.location.href = window.location.href;
+                    // tmpAppealID.innerText="申诉ID："+data.application.id;
+                    // tmpAppealName.innerText="申诉人："+data.application.applicant;
+                    // tmpApplicationTime.innerText="申诉时间："+data.application.applicationTime;
+                    // tmpApplicationContent.innerText="申诉正文"+data.application.applicationContent;
+                    // tmpHandleStatus.innerText="申诉状态："+data.application.handleStatus;
+                    // tmpResultContent.innerText="申诉结果："+data.application.resultContent;
                 }
                 else
                     alert(data.info);
@@ -337,169 +348,11 @@ function professorPoint(id,type,point) {    //专家功能之修改积分
         })
     }
 }
-// function professRate(id,type,expert,rate) { //专家功能之修改比例
-//     if(type === 1){
-//         var params= {
-//             "params":[
-//
-//             ]
-//         }
-//
-//         $.ajax({
-//             contentType: 'application/json;charset=UTF-8',
-//             url:'http://192.144.179.57:8080/demo-v1/api/expert/resource/Paper/'+id+'/distribution',
-//             type:'post',
-//             dataType: "json",
-//             data:JSON.stringify(point),
-//             success: function (data) {
-//                 if(data){
-//                     console.log(data);
-//                     if(data.status==="succeed"){
-//                         alert('修改积分成功！');
-//                         window.location.href = window.location.href;
-//                     }
-//                     else
-//                         alert(data.info);
-//                 }
-//                 else {
-//                     alert('网络出现问题，请重试');
-//                 }
-//             }
-//         })
-//     }
-//
-// }
-
-// function displayPoint(type, id) {
-//     var tmpPoi=0;
-//     if(type=== 1){
-//         $.ajax({
-//             contentType: 'application/json;charset=UTF-8',
-//             url:'http://192.144.179.57:8080/demo-v1/api/search/paper/'+id,
-//             type:'get',
-//             dataType: "json",
-//             async:false,
-//             success: function (data) {
-//                 if(data){
-//                     console.log(data);
-//                     if(data.status==="succeed"){
-//                         tmpPoi= data.data.pointRequired;
-//                         console.log(tmpPoi);
-//                     }
-//                     else
-//                         alert('请求数据失败');
-//                 }
-//                 else {
-//                     alert('网络出现问题，请重试');
-//                 }
-//             }
-//         })
-//     }
-//     else if(type=== 2){
-//         $.ajax({
-//             contentType: 'application/json;charset=UTF-8',
-//             url:'http://192.144.179.57:8080/demo-v1/api/search/patent/'+id,
-//             type:'get',
-//             dataType: "json",
-//             success: function (data) {
-//                 if(data){
-//                     if(data.status==="succeed"){
-//                         tmpPoi= data.data.pointRequired;
-//                     }
-//                     else
-//                         alert('请求数据失败');
-//                 }
-//                 else {
-//                     alert('网络出现问题，请重试');
-//                 }
-//             }
-//         })
-//     }
-//     return tmpPoi;
-// }
-
-// function getRate(type,id) {
-//     var tmpRate;
-//     var tmpExpert;
-//     var tmpString="<分配情况：";
-//     if(type === 1){
-//         $.ajax({
-//             contentType: 'application/json;charset=UTF-8',
-//             url:'http://192.144.179.57:8080/demo-v1/api/expert/resource/Paper/'+id+'/distribution',
-//             type:'get',
-//             dataType: "json",
-//             async:false,
-//             success: function (data) {
-//                 if(data){
-//                     console.log(data);
-//                     if(data.status==="succeed"){
-//                         if(data.distribution.length === 0) {
-//                             tmpString+="该资源仅归本人所有"
-//                         }
-//                         for(var j=0;j<data.distribution.length; j++){
-//                             if(data.distribution[j].rate<0){
-//                                 tmpString+="该门户尚未被认领";
-//                                 break;
-//                             }
-//                             else {
-//                                 tmpRate=data.distribution[j].rate;
-//                                 tmpExpert=data.distribution[j].expert;
-//                                 tmpString=tmpString+tmpExpert+":"+tmpRate+";";
-//                                 console.log("tmpstring"+tmpString);
-//                             }
-//                         }
-//                         tmpString+=">";
-//                     }
-//                     else
-//                         alert('请求数据失败');
-//                 }
-//                 else {
-//                     alert('网络出现问题，请重试');
-//                 }
-//             }
-//         })
-//     }
-//     else if(type === 2){
-//         $.ajax({
-//             contentType: 'application/json;charset=UTF-8',
-//             url:'http://192.144.179.57:8080/demo-v1/api/expert/resource/Patent/'+id+'/distribution',
-//             type:'get',
-//             dataType: "json",
-//             async:false,
-//             success: function (data) {
-//                 if(data){
-//                     console.log(data);
-//                     if(data.status==="succeed"){
-//                         for(var j=0;j<data.distribution.length; j++){
-//                             tmpRate=data.distribution[j].rate;
-//                             tmpExpert=data.distribution[j].expert;
-//                             tmpString=tmpString+tmpExpert+":"+tmpRate+";";
-//                         }
-//                         tmpString+=">";
-//                     }
-//                     else
-//                         alert('请求数据失败');
-//                 }
-//                 else {
-//                     alert('网络出现问题，请重试');
-//                 }
-//             }
-//         })
-//     }
-//     return tmpString;
-// }
-
 function getAppeal() {
-    var tmpAppealID=document.getElementById("appealID");
-    var tmpAppealName=document.getElementById("applicant");
-    var tmpApplicationTime=document.getElementById("applicationTime");
-    var tmpApplicationContent=document.getElementById("applicationContent");
-    var tmpHandleStatus=document.getElementById("handleStatus");
-    var tmpResultContent=document.getElementById("resultContent");
-
+    var divAppeal=document.getElementById("appealContainer");
         $.ajax({
             contentType: 'application/json;charset=UTF-8',
-            url:'http://192.144.179.57:8080/demo-v1/api/expert/info/error/Paper/1/10',
+            url:'http://192.144.179.57:8080/demo-v1/api/expert/info/All/error/1/10',
             type:'get',
             dataType: "json",
             success: function (data) {
@@ -508,16 +361,29 @@ function getAppeal() {
                     if(data.status==="succeed"){
                         for(var k=0;k<data.data.length;k++)
                         {
+                            var tmpDivAppeal=document.createElement("div");
+                            var tmpAppealID=document.createElement("p");
+                            var tmpAppealName=document.createElement("p");
+                            var tmpApplicationTime=document.createElement("p");
+                            var tmpApplicationContent=document.createElement("p");
+                            var tmpHandleStatus=document.createElement("p");
+                            var tmpResultContent=document.createElement("p");
+                            tmpDivAppeal.style.cssText="border-bottom: 1px solid grey;text-align: left;font-size:1.5em;";
                             tmpAppealID.innerText="申诉ID："+data.data[k].id;
                             tmpAppealName.innerText="申诉人："+data.data[k].applicant;
                             tmpApplicationTime.innerText="申诉时间："+data.data[k].applicationTime;
-                            tmpApplicationContent.innerText="申诉正文"+data.data[k].applicationContent;
+                            tmpApplicationContent.innerText="申诉正文："+data.data[k].applicationContent;
                             tmpHandleStatus.innerText="申诉状态："+data.data[k].handleStatus;
                             tmpResultContent.innerText="申诉结果："+data.data[k].resultContent;
+                            tmpDivAppeal.appendChild(tmpAppealID);
+                            tmpDivAppeal.appendChild(tmpAppealName);
+                            tmpDivAppeal.appendChild(tmpApplicationTime);
+                            tmpDivAppeal.appendChild(tmpApplicationContent);
+                            tmpDivAppeal.appendChild(tmpHandleStatus);
+                            tmpDivAppeal.appendChild(tmpResultContent);
+                            divAppeal.appendChild(tmpDivAppeal);
                         }
                     }
-                    else
-                        alert('请求数据失败');
                 }
                 else {
                     alert('网络出现问题，请重试');
@@ -571,6 +437,6 @@ window.onload=function(){
     checkLogin();
     //professorGetInfor();
     checkRole(professorGetInfor());
-    getAppeal();
+    //getAppeal();
 };
 
