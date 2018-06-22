@@ -35,13 +35,15 @@ function resultInfo() {
                         result_name.innerHTML=
                             data.data.name+'<img src="images/point.png"><span class="point_icon_font">'+data.data.pointRequired+'&nbsp;&nbsp;</span>'+
                             '                                <a id="del-collect-btn">'+'<i class="fa fa-star"'+' onclick="delFromCollection('+data.data.id+')"></i></a>'+
-                        '                                <a id="add-collect-btn" style="display: none">'+'<i class="fa fa-star-o"'+' onclick="addToCollection('+data.data.id+')"></i></a>';
+                        '                                <a id="add-collect-btn" style="display: none">'+'<i class="fa fa-star-o"'+' onclick="addToCollection('+data.data.id+')"></i></a>'+
+                            '<a><i class="fa fa-shopping-cart" onclick="purchase()"></i></a>';
                     }
                     else {  //空心star
                         result_name.innerHTML=
                             data.data.name+'<img src="images/point.png"><span class="point_icon_font">'+data.data.pointRequired+'&nbsp;&nbsp;</span>'+
                             '                                <a id="add-collect-btn">'+'<i class="fa fa-star-o"'+' onclick="addToCollection('+data.data.id+')"></i></a>'+
-                        '                                <a id="del-collect-btn" style="display: none">'+'<i class="fa fa-star"'+' onclick="delFromCollection('+data.data.id+')"></i></a>';
+                        '                                <a id="del-collect-btn" style="display: none">'+'<i class="fa fa-star"'+' onclick="delFromCollection('+data.data.id+')"></i></a>'+
+                            '<a><i class="fa fa-shopping-cart" onclick="purchase()"></i></a>';
                     }
 
                     // result_purchase.outerHTML=
@@ -66,8 +68,7 @@ function resultInfo() {
                         data.data.publicationTime;
                     result_referenceTimes.innerHTML=
                         data.data.referenceTimes;
-                    result_abstractInfo.innerHTML=
-                        data.data.abstractInfo;
+                    result_abstractInfo.innerHTML= data.data.abstractInfo;
                 }
                 else
                     alert(data.status);
@@ -134,15 +135,16 @@ function getUserBrowseRecord(pageNumber){
 
 }
 
-function purchase(paperId){
+function purchase(){
+    var temp=GetRequest()
     $.ajax({
         contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
-        url:'http://192.144.179.57:8080/demo-v1/api/user/paper/'+paperId+'/buy',
+        url:'http://192.144.179.57:8080/demo-v1/api/user/paper/'+temp['id']+'/buy',
         type:'get',
         dataType: "json",
         success: function(data){
             if (data) {
-                if (res.status==='succeed'){           //success
+                if (data.status==='succeed'){           //success
                     alert('购买成功');
                 }
                 else {

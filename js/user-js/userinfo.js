@@ -152,6 +152,7 @@ function searching(sType, type, name, page, year, order, orderType, subjectID){
                                 return;
                             }
                         }
+                        alert('没有找到该专家');
                     }
                 }
             } else {
