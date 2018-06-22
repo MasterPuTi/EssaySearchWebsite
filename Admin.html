@@ -142,56 +142,43 @@
                     <a href="userinfo.html"><button type="button" class="btn1 btn-group-vertical" style="border-bottom-color: #FFFFFF">个人信息</button></a>
                 </li>
                 <li style="list-style: none">
-                    <a href="collection.html"><button type="button" class="btn1 btn-group-vertical" style="border-bottom-color: #FFFFFF">我的收藏</button></a>
+                    <a href="collection.html"><button type="button" class="btn1 btn-group-vertical" style="border-bottom-color: #FFFFFF">修改专家门户</button></a>
                 </li>
                 <li style="list-style: none">
-                    <a href="purchaserecord.html"><button type="button" class="btn1 btn-group-vertical" style="border-bottom-color: #FFFFFF">购买记录</button></a>
+                    <a href="purchaserecord.html"><button type="button" class="btn1 btn-group-vertical" style="border-bottom-color: #FFFFFF">处理成为专家申请</button></a>
                 </li>
                 <li style="list-style: none">
-                    <a href="browserecord.html"><button type="button" class="btn1 btn-group-vertical" style="border-bottom-color: #FFFFFF">浏览记录</button></a>
+                    <a href="browserecord.html"><button type="button" class="btn1 btn-group-vertical" style="border-bottom-color: #FFFFFF">处理申诉</button></a>
                 </li>
                 <li style="list-style: none">
-                    <a href="pointchangerecord.html"><button type="button" class="btn1 btn-group-vertical" style="border-bottom-color: #FFFFFF">积分记录</button></a>
-                </li>
-                <li style="list-style: none">
-                    <a href="recharge.html"><button type="button" class="btn1 btn-group-vertical" style="border-bottom-color: #FFFFFF">相关充值</button></a>
+                    <a href="pointchangerecord.html"><button type="button" class="btn1 btn-group-vertical" style="border-bottom-color: #FFFFFF">查看申诉列表</button></a>
                 </li>
             </ul>
         </aside>
     </div>
 
-    <div style="width: 70%;margin-bottom: 5rem">
+    <div style="width: 70%;">
         <div class="modal-header">
-            <h2>个人信息&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a id="change-btn" onclick="showChangeForm()">
-                        <i class="glyphicon glyphicon-pencil"></i>
-                    </a>
-            </h2>
+            <h2 style="">个人信息&nbsp;&nbsp;&nbsp;&nbsp;<a id="change-btn" onclick="showChangeForm()"><i class="glyphicon glyphicon-pencil"></i></a></h2>
         </div>
         <div class="modal-body">
             <!--点击修改按钮后下面html出现-->
             <div id="userinfo-change"  class="col-md-6 contact-form-right" style="display: none">
-                    <div class="input-group input-group-lg wow fadeInUp animated" data-wow-delay=".5s">
-                        <span class="input-group-addon">用户名称</span>
-                        <input id="input-name" type="text" class="form-control" aria-describedby="sizing-addon1" autofocus="autofocus">
-                    </div>
-                    <button id="submit-change" class="btn1" onclick="submitChangeInfo()">提交</button>
-                    <button id="cancel-change" class="btn1" onclick="cancelChange()">取消</button>
+                <div class="input-group input-group-lg wow fadeInUp animated" data-wow-delay=".5s">
+                    <span class="input-group-addon">用户名称</span>
+                    <input id="input-name" type="text" class="form-control" aria-describedby="sizing-addon1" autofocus="autofocus">
+                </div>
+                <button id="submit-change" class="btn1" onclick="submitChangeInfo()">提交</button>
+                <button id="cancel-change" class="btn1" onclick="cancelChange()">取消</button>
             </div>
 
             <div id="userinfo-content" class="agileits-contact-address" style="margin-top: 1rem">
                 <ul>
                     <li><i class="fa fa-user" aria-hidden="true"></i><span id="username" style="font-size: 2rem">undefined</span></li>
+                    <!--<li><i class="fa fa-envelope" aria-hidden="true"></i><span>13121273185@163.com</span></li>-->
                     <li><i class="fa fa-money" aria-hidden="true"></i><span id="user-point" style="font-size: 2rem">undefined</span></li>
                     <li><i class="fa  fa-credit-card" aria-hidden="true"></i><span id="user-credit" style="font-size: 2rem">undefined</span></li>
                 </ul>
-                <div id="input-expertname" class="three-fifth column">
-                    <input type="text" class="text" name="searchInfo" placeholder="输入专家名称" required="">
-                </div>
-                <div id="authentication" class="one-fifth column">
-                    <button class="btn1" onclick="authentication()">认证</button>
-                </div>
-                <!--<button class="btn1" id="manage-expert-btn">管理专家门户<span></span></button>-->
             </div>
         </div>
     </div>
