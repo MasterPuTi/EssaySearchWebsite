@@ -21,11 +21,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="http://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300' rel='stylesheet' type='text/css'>
     <!-- //font -->
+    <link rel="stylesheet" href="css/results.css" type="text/css" media="all" />
     <script src="js/jquery-1.11.1.min.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/SmoothScroll.min.js"></script>
     <!--<script src="js/checkIfLogin.js"></script>-->
     <script src="js/professorInformation.js"></script>
+    <script src="js/results.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function($) {
             $(".scroll").click(function(event){
@@ -109,6 +111,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <h2>专家<span>门户</span></h2>
 </div>
 <!-- //about-heading -->
+<!-- //banner -->
+<div class="domain domain_results">
+    <div class="container">
+        <form class="search-form domain-search" action="results.html" method="get">
+            <div class="two-fifth column first">
+                <h2>文献检索</h2>
+            </div>
+            <div class="three-fifth column first">
+                <input type="text" class="text" name="searchInfo" placeholder="输入关键词进行查询" required="">
+            </div>
+            <div class="one-fifth column">
+					<span class="selection-box">
+						<select class="select-type" name="searchingType">
+							<option value="keyword">关键词</option>
+							<option value="title">篇名</option>
+							<option value="author">作者</option>
+							<option value="subject">学科</option>
+						</select>
+					</span>
+            </div>
+            <div class="one-fifth column">
+                <input type="submit" value="检索">
+            </div>
+            <div class="clearfix"> </div>
+        </form>
+    </div>
+</div>
 <!-- about -->
 <div class="about">
     <!-- about-top -->
@@ -120,13 +149,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
     </div>
     <!-- //about-top -->
-
     <!-- choose -->
     <div class="jarallax w3-agileits-choose-grid">
         <div class="container">
             <div class="w3-banner-bottom-heading about-choose">
                 <h3 id="professorName">专家姓名  </h3>
-                <!--<p id="professorID">ID</p>-->
+                <p id="professorID" class="professorInfo">ID</p>
             </div>
             <div class="agile-choose-grids">
                 <div class="col-sm-4 agile-choose-grid">
@@ -135,7 +163,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="choose-info">
                         <h4>介绍</h4>
-                        <p id="introduction"></p>
+                        <p id="introduction" class="professorInfo"></p>
                     </div>
                 </div>
                 <div class="col-sm-4 agile-choose-grid">
@@ -144,7 +172,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="choose-info">
                         <h4>组织机构</h4>
-                        <p id="institution"></p>
+                        <p id="institution" class="professorInfo"></p>
                     </div>
                 </div>
                 <div class="col-sm-4 agile-choose-grid">
@@ -153,7 +181,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="choose-info">
                         <h4>科研领域</h4>
-                        <p id="researchField"></p>
+                        <p id="researchField" class="professorInfo"></p>
                     </div>
                 </div>
             </div>
@@ -167,8 +195,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="w3-banner-bottom-heading">
                 <h3>论文<span>成果</span></h3>
             </div>
-            <div class="team-grids" id ="papername_containner">
+            <div class="agile-blog-grids">
+                <div class="col-md-8 agile-blog-grid-left container_pro" id="resultsContainer">
+
+                </div>
+                <div class="clearfix"> </div>
             </div>
+            <!--<div class="team-grids" id ="papername_containner"></div>-->
         </div>
     </div>
     <!--//paper-->
@@ -180,6 +213,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <h3>专利<span>成果</span></h3>
             </div>
             <div class="team-grids" id ="patentname_containner">
+                该专家暂无专利成果
             </div>
         </div>
     </div>

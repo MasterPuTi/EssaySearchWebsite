@@ -196,6 +196,11 @@ function professorGetInfor() {               //获得专家信息  并展示
                 alert('net failure');
             }
         },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            //alert(XMLHttpRequest.status);
+            //alert(XMLHttpRequest.readyState);
+            //alert(textStatus);
+        }
     });
     return expertId;
 }
@@ -435,8 +440,176 @@ function checkLogin() {          //左上角的checklogin
 
 window.onload=function(){
     checkLogin();
+    var request=GetRequest();
+    var name=getProfessorName(request["pid"]);
+    //test(name);
+    checkRole(request["pid"]);
+    searchingInProf('author','paper',name,null,null,'publicationYear');
+
     //professorGetInfor();
-    checkRole(professorGetInfor());
     //getAppeal();
 };
 
+/**
+ * 获取专家名字
+ * @param id
+ */
+function getProfessorName(id) {
+    $.ajax({
+        contentType: 'application/json;charset=UTF-8',
+        url:' http://192.144.179.57:8080/demo-v1/api/visitor/expert/'+id,
+        type:'get',
+        async: false,
+        dataType: "json",
+        success: function(data){
+            if (data) {
+                console.log(data);
+                if(data.status === "succeed"){
+                    var professorName = document.getElementById("professorName");
+                    var professorID = document.getElementById("professorID");
+                    var introduction = document.getElementById("introduction");
+                    var institution = document.getElementById("institution");
+                    var researchField = document.getElementById("researchField");
+
+                    professorName.innerHTML=data.expertInfo.realName;
+                    professorID.innerHTML=data.expertInfo.introduction;
+                    if(data.expertInfo.id)
+                        introduction.innerHTML='专家';
+                    else
+                        introduction.innerHTML='普通用户';
+                    institution.innerHTML=data.expertInfo.institution;
+                    researchField.innerHTML=data.expertInfo.researchField;
+
+                    searchingInProf('author','paper',data.expertInfo.realName,null,null,'publicationYear');
+
+
+                    //专家关系网络图
+                    var newImage=document.getElementById("professor_relation_image");
+                    console.log(newImage);
+                    newImage.src = "images/expert_relationship/"+id+".png";
+
+
+                }
+            }else{
+                alert('net failure');
+            }
+        },
+    });
+}
+
+/**
+ * 搜索
+ * @param sType 搜索类型
+ * @param type 论文or专利
+ * @param name 搜索内容
+ * @param page 页码
+ * @param year 搜索该时间的内容
+ * @param order 相关性or引用次数or时间
+ * @param orderType 正序or倒序
+ */
+function searchingInProf(sType, type, name, page, year, order, orderType, subjectID){
+    "use strict";
+    var page=page||1;
+    var orderType=orderType||0;
+    if (order==="referenceTimes"||order==="publicationYear") {
+        orderType=1;
+    }
+    var final_url='http://192.144.179.57:8080/demo-v1/api/search/'+sType+'/'+page+'?type='+type+'&name='+name;
+    if(year)
+        final_url+='&year='+year;
+    if(order)
+        final_url+='&order='+order;
+    if(orderType)
+        final_url+='&orderType='+orderType;
+    if (subjectID)
+        final_url+='&subjectId='+subjectID;
+    $.ajax({
+        contentType: 'application/json;charset=UTF-8',
+        url:final_url,
+        type:'post',
+        dataType: "json",
+        success: function(data){
+            if (data) {
+                console.log(data);
+                //排序方式生成
+                var div=document.getElementById("resultsContainer");
+                $(div).empty();
+                //生成搜索结果显示部分
+                if (data.data.items) {
+                    for(var i=0;i<data.data.items.length;i++){
+                        var paperInfo=data.data.items[i];
+                        $(div).append('                <div class="agile-blog-grid" id="agile-blog-grid_'+(i+1)+'">\n' +
+                            '                    <div class="blog-left-grids">\n' +
+                            '                        <div class="blog-left-right_results">\n' +
+                            '                            <div class="blog-left-right-top">\n' +
+                            '                                <h4><a href="resultpage.html?id='+paperInfo.id+'" class="title_results">'+paperInfo.name+'</a><img src="images/point.png"><span class="point_icon_font">'+paperInfo.pointRequired+'</span></h4>\n' +
+                            '                                <p id="author_'+i+'">&nbsp;-&nbsp; '+paperInfo.publicationTime+' &nbsp;-&nbsp; '+paperInfo.journal+'&nbsp;-&nbsp; 被引量：'+paperInfo.referenceTimes+'</p>\n' +
+                            '                            </div>\n' +
+                            '                            <div class="blog-left-right-bottom blog-left-right-bottom-results">\n' +
+                            '                                <p class="abstract_results">'+paperInfo.abstractInfo+'</p>\n' +
+                            '                            </div>\n' +
+                            '                            <div class="blog-left-right-bottom-2" id="subject_'+i+'">' +
+                            '                            </div>' +
+                            '                        </div>\n' +
+                            '                        <div class="clearfix"> </div>\n' +
+                            '                    </div>\n' +
+                            '                </div>');
+                        //显示作者
+                        var p = document.getElementById("author_"+i);
+                        for(var j=0;j<paperInfo.ownersName.length;j++) {
+                            if (j)
+                                p.innerHTML = '，'+p.innerHTML;
+                            p.innerHTML = '<a href="professor.html?pid=' + paperInfo.ownersName[j].id + '" class="author_results">' + paperInfo.ownersName[j].name + '</a>'+p.innerHTML;
+                        }
+                        //显示学科
+                        if(paperInfo.subject.length){
+                            var subject_re=document.getElementById("subject_"+i);
+                            $(subject_re).append('学科分类：');
+                            for(var k=0;k<paperInfo.subject.length;k++){
+                                $(subject_re).append('<a href="subject.html?sid='+ paperInfo.subject[k].id +'">' + paperInfo.subject[k].name + '</a>');
+                            }
+                        }
+                    }
+                    var last_ele=document.getElementById("agile-blog-grid_"+data.data.items.length);
+                    last_ele.style.borderBottom='0px';
+                    last_ele.style.marginBottom='0px';
+                }
+
+
+                //生成翻页符
+                displayNav(div,data.data.totalPage,data.data.nowPage);
+                if (data.data.totalPage!==1&&data.data.totalPage!==0){
+                    var obj=document.getElementById("page_re").getElementsByTagName("a");
+                    for(i=0;i<obj.length;i++){
+                        if (obj[i].id==="previous_page"){
+                            obj[i].onclick=function(){
+                                //console.log((parseInt(data.data.nowPage)-1)+'is onclick');
+                                searchingInProf(sType, type, name, parseInt(data.data.nowPage)-1, year, order, orderType, subjectID);
+                            };
+                            continue;
+                        }
+                        if (obj[i].id==="next_page"){
+                            obj[i].onclick=function(){
+                                //console.log((parseInt(data.data.nowPage)+1)+'is onclick');
+                                searchingInProf(sType, type, name, parseInt(data.data.nowPage)+1, year, order, orderType, subjectID)
+                            };
+                            continue;
+                        }
+                        (function (i) {
+                            obj[i].onclick=function(){
+                                searchingInProf(sType, type, name, obj[i].innerHTML, year, order, orderType, subjectID);
+                            };
+                        })(i);
+                    }
+                }
+            }else{
+                alert('net failure');
+            }
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            //alert(XMLHttpRequest.status);
+            //alert(XMLHttpRequest.readyState);
+            //alert(textStatus);
+        }
+    });
+}
