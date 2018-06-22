@@ -68,7 +68,7 @@ function subjectInfo() {
                         '                </div>';
                     expert_2.innerHTML=
                         '<div class="price-block agile">\n' +
-                        '                    <div class="price-gd-top pric-clr1">\n' +
+                        '                    <div class="price-gd-top pric-clr2">\n' +
                         '                        <h4>领域专家</h4>\n' +
                         '                        <h3>'+data.subjectinfo.expertName[1]+'</h3>\n' +
                         '                        <h5>清华大学</h5>\n' +
@@ -89,7 +89,7 @@ function subjectInfo() {
                         '                </div>';
                     expert_3.innerHTML=
                         '<div class="price-block agile">\n' +
-                        '                    <div class="price-gd-top pric-clr1">\n' +
+                        '                    <div class="price-gd-top pric-clr3">\n' +
                         '                        <h4>领域专家</h4>\n' +
                         '                        <h3>'+data.subjectinfo.expertName[2]+'</h3>\n' +
                         '                        <h5>上海交通大学</h5>\n' +
@@ -110,7 +110,7 @@ function subjectInfo() {
                         '                </div>';
                     expert_4.innerHTML=
                         '<div class="price-block agile">\n' +
-                        '                    <div class="price-gd-top pric-clr1">\n' +
+                        '                    <div class="price-gd-top pric-clr4">\n' +
                         '                        <h4>领域专家</h4>\n' +
                         '                        <h3>'+data.subjectinfo.expertName[3]+'</h3>\n' +
                         '                        <h5>厦门大学</h5>\n' +
@@ -146,7 +146,7 @@ function subjectInfo() {
 }
 
 window.onload=function(){
-    //checkLogin();
+    checkLogin();
     //professorGetInfor();
     //checkRole(professorGetInfor());
     subjectInfo();

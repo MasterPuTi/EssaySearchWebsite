@@ -107,23 +107,19 @@ function getUserBrowseRecord(pageNumber){
                 //生成显示部分
                 $('tbody').html('');
                 $('tbody').append('<tr>\n' +
-                    '<td>'+data.data.items[0].id+'</td>\n' +
-                    '<td>'+data.data.items[0].recordTime+'</td>\n' +
-                    '<td>'+data.data.items[0].type+'</td>\n' +
-                    '<td>'+'<a href="../resultpage.html?id='+data.data.items[0].achievementId+'">'+data.data.items[0].name+'</a>'+'</td>\n' +
+                    // '<td>'+data.data.items[0].id+'</td>\n' +
+                    // '<td>'+data.data.items[0].recordTime+'</td>\n' +
+                    // '<td>'+data.data.items[0].type+'</td>\n' +
+                    '<td>'+'<a href="../EssaySearchWebsite/resultpage.html?id='+data.data.items[0].achievementId+'">'+data.data.items[0].name+'</a>'+'</td>\n' +
                     '</tr>');
                 for(var i=1;i<data.data.items.length;i++){
                     $('tbody>tr:last').after('<tr>\n' +
-                        '<td>'+data.data.items[i].id+'</td>\n' +
-                        '<td>'+data.data.items[i].recordTime+'</td>\n' +
-                        '<td>'+data.data.items[i].type+'</td>\n' +
-                        '<td>'+'<a href="../resultpage.html?id='+data.data.items[i].achievementId+'">'+data.data.items[i].name+'</a>'+'</td>\n' +
+                        // '<td>'+data.data.items[i].id+'</td>\n' +
+                        // '<td>'+data.data.items[i].recordTime+'</td>\n' +
+                        // '<td>'+data.data.items[i].type+'</td>\n' +
+                        '<td>'+'<a href="../EssaySearchWebsite/resultpage.html?id='+data.data.items[i].achievementId+'">'+data.data.items[i].name+'</a>'+'</td>\n' +
                         '</tr>');
                 }
-                if (data.data.totalPage===1){
-                    return;
-                }
-
             }else{
                 alert('未登录');
             }
